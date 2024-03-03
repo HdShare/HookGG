@@ -7,7 +7,7 @@ import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.ConfigData
-import me.hd.hookgg.hook.hooker.GG960Hooker
+import me.hd.hookgg.hook.entry.hooker.GG1011Hooker
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")
 object HookEntry : IYukiHookXposedInit {
@@ -23,7 +23,7 @@ object HookEntry : IYukiHookXposedInit {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
             if (prefs.get(ConfigData.SET_PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    loadHooker(GG960Hooker)
+                    loadHooker(GG1011Hooker)
                 }
             }
         }

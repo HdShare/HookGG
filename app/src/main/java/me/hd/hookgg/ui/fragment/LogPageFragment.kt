@@ -12,7 +12,7 @@ import com.highcapable.yukihookapi.YukiHookAPI
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.R
 import me.hd.hookgg.databinding.FragmentLogPageBinding
-import me.hd.hookgg.hook.hooker.GG960Hooker.dataChannel
+import me.hd.hookgg.hook.entry.hooker.GG960Hooker.dataChannel
 import me.hd.hookgg.ui.adapter.LogAdapter
 import me.hd.hookgg.ui.fragment.base.BaseFragment
 import java.io.FileOutputStream
