@@ -30,7 +30,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
             binding.setPageToolbar.subtitle = getString(R.string.module_active)
         }
         binding.setTvDefPackageName.text = MyApp.context.prefs().get(ConfigData.SET_PACKAGE_NAME)
-        binding.setTvDefFunctionStatus.text = ConfigUtil.getCheckedNames()
+        binding.setTvDefVersionName.text = MyApp.context.prefs().get(ConfigData.SET_VERSION_NAME)
+        binding.setTvDefFunctionStatus.text = ConfigUtil.getMultiChoiceCheckedNames()
         binding.setLLPackageName.setOnClickListener {
             val dialogBinding =
                 DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
@@ -52,10 +53,27 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
         }
+        binding.setLLVersionName.setOnClickListener {
+            val versionList = ConfigUtil.getSingleChoiceItems()
+            var versionIndex = ConfigUtil.getSingleChoiceCheckedItems()
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(R.string.set_key_version_name)
+                .setSingleChoiceItems(versionList, versionIndex) { _, which ->
+                    versionIndex = which
+                }
+                .setPositiveButton(R.string.dialog_accept) { _, _ ->
+                    MyApp.context.prefs().edit {
+                        put(ConfigData.SET_VERSION_NAME, versionList[versionIndex])
+                    }
+                    binding.setTvDefVersionName.text = versionList[versionIndex]
+                }
+                .setNegativeButton(R.string.dialog_decline) { _, _ -> }
+                .show()
+        }
         binding.setLLFunctionList.setOnClickListener {
             val configObj = JSONObject(ConfigUtil.getConfigStr(MyApp.context.prefs()))
-            val functionList = ConfigUtil.getDialogItems()
-            val functionStatus = ConfigUtil.getCheckedItems()
+            val functionList = ConfigUtil.getMultiChoiceItems()
+            val functionStatus = ConfigUtil.getMultiChoiceCheckedItems()
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.set_key_function_list)
                 .setMultiChoiceItems(functionList, functionStatus) { _, which, isChecked ->
@@ -63,7 +81,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 }
                 .setPositiveButton(R.string.dialog_accept) { _, _ ->
                     ConfigUtil.setConfigStr(MyApp.context.prefs(), configObj.toString())
-                    binding.setTvDefFunctionStatus.text = ConfigUtil.getCheckedNames(configObj)
+                    binding.setTvDefFunctionStatus.text =
+                        ConfigUtil.getMultiChoiceCheckedNames(configObj)
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()

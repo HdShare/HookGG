@@ -28,7 +28,26 @@ object ConfigUtil {
         return gson.fromJson(str, ConfigEntity::class.java)
     }
 
-    fun getDialogItems(): Array<String> {
+    fun getSingleChoiceItems(): Array<String> {
+        return arrayOf(
+            "96.0",
+            "96.1",
+            "101.1",
+            "RLGG❌"
+        )
+    }
+
+    fun getSingleChoiceCheckedItems(): Int {
+        val versionName = MyApp.context.prefs().get(ConfigData.SET_VERSION_NAME)
+        for ((index, item) in getSingleChoiceItems().withIndex()) {
+            if (item == versionName) {
+                return index
+            }
+        }
+        return -1
+    }
+
+    fun getMultiChoiceItems(): Array<String> {
         return arrayOf(
             GG.toast,
             GG.alert,
@@ -44,18 +63,18 @@ object ConfigUtil {
         )
     }
 
-    fun getCheckedItems(): BooleanArray {
+    fun getMultiChoiceCheckedItems(): BooleanArray {
         val jsonObject = JSONObject(getConfigStr(MyApp.context.prefs()))
         val result = mutableListOf<Boolean>()
-        for (item in getDialogItems()) {
+        for (item in getMultiChoiceItems()) {
             result.add(jsonObject.getBoolean(item))
         }
         return result.toBooleanArray()
     }
 
-    fun getCheckedNames(jsonObject: JSONObject = JSONObject(getConfigStr(MyApp.context.prefs()))): String {
+    fun getMultiChoiceCheckedNames(jsonObject: JSONObject = JSONObject(getConfigStr(MyApp.context.prefs()))): String {
         val result = mutableListOf<String>()
-        for (item in getDialogItems()) {
+        for (item in getMultiChoiceItems()) {
             if (jsonObject.getBoolean(item)) {
                 result.add(item)
             }

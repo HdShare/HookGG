@@ -5,11 +5,13 @@
     <string name="nav_log">LogPage</string>
     <string name="nav_set">SetPage</string>
     <string name="tab_save">Save</string>
+    <string name="dialog_accept">Accept</string>
+    <string name="dialog_decline">Decline</string>
     <string name="set_basic">Basic</string>
     <string name="set_key_package_name">PackageName</string>
     <string name="set_def_package_name">catch_.me_.if_.you_.can_</string>
-    <string name="dialog_accept">Accept</string>
-    <string name="dialog_decline">Decline</string>
+    <string name="set_key_version_name">VersionName</string>
+    <string name="set_def_version_name">96.0</string>
     <string name="set_key_function_list">FunctionList</string>
     <string name="set_def_function_list">[]</string>
 </resources>
