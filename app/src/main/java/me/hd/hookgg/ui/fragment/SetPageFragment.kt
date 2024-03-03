@@ -10,7 +10,9 @@ import me.hd.hookgg.R
 import me.hd.hookgg.data.ConfigData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
+import me.hd.hookgg.hook.utils.ConfigUtil
 import me.hd.hookgg.ui.fragment.base.BaseFragment
+import org.json.JSONObject
 
 class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
     FragmentSetPageBinding::inflate,
@@ -28,9 +30,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
             binding.setPageToolbar.subtitle = getString(R.string.module_active)
         }
         binding.setTvDefPackageName.text = MyApp.context.prefs().get(ConfigData.SET_PACKAGE_NAME)
-        binding.setTvDefFunctionStatus.text = ConfigData.SET_FUNCTION_LIST
-            .filter { MyApp.context.prefs().get(ConfigData.SET_FUNCTION_LIST_PREFS[it]!!) }
-            .toString()
+        binding.setTvDefFunctionStatus.text = ConfigUtil.getCheckedNames()
         binding.setLLPackageName.setOnClickListener {
             val dialogBinding =
                 DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
@@ -53,29 +53,17 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 .show()
         }
         binding.setLLFunctionList.setOnClickListener {
-            val functionList = ConfigData.SET_FUNCTION_LIST
-            val functionStatus = ConfigData.SET_FUNCTION_LIST_PREFS
-                .map { MyApp.context.prefs().get(it.value) }
-                .toBooleanArray()
+            val configObj = JSONObject(ConfigUtil.getConfigStr(MyApp.context.prefs()))
+            val functionList = ConfigUtil.getDialogItems()
+            val functionStatus = ConfigUtil.getCheckedItems()
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.set_key_function_list)
                 .setMultiChoiceItems(functionList, functionStatus) { _, which, isChecked ->
-                    functionStatus[which] = isChecked
+                    configObj.put(functionList[which], isChecked)
                 }
                 .setPositiveButton(R.string.dialog_accept) { _, _ ->
-                    for (i in functionStatus.indices) {
-                        MyApp.context.prefs().edit {
-                            put(
-                                ConfigData.SET_FUNCTION_LIST_PREFS[functionList[i]]!!,
-                                functionStatus[i]
-                            )
-                        }
-                    }
-                    binding.setTvDefFunctionStatus.text = functionList
-                        .filter {
-                            MyApp.context.prefs().get(ConfigData.SET_FUNCTION_LIST_PREFS[it]!!)
-                        }
-                        .toString()
+                    ConfigUtil.setConfigStr(MyApp.context.prefs(), configObj.toString())
+                    binding.setTvDefFunctionStatus.text = ConfigUtil.getCheckedNames(configObj)
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()

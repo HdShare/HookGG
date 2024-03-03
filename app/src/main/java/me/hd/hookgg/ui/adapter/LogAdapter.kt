@@ -4,9 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import me.hd.hookgg.databinding.ItemRvLogBinding
+import java.io.FileOutputStream
 
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     private var logList = mutableListOf<CharSequence>()
+
+    fun outLog(outputStream: FileOutputStream) {
+        logList.forEach {
+            outputStream.write(it.toString().toByteArray())
+            outputStream.write("\n".toByteArray())
+        }
+    }
 
     fun addLog(log: CharSequence) {
         logList.add(log)

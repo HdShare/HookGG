@@ -20,7 +20,7 @@
             android:minHeight="?attr/actionBarSize"
             app:subtitle="@string/module_inactive"
             app:subtitleTextColor="?attr/colorOnPrimary"
-            app:title="@string/nav_setting"
+            app:title="@string/nav_set"
             app:titleTextColor="?attr/colorOnPrimary" />
 
         <LinearLayout
