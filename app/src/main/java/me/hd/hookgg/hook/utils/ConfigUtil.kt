@@ -17,12 +17,6 @@ object ConfigUtil {
         return prefs.get(ConfigData.SET_FUNCTION_PREFS, gson.toJson(ConfigEntity()))
     }
 
-    fun setConfigStr(prefs: YukiHookPrefsBridge, str: String) {
-        prefs.edit {
-            put(ConfigData.SET_FUNCTION_PREFS, str)
-        }
-    }
-
     fun getConfigEntity(prefs: YukiHookPrefsBridge): ConfigEntity {
         val str = getConfigStr(prefs)
         return gson.fromJson(str, ConfigEntity::class.java)
@@ -30,10 +24,11 @@ object ConfigUtil {
 
     fun getSingleChoiceItems(): Array<String> {
         return arrayOf(
-            "96.0",
-            "96.1",
-            "101.1",
-            "RLGG❌"
+            "GG Ver96.0",
+            "GG Ver96.1",
+            "GG Ver101.1",
+            "RLGG Ver2.0.9.2",
+            "ELGG Ver1.1.0",
         )
     }
 

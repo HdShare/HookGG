@@ -33,7 +33,7 @@ object GG960Function : BaseFunction {
                             "gg.toast($text, $fast)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -56,7 +56,7 @@ object GG960Function : BaseFunction {
                             "gg.alert($text, $positive, $negative, $neutral)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -74,7 +74,7 @@ object GG960Function : BaseFunction {
                             "gg.clearResults()"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -94,7 +94,7 @@ object GG960Function : BaseFunction {
                             "gg.setRanges($ranges)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -119,7 +119,7 @@ object GG960Function : BaseFunction {
                             "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -137,7 +137,7 @@ object GG960Function : BaseFunction {
                             "gg.getResultsCount()"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -165,7 +165,7 @@ object GG960Function : BaseFunction {
                             "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -186,7 +186,7 @@ object GG960Function : BaseFunction {
                             "gg.editAll($value, $type)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -206,7 +206,7 @@ object GG960Function : BaseFunction {
                             "gg.getValues($values)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -226,7 +226,7 @@ object GG960Function : BaseFunction {
                             "gg.setValues($values)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 
@@ -246,7 +246,7 @@ object GG960Function : BaseFunction {
                             "gg.addListItems($items)"
                         )
                 }
-            }
+            }.ignoredAllFailure()
         }
     }
 }

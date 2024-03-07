@@ -4,20 +4,20 @@ import com.highcapable.yukihookapi.hook.factory.dataChannel
 import com.highcapable.yukihookapi.hook.factory.method
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.hook.entry.base.BaseFunction
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker.hook
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker.toClassOrNull
-import me.hd.hookgg.hook.entry.impl.GG961Method.checkint
-import me.hd.hookgg.hook.entry.impl.GG961Method.checkjstring
-import me.hd.hookgg.hook.entry.impl.GG961Method.checktable
-import me.hd.hookgg.hook.entry.impl.GG961Method.optboolean
-import me.hd.hookgg.hook.entry.impl.GG961Method.optint
-import me.hd.hookgg.hook.entry.impl.GG961Method.optjstring
-import me.hd.hookgg.hook.entry.impl.GG961Method.optlong
+import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker
+import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.hook
+import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.toClassOrNull
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.checkint
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.checkjstring
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.checktable
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.optboolean
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.optint
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.optjstring
+import me.hd.hookgg.hook.entry.impl.ELGG110Method.optlong
 
-object GG961Function : BaseFunction {
+object ELGG110Function : BaseFunction {
     override fun toast() {
-        "android.ext.Script\$toast".toClassOrNull()?.apply {
+        "android.ext.ۧۧۦۧ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -26,7 +26,7 @@ object GG961Function : BaseFunction {
                     val varArgs = args(0).any()
                     val text = varArgs.checkjstring(1)
                     val fast = varArgs.optboolean(2, false)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -38,7 +38,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun alert() {
-        "android.ext.Script\$alert".toClassOrNull()?.apply {
+        "android.ext.۟ۧ۠ۡ۠".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -49,7 +49,7 @@ object GG961Function : BaseFunction {
                     val positive = varArgs.optjstring(2, "ok")
                     val negative = varArgs.optjstring(3, "nil")
                     val neutral = varArgs.optjstring(4, "nil")
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -61,13 +61,13 @@ object GG961Function : BaseFunction {
     }
 
     override fun clearResults() {
-        "android.ext.Script\$clearResults".toClassOrNull()?.apply {
+        "android.ext.۟ۧ۠۠ۨ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -79,7 +79,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun setRanges() {
-        "android.ext.Script\$setRanges".toClassOrNull()?.apply {
+        "android.ext.۟ۧ۠ۥۣ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -87,7 +87,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val ranges = varArgs.checkint(1)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -99,7 +99,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun searchNumber() {
-        "android.ext.Script\$searchNumber".toClassOrNull()?.apply {
+        "android.ext.ۣۣۧۧ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -112,11 +112,12 @@ object GG961Function : BaseFunction {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
-                    GG961Hooker.appContext
+                    val limit = varArgs.optlong(7, 0)
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                         )
                 }
             }.ignoredAllFailure()
@@ -124,13 +125,13 @@ object GG961Function : BaseFunction {
     }
 
     override fun getResultsCount() {
-        "android.ext.Script\$getResultsCount".toClassOrNull()?.apply {
+        "android.ext.ۧۧۡۢ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -142,7 +143,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun getResults() {
-        "android.ext.Script\$getResults".toClassOrNull()?.apply {
+        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -158,7 +159,7 @@ object GG961Function : BaseFunction {
                     val type = varArgs.optint(7, 0)
                     val fractional = varArgs.optjstring(8, "nil")
                     val pointer = varArgs.optint(9, 0)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -170,7 +171,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun editAll() {
-        "android.ext.Script\$editAll".toClassOrNull()?.apply {
+        "android.ext.ۧۧۢۡ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -179,7 +180,7 @@ object GG961Function : BaseFunction {
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -191,7 +192,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun getValues() {
-        "android.ext.Script\$getValues".toClassOrNull()?.apply {
+        "android.ext.ۧۧۥ۟".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -199,7 +200,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -219,7 +220,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -231,7 +232,7 @@ object GG961Function : BaseFunction {
     }
 
     override fun addListItems() {
-        "android.ext.Script\$addListItems".toClassOrNull()?.apply {
+        "android.ext.ۣۧۧۢ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -239,7 +240,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    ELGG110Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",

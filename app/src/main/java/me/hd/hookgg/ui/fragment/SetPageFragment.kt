@@ -80,7 +80,9 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                     configObj.put(functionList[which], isChecked)
                 }
                 .setPositiveButton(R.string.dialog_accept) { _, _ ->
-                    ConfigUtil.setConfigStr(MyApp.context.prefs(), configObj.toString())
+                    MyApp.context.prefs().edit {
+                        put(ConfigData.SET_FUNCTION_PREFS, configObj.toString())
+                    }
                     binding.setTvDefFunctionStatus.text =
                         ConfigUtil.getMultiChoiceCheckedNames(configObj)
                 }
