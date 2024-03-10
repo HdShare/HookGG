@@ -55,7 +55,7 @@ object ConfigUtil {
             GG.editAll,
             GG.getValues,
             GG.setValues,
-            GG.addListItems
+            GG.addListItems,
         )
     }
 

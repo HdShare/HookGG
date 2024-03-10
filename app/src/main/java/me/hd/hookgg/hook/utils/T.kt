@@ -3,8 +3,8 @@ package me.hd.hookgg.hook.utils
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
 import com.highcapable.yukihookapi.hook.param.PackageParam
-import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.hook
-import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.toClassOrNull
+import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Hooker.hook
+import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Hooker.toClassOrNull
 import me.hd.hookgg.hook.helper.DexKitHelper
 import java.lang.reflect.Modifier
 

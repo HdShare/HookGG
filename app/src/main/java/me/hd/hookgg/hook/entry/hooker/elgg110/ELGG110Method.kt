@@ -1,4 +1,4 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.elgg110
 
 import de.robv.android.xposed.XposedHelpers
 import me.hd.hookgg.hook.entry.base.BaseMethod
@@ -52,7 +52,7 @@ object ELGG110Method : BaseMethod {
         return XposedHelpers.callMethod(this, "r", i)
     }
 
-    override fun Any?.optstring(i: Int, defVal: String): Any {
+    override fun Any?.optstring(i: Int, defVal: Any): Any {
         return XposedHelpers.callMethod(this, "a", i, defVal)
     }
 

@@ -13,7 +13,7 @@ interface BaseMethod {
     fun Any?.checklong(i: Int): Any
     fun Any?.optjstring(i: Int, defVal: String): Any
     fun Any?.checkjstring(i: Int): Any
-    fun Any?.optstring(i: Int, defVal: String): Any
+    fun Any?.optstring(i: Int, defVal: Any): Any
     fun Any?.checkstring(i: Int): Any
     fun Any?.opttable(i: Int, defVal: Any): Any
     fun Any?.checktable(i: Int): Any

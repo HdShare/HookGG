@@ -1,9 +1,9 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.gg1011
 
 import de.robv.android.xposed.XposedHelpers
 import me.hd.hookgg.hook.entry.base.BaseMethod
 
-object GG961Method : BaseMethod {
+object GG1011Method : BaseMethod {
     override fun Any?.optboolean(i: Int, defVal: Boolean): Any {
         return XposedHelpers.callMethod(this, "a", i, defVal)
     }
@@ -52,7 +52,7 @@ object GG961Method : BaseMethod {
         return XposedHelpers.callMethod(this, "r", i)
     }
 
-    override fun Any?.optstring(i: Int, defVal: String): Any {
+    override fun Any?.optstring(i: Int, defVal: Any): Any {
         return XposedHelpers.callMethod(this, "a", i, defVal)
     }
 

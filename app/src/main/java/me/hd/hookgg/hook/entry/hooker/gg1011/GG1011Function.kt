@@ -1,21 +1,20 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.gg1011
 
 import com.highcapable.yukihookapi.hook.factory.dataChannel
 import com.highcapable.yukihookapi.hook.factory.method
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.hook.entry.base.BaseFunction
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker.hook
-import me.hd.hookgg.hook.entry.hooker.GG961Hooker.toClassOrNull
-import me.hd.hookgg.hook.entry.impl.GG961Method.checkint
-import me.hd.hookgg.hook.entry.impl.GG961Method.checkjstring
-import me.hd.hookgg.hook.entry.impl.GG961Method.checktable
-import me.hd.hookgg.hook.entry.impl.GG961Method.optboolean
-import me.hd.hookgg.hook.entry.impl.GG961Method.optint
-import me.hd.hookgg.hook.entry.impl.GG961Method.optjstring
-import me.hd.hookgg.hook.entry.impl.GG961Method.optlong
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Hooker.hook
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Hooker.toClassOrNull
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.checkint
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.checkjstring
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.checktable
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optboolean
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optint
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optjstring
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optlong
 
-object GG961Function : BaseFunction {
+object GG1011Function : BaseFunction {
     override fun toast() {
         "android.ext.Script\$toast".toClassOrNull()?.apply {
             method {
@@ -26,7 +25,7 @@ object GG961Function : BaseFunction {
                     val varArgs = args(0).any()
                     val text = varArgs.checkjstring(1)
                     val fast = varArgs.optboolean(2, false)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -49,7 +48,7 @@ object GG961Function : BaseFunction {
                     val positive = varArgs.optjstring(2, "ok")
                     val negative = varArgs.optjstring(3, "nil")
                     val neutral = varArgs.optjstring(4, "nil")
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -67,7 +66,7 @@ object GG961Function : BaseFunction {
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -87,7 +86,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val ranges = varArgs.checkint(1)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -112,11 +111,12 @@ object GG961Function : BaseFunction {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
-                    GG961Hooker.appContext
+                    val limit = varArgs.optlong(7, 0)
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                         )
                 }
             }.ignoredAllFailure()
@@ -130,7 +130,7 @@ object GG961Function : BaseFunction {
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -158,7 +158,7 @@ object GG961Function : BaseFunction {
                     val type = varArgs.optint(7, 0)
                     val fractional = varArgs.optjstring(8, "nil")
                     val pointer = varArgs.optint(9, 0)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -179,7 +179,7 @@ object GG961Function : BaseFunction {
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -199,7 +199,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -219,7 +219,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -239,7 +239,7 @@ object GG961Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    GG961Hooker.appContext
+                    GG1011Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",

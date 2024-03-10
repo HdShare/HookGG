@@ -1,46 +1,28 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.rlgg2092
 
 import com.highcapable.yukihookapi.hook.factory.dataChannel
 import com.highcapable.yukihookapi.hook.factory.method
+import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.hook.entry.base.BaseFunction
-import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker
-import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.hook
-import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker.toClassOrNull
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.checkint
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.checkjstring
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.checktable
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.optboolean
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.optint
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.optjstring
-import me.hd.hookgg.hook.entry.impl.ELGG110Method.optlong
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Hooker.hook
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Hooker.toClassOrNull
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.checkint
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.checkjstring
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optboolean
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optint
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optjstring
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optlong
 
-object ELGG110Function : BaseFunction {
+object RLGG2092Function : BaseFunction {
     override fun toast() {
-        "android.ext.ۧۧۦۧ".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                before {
-                    val varArgs = args(0).any()
-                    val text = varArgs.checkjstring(1)
-                    val fast = varArgs.optboolean(2, false)
-                    ELGG110Hooker.appContext
-                        ?.dataChannel(BuildConfig.APPLICATION_ID)
-                        ?.put(
-                            "log",
-                            "gg.toast($text, $fast)"
-                        )
-                }
-            }.ignoredAllFailure()
-        }
+
     }
 
     override fun alert() {
-        "android.ext.۟ۧ۠ۡ۠".toClassOrNull()?.apply {
+        "android.ext.̳".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
@@ -49,7 +31,7 @@ object ELGG110Function : BaseFunction {
                     val positive = varArgs.optjstring(2, "ok")
                     val negative = varArgs.optjstring(3, "nil")
                     val neutral = varArgs.optjstring(4, "nil")
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -61,13 +43,13 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun clearResults() {
-        "android.ext.۟ۧ۠۠ۨ".toClassOrNull()?.apply {
+        "android.ext.̻".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -79,7 +61,7 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun setRanges() {
-        "android.ext.۟ۧ۠ۥۣ".toClassOrNull()?.apply {
+        "android.ext.\u05CA".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -87,7 +69,7 @@ object ELGG110Function : BaseFunction {
                 before {
                     val varArgs = args(0).any()
                     val ranges = varArgs.checkint(1)
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -99,7 +81,7 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun searchNumber() {
-        "android.ext.ۣۣۧۧ".toClassOrNull()?.apply {
+        "android.ext.ԯ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -113,7 +95,7 @@ object ELGG110Function : BaseFunction {
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
                     val limit = varArgs.optlong(7, 0)
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -125,13 +107,13 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun getResultsCount() {
-        "android.ext.ۧۧۡۢ".toClassOrNull()?.apply {
+        "android.ext.͕".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -143,7 +125,7 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun getResults() {
-        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
+        "android.ext.͔".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -159,7 +141,7 @@ object ELGG110Function : BaseFunction {
                     val type = varArgs.optint(7, 0)
                     val fractional = varArgs.optjstring(8, "nil")
                     val pointer = varArgs.optint(9, 0)
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -171,16 +153,16 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun editAll() {
-        "android.ext.ۧۧۢۡ".toClassOrNull()?.apply {
+        "android.ext.͆".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
-                    ELGG110Hooker.appContext
+                    RLGG2092Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -192,60 +174,63 @@ object ELGG110Function : BaseFunction {
     }
 
     override fun getValues() {
-        "android.ext.ۧۧۥ۟".toClassOrNull()?.apply {
+        "android.ext.ͣ".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    val varArgs = args(0).any()
-                    val values = varArgs.checktable(1)
-                    ELGG110Hooker.appContext
-                        ?.dataChannel(BuildConfig.APPLICATION_ID)
-                        ?.put(
-                            "log",
-                            "gg.getValues($values)"
-                        )
+                    YLog.error("getValues")
+//                    val varArgs = args(0).any()
+//                    val values = varArgs.checktable(1)
+//                    RLGG2092Hooker.appContext
+//                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+//                        ?.put(
+//                            "log",
+//                            "gg.getValues($values)"
+//                        )
                 }
             }.ignoredAllFailure()
         }
     }
 
     override fun setValues() {
-        "android.ext.Script\$setValues".toClassOrNull()?.apply {
+        "android.ext.\u05CD".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    val varArgs = args(0).any()
-                    val values = varArgs.checktable(1)
-                    ELGG110Hooker.appContext
-                        ?.dataChannel(BuildConfig.APPLICATION_ID)
-                        ?.put(
-                            "log",
-                            "gg.setValues($values)"
-                        )
+                    YLog.error("setValues")
+//                    val varArgs = args(0).any()
+//                    val values = varArgs.checktable(1)
+//                    RLGG2092Hooker.appContext
+//                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+//                        ?.put(
+//                            "log",
+//                            "gg.setValues($values)"
+//                        )
                 }
             }.ignoredAllFailure()
         }
     }
 
     override fun addListItems() {
-        "android.ext.ۣۧۧۢ".toClassOrNull()?.apply {
+        "android.ext.̯".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    val varArgs = args(0).any()
-                    val items = varArgs.checktable(1)
-                    ELGG110Hooker.appContext
-                        ?.dataChannel(BuildConfig.APPLICATION_ID)
-                        ?.put(
-                            "log",
-                            "gg.addListItems($items)"
-                        )
+                    YLog.error("addListItems")
+//                    val varArgs = args(0).any()
+//                    val items = varArgs.checktable(1)
+//                    RLGG2092Hooker.appContext
+//                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+//                        ?.put(
+//                            "log",
+//                            "gg.addListItems($items)"
+//                        )
                 }
             }.ignoredAllFailure()
         }

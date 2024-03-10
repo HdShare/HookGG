@@ -1,32 +1,31 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.gg961
 
 import com.highcapable.yukihookapi.hook.factory.dataChannel
 import com.highcapable.yukihookapi.hook.factory.method
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.hook.entry.base.BaseFunction
-import me.hd.hookgg.hook.entry.hooker.AGG332BetaHooker
-import me.hd.hookgg.hook.entry.hooker.AGG332BetaHooker.hook
-import me.hd.hookgg.hook.entry.hooker.AGG332BetaHooker.toClassOrNull
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.checkint
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.checkjstring
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.checktable
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.optboolean
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.optint
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.optjstring
-import me.hd.hookgg.hook.entry.impl.AGG332BetaMethod.optlong
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Hooker.hook
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Hooker.toClassOrNull
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.checkint
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.checkjstring
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.checktable
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.optboolean
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.optint
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.optjstring
+import me.hd.hookgg.hook.entry.hooker.gg961.GG961Method.optlong
 
-object AGG332BetaFunction : BaseFunction {
+object GG961Function : BaseFunction {
     override fun toast() {
-        "android.ext.function.toast".toClassOrNull()?.apply {
+        "android.ext.Script\$toast".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val text = varArgs.checkjstring(1)
                     val fast = varArgs.optboolean(2, false)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -38,9 +37,9 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun alert() {
-        "android.ext.function.alert".toClassOrNull()?.apply {
+        "android.ext.Script\$alert".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
@@ -49,7 +48,7 @@ object AGG332BetaFunction : BaseFunction {
                     val positive = varArgs.optjstring(2, "ok")
                     val negative = varArgs.optjstring(3, "nil")
                     val neutral = varArgs.optjstring(4, "nil")
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -61,13 +60,13 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun clearResults() {
-        "android.ext.function.clearResults".toClassOrNull()?.apply {
+        "android.ext.Script\$clearResults".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -79,15 +78,15 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun setRanges() {
-        "android.ext.function.setRanges".toClassOrNull()?.apply {
+        "android.ext.Script\$setRanges".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val ranges = varArgs.checkint(1)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -99,9 +98,9 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun searchNumber() {
-        "android.ext.function.searchNumber".toClassOrNull()?.apply {
+        "android.ext.Script\$searchNumber".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
@@ -112,7 +111,7 @@ object AGG332BetaFunction : BaseFunction {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -124,13 +123,13 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun getResultsCount() {
-        "android.ext.function.getResultsCount".toClassOrNull()?.apply {
+        "android.ext.Script\$getResultsCount".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -142,9 +141,9 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun getResults() {
-        "android.ext.function.getResults".toClassOrNull()?.apply {
+        "android.ext.Script\$getResults".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 before {
@@ -158,7 +157,7 @@ object AGG332BetaFunction : BaseFunction {
                     val type = varArgs.optint(7, 0)
                     val fractional = varArgs.optjstring(8, "nil")
                     val pointer = varArgs.optint(9, 0)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -170,16 +169,16 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun editAll() {
-        "android.ext.function.editAll".toClassOrNull()?.apply {
+        "android.ext.Script\$editAll".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -191,15 +190,15 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun getValues() {
-        "android.ext.function.getValues".toClassOrNull()?.apply {
+        "android.ext.Script\$getValues".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -211,15 +210,15 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun setValues() {
-        "android.ext.function.setValues".toClassOrNull()?.apply {
+        "android.ext.Script\$setValues".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",
@@ -231,15 +230,15 @@ object AGG332BetaFunction : BaseFunction {
     }
 
     override fun addListItems() {
-        "android.ext.function.addListItems".toClassOrNull()?.apply {
+        "android.ext.Script\$addListItems".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "b"
                 paramCount = 1
             }.ignored().hook {
                 before {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    AGG332BetaHooker.appContext
+                    GG961Hooker.appContext
                         ?.dataChannel(BuildConfig.APPLICATION_ID)
                         ?.put(
                             "log",

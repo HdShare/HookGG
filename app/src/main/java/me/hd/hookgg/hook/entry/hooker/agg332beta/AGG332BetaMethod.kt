@@ -1,9 +1,9 @@
-package me.hd.hookgg.hook.entry.impl
+package me.hd.hookgg.hook.entry.hooker.agg332beta
 
 import de.robv.android.xposed.XposedHelpers.callMethod
 import me.hd.hookgg.hook.entry.base.BaseMethod
 
-object GG960Method : BaseMethod {
+object AGG332BetaMethod : BaseMethod {
     override fun Any?.optboolean(i: Int, defVal: Boolean): Any {
         return callMethod(this, "optboolean", i, defVal)
     }
@@ -52,7 +52,7 @@ object GG960Method : BaseMethod {
         return callMethod(this, "checkjstring", i)
     }
 
-    override fun Any?.optstring(i: Int, defVal: String): Any {
+    override fun Any?.optstring(i: Int, defVal: Any): Any {
         return callMethod(this, "optstring", i, defVal)
     }
 
