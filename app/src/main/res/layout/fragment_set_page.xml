@@ -140,6 +140,8 @@
                     android:id="@+id/setTvDefFunctionStatus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:text="@string/set_def_function_list"
                     android:textSize="14sp" />
             </LinearLayout>

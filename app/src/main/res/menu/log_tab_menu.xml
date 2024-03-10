@@ -6,4 +6,9 @@
         android:icon="@drawable/ic_tab_save_24dp"
         android:title="@string/tab_save"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/tab_clear"
+        android:icon="@drawable/ic_tab_clear_24dp"
+        android:title="@string/tab_clear" />
 </menu>

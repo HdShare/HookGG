@@ -57,6 +57,11 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
                 true
             }
 
+            R.id.tab_clear -> {
+                logAdapter.clearLog()
+                true
+            }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

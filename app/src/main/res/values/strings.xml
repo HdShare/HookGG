@@ -5,6 +5,7 @@
     <string name="nav_log">LogPage</string>
     <string name="nav_set">SetPage</string>
     <string name="tab_save">Save</string>
+    <string name="tab_clear">Clear</string>
     <string name="dialog_accept">Accept</string>
     <string name="dialog_decline">Decline</string>
     <string name="set_basic">Basic</string>
