@@ -9,6 +9,7 @@ import com.highcapable.yukihookapi.hook.xposed.application.ModuleApplication
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.ConfigData
+import me.hd.hookgg.hook.entry.hooker.AGG332BetaHooker
 import me.hd.hookgg.hook.entry.hooker.ELGG110Hooker
 import me.hd.hookgg.hook.entry.hooker.GG1011Hooker
 import me.hd.hookgg.hook.entry.hooker.GG960Hooker
@@ -36,6 +37,7 @@ object HookEntry : IYukiHookXposedInit {
                         getSingleChoiceItems()[2] -> loadHooker(GG1011Hooker)
                         getSingleChoiceItems()[3] -> loadHooker(RLGG2092Hooker)
                         getSingleChoiceItems()[4] -> loadHooker(ELGG110Hooker)
+                        getSingleChoiceItems()[5] -> loadHooker(AGG332BetaHooker)
                     }
                 }
             }

@@ -24,11 +24,12 @@ object ConfigUtil {
 
     fun getSingleChoiceItems(): Array<String> {
         return arrayOf(
-            "GG Ver96.0",
-            "GG Ver96.1",
-            "GG Ver101.1",
-            "RLGG Ver2.0.9.2",
-            "ELGG Ver1.1.0",
+            "GG 96.0",
+            "GG 96.1",
+            "GG 101.1",
+            "RLGG 2.0.9.2",
+            "ELGG 1.1.0",
+            "AGG 3.3.2-beta",
         )
     }
 
