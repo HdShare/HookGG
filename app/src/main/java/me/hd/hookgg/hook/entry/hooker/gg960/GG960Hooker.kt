@@ -9,6 +9,7 @@ import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.editAll
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.getResults
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.getResultsCount
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.getValues
+import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.makeRequest
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.searchNumber
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.setRanges
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Function.setValues
@@ -27,5 +28,6 @@ object GG960Hooker : BaseHooker() {
         if (configEntity.getValues) getValues()
         if (configEntity.setValues) setValues()
         if (configEntity.addListItems) addListItems()
+        if (configEntity.makeRequest) makeRequest()
     }
 }

@@ -20,7 +20,7 @@ object GG960Method : BaseMethod {
         return callMethod(this, "checkdouble", i)
     }
 
-    override fun Any?.optfunction(i: Int, defVal: Any): Any {
+    override fun Any?.optfunction(i: Int, defVal: Any?): Any {
         return callMethod(this, "optfunction", i, defVal)
     }
 
@@ -52,7 +52,7 @@ object GG960Method : BaseMethod {
         return callMethod(this, "checkjstring", i)
     }
 
-    override fun Any?.optstring(i: Int, defVal: Any): Any {
+    override fun Any?.optstring(i: Int, defVal: Any?): Any {
         return callMethod(this, "optstring", i, defVal)
     }
 
@@ -60,7 +60,7 @@ object GG960Method : BaseMethod {
         return callMethod(this, "checkstring", i)
     }
 
-    override fun Any?.opttable(i: Int, defVal: Any): Any {
+    override fun Any?.opttable(i: Int, defVal: Any?): Any {
         return callMethod(this, "opttable", i, defVal)
     }
 

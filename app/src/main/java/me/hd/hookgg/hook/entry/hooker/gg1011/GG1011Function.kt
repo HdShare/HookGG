@@ -13,6 +13,8 @@ import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optboolean
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optint
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optjstring
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optlong
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.optstring
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Method.opttable
 
 object GG1011Function : BaseFunction {
     override fun toast() {
@@ -244,6 +246,28 @@ object GG1011Function : BaseFunction {
                         ?.put(
                             "log",
                             "gg.addListItems($items)"
+                        )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    GG1011Hooker.appContext
+                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+                        ?.put(
+                            "log",
+                            "gg.makeRequest($url, $headers, $data)"
                         )
                 }
             }.ignoredAllFailure()

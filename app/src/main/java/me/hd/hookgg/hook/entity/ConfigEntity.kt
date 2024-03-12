@@ -12,4 +12,5 @@ class ConfigEntity(
     val getValues: Boolean = false,
     val setValues: Boolean = false,
     val addListItems: Boolean = false,
+    val makeRequest: Boolean = false,
 )

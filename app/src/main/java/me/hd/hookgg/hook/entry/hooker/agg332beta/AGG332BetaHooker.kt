@@ -9,6 +9,7 @@ import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.editAll
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.getResults
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.getResultsCount
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.getValues
+import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.makeRequest
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.searchNumber
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.setRanges
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaFunction.setValues
@@ -27,5 +28,6 @@ object AGG332BetaHooker : BaseHooker() {
         if (configEntity.getValues) getValues()
         if (configEntity.setValues) setValues()
         if (configEntity.addListItems) addListItems()
+        if (configEntity.makeRequest) makeRequest()
     }
 }

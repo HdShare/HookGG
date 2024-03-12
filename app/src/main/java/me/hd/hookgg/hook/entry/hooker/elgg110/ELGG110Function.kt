@@ -13,6 +13,8 @@ import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.optboolean
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.optint
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.optjstring
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.optlong
+import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.optstring
+import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Method.opttable
 
 object ELGG110Function : BaseFunction {
     override fun toast() {
@@ -244,6 +246,28 @@ object ELGG110Function : BaseFunction {
                         ?.put(
                             "log",
                             "gg.addListItems($items)"
+                        )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    ELGG110Hooker.appContext
+                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+                        ?.put(
+                            "log",
+                            "gg.makeRequest($url, $headers, $data)"
                         )
                 }
             }.ignoredAllFailure()

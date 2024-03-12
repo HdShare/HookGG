@@ -9,6 +9,7 @@ import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.editAll
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.getResults
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.getResultsCount
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.getValues
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.makeRequest
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.searchNumber
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.setRanges
 import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Function.setValues
@@ -27,5 +28,6 @@ object GG1011Hooker : BaseHooker() {
         if (configEntity.getValues) getValues()
         if (configEntity.setValues) setValues()
         if (configEntity.addListItems) addListItems()
+        if (configEntity.makeRequest) makeRequest()
     }
 }

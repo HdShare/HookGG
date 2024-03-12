@@ -12,4 +12,5 @@ object GG {
     const val getValues = "getValues"
     const val setValues = "setValues"
     const val addListItems = "addListItems"
+    const val makeRequest = "makeRequest"
 }

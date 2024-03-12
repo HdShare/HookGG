@@ -13,6 +13,8 @@ import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.optboolean
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.optint
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.optjstring
 import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.optlong
+import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.optstring
+import me.hd.hookgg.hook.entry.hooker.gg960.GG960Method.opttable
 
 object GG960Function : BaseFunction {
     override fun toast() {
@@ -243,6 +245,28 @@ object GG960Function : BaseFunction {
                         ?.put(
                             "log",
                             "gg.addListItems($items)"
+                        )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    GG960Hooker.appContext
+                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+                        ?.put(
+                            "log",
+                            "gg.makeRequest($url, $headers, $data)"
                         )
                 }
             }.ignoredAllFailure()

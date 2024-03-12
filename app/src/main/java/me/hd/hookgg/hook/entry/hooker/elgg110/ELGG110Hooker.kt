@@ -9,6 +9,7 @@ import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.editAll
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.getResults
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.getResultsCount
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.getValues
+import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.makeRequest
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.searchNumber
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.setRanges
 import me.hd.hookgg.hook.entry.hooker.elgg110.ELGG110Function.setValues
@@ -27,5 +28,6 @@ object ELGG110Hooker : BaseHooker() {
         if (configEntity.getValues) getValues()
         if (configEntity.setValues) setValues()
         if (configEntity.addListItems) addListItems()
+        if (configEntity.makeRequest) makeRequest()
     }
 }

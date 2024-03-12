@@ -1,7 +1,9 @@
 package me.hd.hookgg.hook.entry.hooker.gg1011
 
+import com.highcapable.yukihookapi.hook.type.java.IntType
 import de.robv.android.xposed.XposedHelpers
 import me.hd.hookgg.hook.entry.base.BaseMethod
+import me.hd.hookgg.hook.entry.hooker.gg1011.GG1011Hooker.toClass
 
 object GG1011Method : BaseMethod {
     override fun Any?.optboolean(i: Int, defVal: Boolean): Any {
@@ -20,8 +22,10 @@ object GG1011Method : BaseMethod {
         return XposedHelpers.callMethod(this, "m", i)
     }
 
-    override fun Any?.optfunction(i: Int, defVal: Any): Any {
-        return XposedHelpers.callMethod(this, "a", i, defVal)
+    override fun Any?.optfunction(i: Int, defVal: Any?): Any {
+        val clazz = "luaj.luaFunction".toClass()
+        val parameterTypes = arrayOf(IntType, clazz)
+        return XposedHelpers.callMethod(this, "a", parameterTypes, i, defVal)
     }
 
     override fun Any?.checkfunction(i: Int): Any {
@@ -52,16 +56,20 @@ object GG1011Method : BaseMethod {
         return XposedHelpers.callMethod(this, "r", i)
     }
 
-    override fun Any?.optstring(i: Int, defVal: Any): Any {
-        return XposedHelpers.callMethod(this, "a", i, defVal)
+    override fun Any?.optstring(i: Int, defVal: Any?): Any {
+        val clazz = "luaj.LuaString".toClass()
+        val parameterTypes = arrayOf(IntType, clazz)
+        return XposedHelpers.callMethod(this, "a", parameterTypes, i, defVal)
     }
 
     override fun Any?.checkstring(i: Int): Any {
         return XposedHelpers.callMethod(this, "s", i)
     }
 
-    override fun Any?.opttable(i: Int, defVal: Any): Any {
-        return XposedHelpers.callMethod(this, "a", i, defVal)
+    override fun Any?.opttable(i: Int, defVal: Any?): Any {
+        val clazz = "luaj.LuaTable".toClass()
+        val parameterTypes = arrayOf(IntType, clazz)
+        return XposedHelpers.callMethod(this, "a", parameterTypes, i, defVal)
     }
 
     override fun Any?.checktable(i: Int): Any {

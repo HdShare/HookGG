@@ -8,6 +8,7 @@ import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.clearResults
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.editAll
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.getResults
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.getResultsCount
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.makeRequest
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.searchNumber
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Function.setRanges
 
@@ -24,5 +25,6 @@ object RLGG2092Hooker : BaseHooker() {
         if (configEntity.getValues) YLog.error("getValues")
         if (configEntity.setValues) YLog.error("setValues")
         if (configEntity.addListItems) YLog.error("addListItems")
+        if (configEntity.makeRequest) makeRequest()
     }
 }

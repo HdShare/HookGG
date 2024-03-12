@@ -12,4 +12,5 @@ interface BaseFunction {
     fun getValues()
     fun setValues()
     fun addListItems()
+    fun makeRequest()
 }

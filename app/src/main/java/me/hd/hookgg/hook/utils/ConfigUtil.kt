@@ -56,6 +56,7 @@ object ConfigUtil {
             GG.getValues,
             GG.setValues,
             GG.addListItems,
+            GG.makeRequest,
         )
     }
 

@@ -13,6 +13,8 @@ import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.optboolean
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.optint
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.optjstring
 import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.optlong
+import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.optstring
+import me.hd.hookgg.hook.entry.hooker.agg332beta.AGG332BetaMethod.opttable
 
 object AGG332BetaFunction : BaseFunction {
     override fun toast() {
@@ -243,6 +245,28 @@ object AGG332BetaFunction : BaseFunction {
                         ?.put(
                             "log",
                             "gg.addListItems($items)"
+                        )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.function.makeRequest".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    AGG332BetaHooker.appContext
+                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+                        ?.put(
+                            "log",
+                            "gg.makeRequest($url, $headers, $data)"
                         )
                 }
             }.ignoredAllFailure()

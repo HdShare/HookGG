@@ -13,6 +13,8 @@ import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optboolean
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optint
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optjstring
 import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optlong
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.optstring
+import me.hd.hookgg.hook.entry.hooker.rlgg2092.RLGG2092Method.opttable
 
 object RLGG2092Function : BaseFunction {
     override fun toast() {
@@ -231,6 +233,28 @@ object RLGG2092Function : BaseFunction {
 //                            "log",
 //                            "gg.addListItems($items)"
 //                        )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.\u0378".toClassOrNull()?.apply {
+            method {
+                name = "̢"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    RLGG2092Hooker.appContext
+                        ?.dataChannel(BuildConfig.APPLICATION_ID)
+                        ?.put(
+                            "log",
+                            "gg.makeRequest($url, $headers, $data)"
+                        )
                 }
             }.ignoredAllFailure()
         }
