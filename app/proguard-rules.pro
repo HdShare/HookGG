@@ -19,3 +19,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontobfuscate
+
+-keep class com.highcapable.yukihookapi.** {*;}
+-keep class me.hd.hookgg.hook.** {*;}
+-keep class org.luckypray.dexkit.** {*;}
