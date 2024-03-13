@@ -13,7 +13,7 @@ android {
         minSdk 26
         targetSdk 34
         versionCode 20240312
-        versionName "1.4.500"
+        versionName "1.4.517"
         buildConfigField 'String', 'TAG', '"HookGG"'
     }
 

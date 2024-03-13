@@ -64,7 +64,7 @@ object ConfigUtil {
         val jsonObject = JSONObject(getConfigStr(MyApp.context.prefs()))
         val result = mutableListOf<Boolean>()
         for (item in getMultiChoiceItems()) {
-            result.add(jsonObject.getBoolean(item))
+            result.add(jsonObject.optBoolean(item, false))
         }
         return result.toBooleanArray()
     }
@@ -72,7 +72,7 @@ object ConfigUtil {
     fun getMultiChoiceCheckedNames(jsonObject: JSONObject = JSONObject(getConfigStr(MyApp.context.prefs()))): String {
         val result = mutableListOf<String>()
         for (item in getMultiChoiceItems()) {
-            if (jsonObject.getBoolean(item)) {
+            if (jsonObject.optBoolean(item, false)) {
                 result.add(item)
             }
         }
