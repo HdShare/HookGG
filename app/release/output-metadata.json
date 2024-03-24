@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "me.hd.hookgg",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 20240325,
+      "versionName": "1.6.000-release",
+      "outputFile": "app-release.apk"
+    }
+  ],
+  "elementType": "File"
+}

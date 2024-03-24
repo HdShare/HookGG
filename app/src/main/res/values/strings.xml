@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">HookGG</string>
+    <string name="module_inactive">Inactive</string>
+    <string name="module_active">Active</string>
+    <string name="nav_log_page">LogPage</string>
+    <string name="nav_set_page">SetPage</string>
+    <string name="tab_save">Save</string>
+    <string name="tab_clear">Clear</string>
+    <string name="dialog_accept">Accept</string>
+    <string name="dialog_decline">Decline</string>
+    <string name="prefs_basic">Basic</string>
+    <string name="prefs_key_package_name">PackageName</string>
+    <string name="prefs_def_package_name">catch_.me_.if_.you_.can_</string>
+    <string name="prefs_key_version_name">VersionName</string>
+    <string name="prefs_def_version_name">96.0</string>
+    <string name="prefs_key_function_list">FunctionList</string>
+    <string name="prefs_def_function_list">[]</string>
+</resources>

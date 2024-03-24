@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navLogPageFragment"
+        android:icon="@drawable/ic_nav_log_24dp"
+        android:title="@string/nav_log_page" />
+    <item
+        android:id="@+id/navSetPageFragment"
+        android:icon="@drawable/ic_nav_set_24dp"
+        android:title="@string/nav_set_page" />
+</menu>
