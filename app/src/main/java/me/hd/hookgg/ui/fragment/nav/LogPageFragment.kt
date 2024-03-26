@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.lifecycle.Lifecycle
@@ -45,15 +44,16 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
     }
 
     private fun initView(binding: FragmentLogPageBinding) {
-        initMenu(binding)
         if (YukiHookAPI.Status.isModuleActive) {
             binding.logPageToolbar.subtitle = getString(R.string.module_active)
         }
+        initMenu()
         initAdapter(binding)
     }
 
-    private fun initMenu(binding: FragmentLogPageBinding) {
-        (requireActivity() as MenuHost).addMenuProvider(object : MenuProvider {
+    private fun initMenu() {
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(object : MenuProvider {
             override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
                 menuInflater.inflate(R.menu.log_tab_menu, menu)
             }
@@ -74,7 +74,6 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
                 }
             }
         }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.logPageToolbar)
     }
 
     private fun initAdapter(binding: FragmentLogPageBinding) {
