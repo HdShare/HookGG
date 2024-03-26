@@ -17,6 +17,7 @@ object AppData {
         GG.prompt,
         GG.clearResults,
         GG.setRanges,
+        GG.getRangesList,
         GG.searchNumber,
         GG.getResultsCount,
         GG.getResults,

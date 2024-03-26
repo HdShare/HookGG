@@ -6,11 +6,11 @@ import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.arg
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.checkint
-import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optboolean
-import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optjstring
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.checkjstring
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.checktable
+import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optboolean
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optint
+import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optjstring
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optlong
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.optstring
 import me.hd.hookgg.hook.hooker.gg960.GG960VarArgs.opttable
@@ -144,6 +144,24 @@ object GG960Hooker : BaseGGHooker() {
                     appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
                         "log",
                         "gg.setRanges($ranges)"
+                    )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun getRangesList() {
+        "android.ext.Script\$getRangesList".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val filter = varArgs.optjstring(1, "")
+                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
+                        "log",
+                        "gg.getRangesList($filter)"
                     )
                 }
             }.ignoredAllFailure()

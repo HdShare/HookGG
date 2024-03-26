@@ -150,6 +150,24 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
+    override fun getRangesList() {
+        "android.ext.function.getRangesList".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val filter = varArgs.optjstring(1, "")
+                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
+                        "log",
+                        "gg.getRangesList($filter)"
+                    )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
     override fun searchNumber() {
         "android.ext.function.searchNumber".toClassOrNull()?.apply {
             method {

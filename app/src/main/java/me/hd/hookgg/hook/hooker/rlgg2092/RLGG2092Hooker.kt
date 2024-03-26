@@ -136,6 +136,24 @@ object RLGG2092Hooker : BaseGGHooker() {
         }
     }
 
+    override fun getRangesList() {
+        "android.ext.͒".toClassOrNull()?.apply {
+            method {
+                name = "̢"
+                paramCount = 1
+            }.ignored().hook {
+                before {
+                    val varArgs = args(0).any()
+                    val filter = varArgs.optjstring(1, "")
+                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
+                        "log",
+                        "gg.getRangesList($filter)"
+                    )
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
     override fun searchNumber() {
         "android.ext.ԯ".toClassOrNull()?.apply {
             method {

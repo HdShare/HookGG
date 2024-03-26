@@ -1,13 +1,7 @@
 package me.hd.hookgg.ui.fragment.nav
 
 import android.net.Uri
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.highcapable.yukihookapi.YukiHookAPI
@@ -47,33 +41,26 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
         if (YukiHookAPI.Status.isModuleActive) {
             binding.logPageToolbar.subtitle = getString(R.string.module_active)
         }
-        initMenu()
+        initMenu(binding)
         initAdapter(binding)
     }
 
-    private fun initMenu() {
-        val menuHost: MenuHost = requireActivity()
-        menuHost.addMenuProvider(object : MenuProvider {
-            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                menuInflater.inflate(R.menu.log_tab_menu, menu)
-            }
-
-            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                return when (menuItem.itemId) {
-                    R.id.tab_save -> {
-                        saveLogsLauncher.launch("${BuildConfig.TAG}_${LocalDateTime.now()}.lua")
-                        true
-                    }
-
-                    R.id.tab_clear -> {
-                        logAdapter.clearLog()
-                        true
-                    }
-
-                    else -> false
+    private fun initMenu(binding: FragmentLogPageBinding) {
+        binding.logPageToolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.tab_save -> {
+                    saveLogsLauncher.launch("${BuildConfig.TAG}_${LocalDateTime.now()}.lua")
+                    true
                 }
+
+                R.id.tab_clear -> {
+                    logAdapter.clearLog()
+                    true
+                }
+
+                else -> false
             }
-        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+        }
     }
 
     private fun initAdapter(binding: FragmentLogPageBinding) {
