@@ -33,7 +33,10 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
         val prefs = MyApp.context.prefs()
         binding.setTvDefPackageName.text = prefs.get(SetPagePrefsData.PACKAGE_NAME)
         binding.setTvDefVersionName.text = prefs.get(SetPagePrefsData.VERSION_NAME)
-        binding.setTvDefFunctionList.text = prefs.get(SetPagePrefsData.FUNCTION_LIST).toString()
+        binding.setTvDefFunctionList.text = getString(R.string.prefs_def_function_num)
+            .format(prefs.get(SetPagePrefsData.FUNCTION_LIST).size)
+        binding.setSwitchLogReturn.isChecked = prefs.get(SetPagePrefsData.LOG_RETURN)
+        binding.setSwitchFilterParam.isChecked = prefs.get(SetPagePrefsData.FILTER_PARAM)
     }
 
     private fun initPrefsOnClick(binding: FragmentSetPageBinding) {
@@ -100,6 +103,22 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
+        }
+        binding.setSwitchLogReturn.setOnClickListener {
+            val oldLogReturn = prefs.get(SetPagePrefsData.LOG_RETURN)
+            val newLogReturn = !oldLogReturn
+            prefs.edit {
+                put(SetPagePrefsData.LOG_RETURN, newLogReturn)
+            }
+            binding.setSwitchLogReturn.isChecked = newLogReturn
+        }
+        binding.setSwitchFilterParam.setOnClickListener {
+            val oldFilterParam = prefs.get(SetPagePrefsData.FILTER_PARAM)
+            val newFilterParam = !oldFilterParam
+            prefs.edit {
+                put(SetPagePrefsData.FILTER_PARAM, newFilterParam)
+            }
+            binding.setSwitchFilterParam.isChecked = newFilterParam
         }
     }
 }

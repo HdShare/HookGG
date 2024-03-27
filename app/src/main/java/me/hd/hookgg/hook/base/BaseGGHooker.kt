@@ -1,10 +1,18 @@
 package me.hd.hookgg.hook.base
 
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
+import com.highcapable.yukihookapi.hook.factory.dataChannel
+import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.GG
 import me.hd.hookgg.data.SetPagePrefsData
 
 abstract class BaseGGHooker : YukiBaseHooker() {
+    protected fun sendLog(func: String, result: Any?) {
+        val logReturn = prefs.get(SetPagePrefsData.LOG_RETURN)
+        val log = if (!logReturn) "$func\n" else "$func\n--[[$result]]\n"
+        appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
+    }
+
     override fun onHook() {
         val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
         if (GG.toast in setFuncList) toast()
