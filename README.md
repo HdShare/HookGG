@@ -5,10 +5,14 @@
 > **HookGG By HdShare**
 
 <div align="center">
+  
+  [![LSP Stars](https://img.shields.io/github/stars/Xposed-Modules-Repo/me.hd.hookgg?label=LSP%20Stars)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg)
+  [![LSP Repo](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.hd.hookgg/total?label=LSP%20Repo&labelColor=f48fb1)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/releases)
+  [![LSP Issues](https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.hookgg?label=LSP%20Issues)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/issues)
 
-  [![Stars](https://img.shields.io/github/stars/Xposed-Modules-Repo/me.hd.hookgg?label=stars)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg)
-  [![LSP%20Repo](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.hd.hookgg/total?label=LSP%20Repo&labelColor=F48FB1)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/releases)
-  [![Issues](https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.hookgg)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/issues)
+  [![Source Stars](https://img.shields.io/github/stars/HdShare/HookGG?label=Source%20Stars)](https://github.com/HdShare/HookGG)
+  [![Source Repo](https://img.shields.io/github/downloads/HdShare/HookGG/total?label=Source%20Repo&labelColor=1f2328)](https://github.com/HdShare/HookGG/releases)
+  [![Source Issues](https://img.shields.io/github/issues/HdShare/HookGG?label=Source%20Issues)](https://github.com/HdShare/HookGG/issues)
 
 </div>
 
