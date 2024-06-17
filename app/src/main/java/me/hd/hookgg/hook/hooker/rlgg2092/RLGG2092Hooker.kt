@@ -186,7 +186,6 @@ object RLGG2092Hooker : BaseGGHooker() {
                 paramCount = 1
             }.ignored().hook {
                 after {
-                    YLog.error("getResults")
                     val varArgs = args(0).any()
                     val maxCount = varArgs.checkint(1)
                     val skip = varArgs.optint(2, 0)
@@ -212,7 +211,6 @@ object RLGG2092Hooker : BaseGGHooker() {
                 paramCount = 1
             }.ignored().hook {
                 after {
-                    YLog.error("editAll")
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
@@ -233,10 +231,8 @@ object RLGG2092Hooker : BaseGGHooker() {
                     YLog.error("getValues")
 //                    val varArgs = args(0).any()
 //                    val values = varArgs.checktable(1)
-//                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
-//                        "log",
-//                        "gg.getValues($values)"
-//                    )
+//                    val func = "gg.getValues($values)"
+//                    sendLog(func, result)
                 }
             }.ignoredAllFailure()
         }
@@ -252,10 +248,8 @@ object RLGG2092Hooker : BaseGGHooker() {
                     YLog.error("setValues")
 //                    val varArgs = args(0).any()
 //                    val values = varArgs.checktable(1)
-//                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
-//                        "log",
-//                        "gg.setValues($values)"
-//                    )
+//                    val func = "gg.setValues($values)"
+//                    sendLog(func, result)
                 }
             }.ignoredAllFailure()
         }
@@ -271,10 +265,8 @@ object RLGG2092Hooker : BaseGGHooker() {
                     YLog.error("addListItems")
 //                    val varArgs = args(0).any()
 //                    val items = varArgs.checktable(1)
-//                    appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put(
-//                        "log",
-//                        "gg.addListItems($items)"
-//                    )
+//                    val func = "gg.addListItems($items)"
+//                    sendLog(func, result)
                 }
             }.ignoredAllFailure()
         }
