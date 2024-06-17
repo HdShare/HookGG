@@ -2,6 +2,7 @@ package me.hd.hookgg.hook.hooker.rlgg2092
 
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
+import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.arg
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.checkint
@@ -13,6 +14,7 @@ import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.optjstring
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.optlong
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.optstring
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.opttable
+import me.hd.hookgg.hook.utils.GGUtil
 
 object RLGG2092Hooker : BaseGGHooker() {
     override fun toast() {
@@ -155,6 +157,8 @@ object RLGG2092Hooker : BaseGGHooker() {
                     val limit = varArgs.optlong(7, 0)
                     val func =
                         "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
+                    val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                    if (filterParams && !GGUtil.isValidParams("$text")) return@after
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()

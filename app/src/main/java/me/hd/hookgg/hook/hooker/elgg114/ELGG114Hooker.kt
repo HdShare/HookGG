@@ -1,6 +1,7 @@
 package me.hd.hookgg.hook.hooker.elgg114
 
 import com.highcapable.yukihookapi.hook.factory.method
+import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.arg
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.checkint
@@ -12,6 +13,7 @@ import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optjstring
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optlong
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optstring
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.opttable
+import me.hd.hookgg.hook.utils.GGUtil
 
 object ELGG114Hooker : BaseGGHooker() {
     override fun toast() {
@@ -167,6 +169,8 @@ object ELGG114Hooker : BaseGGHooker() {
                     val limit = varArgs.optlong(7, 0)
                     val func =
                         "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
+                    val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                    if (filterParams && !GGUtil.isValidParams("$text")) return@after
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()

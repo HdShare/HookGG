@@ -242,12 +242,11 @@
                 </LinearLayout>
 
                 <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/setSwitchFilterParam"
+                    android:id="@+id/setSwitchFilterParams"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:enabled="false" />
+                    android:layout_marginEnd="15dp" />
 
             </LinearLayout>
         </LinearLayout>
