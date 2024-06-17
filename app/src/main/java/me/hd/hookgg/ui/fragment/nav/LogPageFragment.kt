@@ -12,7 +12,6 @@ import me.hd.hookgg.hook.hooker.gg960.GG960Hooker
 import me.hd.hookgg.ui.adapter.LogAdapter
 import me.hd.hookgg.ui.fragment.base.BaseFragment
 import java.io.FileOutputStream
-import java.time.LocalDateTime
 import java.util.concurrent.CompletableFuture
 
 class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
@@ -21,7 +20,7 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
 ) {
     private lateinit var logAdapter: LogAdapter
     private val saveLogsLauncher = registerForActivityResult(
-        ActivityResultContracts.CreateDocument("text/plain")
+        ActivityResultContracts.CreateDocument("application/x-lua")
     ) { uri: Uri? ->
         if (uri == null) return@registerForActivityResult
         CompletableFuture.runAsync {
@@ -49,7 +48,7 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
         binding.logPageToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.tab_save -> {
-                    saveLogsLauncher.launch("${BuildConfig.TAG}_${LocalDateTime.now()}.lua")
+                    saveLogsLauncher.launch("${BuildConfig.TAG}_${System.currentTimeMillis()}.lua")
                     true
                 }
 
