@@ -166,11 +166,30 @@ object GG1011Hooker : BaseGGHooker() {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
-                    val limit = varArgs.optlong(7, 0)
+                    val limit = varArgs.optlong(7, 0L)
                     val func =
                         "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                     val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
                     if (filterParams && !GGUtil.isValidParams("$text")) return@after
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun searchPointer() {
+        "android.ext.Script\$searchPointer".toClassOrNull()?.apply {
+            method {
+                name = "d"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val maxOffset = varArgs.checkint(1)
+                    val memoryFrom = varArgs.optlong(2, 0L)
+                    val memoryTo = varArgs.optlong(3, -1L)
+                    val limit = varArgs.optlong(4, 0L)
+                    val func = "gg.searchPointer($maxOffset, $memoryFrom, $memoryTo, $limit)"
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()
