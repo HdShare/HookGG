@@ -156,6 +156,16 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">searchPointer</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">❌</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">getResultsCount</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
