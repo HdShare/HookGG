@@ -19,6 +19,7 @@ object AppData {
         GG.setRanges,
         GG.getRangesList,
         GG.searchNumber,
+        GG.searchPointer,
         GG.getResultsCount,
         GG.getResults,
         GG.editAll,
