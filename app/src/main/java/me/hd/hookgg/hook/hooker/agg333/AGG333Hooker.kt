@@ -1,6 +1,7 @@
 package me.hd.hookgg.hook.hooker.agg333
 
 import com.highcapable.yukihookapi.hook.factory.method
+import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.arg
@@ -174,6 +175,10 @@ object AGG333Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
+    }
+
+    override fun searchPointer() {
+        YLog.error("searchPointer")
     }
 
     override fun getResultsCount() {
