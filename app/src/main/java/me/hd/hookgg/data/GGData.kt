@@ -1,6 +1,6 @@
 package me.hd.hookgg.data
 
-object GG {
+object GGData {
     const val addListItems = "addListItems"
     const val alert = "alert"
     const val allocatePage = "allocatePage"
