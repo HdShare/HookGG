@@ -6,7 +6,8 @@ object AppData {
         "GG 96.1",
         "GG 101.1",
         "RLGG 2.0.9.2",
-        "ELGG 1.1.4",
+        "ELGG 1.1.0~1.1.6",
+        "ELGG 1.2.0",
         "AGG 3.3.3",
     )
     val FUNCTION_LIST = arrayOf(
