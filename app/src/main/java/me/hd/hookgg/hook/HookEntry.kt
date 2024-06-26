@@ -10,6 +10,7 @@ import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.hooker.agg333.AGG333Hooker
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114Hooker
+import me.hd.hookgg.hook.hooker.elgg120.ELGG120Hooker
 import me.hd.hookgg.hook.hooker.gg1011.GG1011Hooker
 import me.hd.hookgg.hook.hooker.gg960.GG960Hooker
 import me.hd.hookgg.hook.hooker.gg961.GG961Hooker
@@ -29,14 +30,14 @@ object HookEntry : IYukiHookXposedInit {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
             if (prefs.get(SetPagePrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    loadHooker(ELGG114Hooker)
                     when (prefs.get(SetPagePrefsData.VERSION_NAME)) {
                         AppData.VERSION_LIST[0] -> loadHooker(GG960Hooker)
                         AppData.VERSION_LIST[1] -> loadHooker(GG961Hooker)
                         AppData.VERSION_LIST[2] -> loadHooker(GG1011Hooker)
                         AppData.VERSION_LIST[3] -> loadHooker(RLGG2092Hooker)
                         AppData.VERSION_LIST[4] -> loadHooker(ELGG114Hooker)
-                        AppData.VERSION_LIST[5] -> loadHooker(AGG333Hooker)
+                        AppData.VERSION_LIST[5] -> loadHooker(ELGG120Hooker)
+                        AppData.VERSION_LIST[6] -> loadHooker(AGG333Hooker)
                     }
                 }
             }
