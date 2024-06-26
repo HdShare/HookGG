@@ -3,6 +3,7 @@ package me.hd.hookgg.hook.hooker.rlgg2092
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.data.SetPagePrefsData
+import me.hd.hookgg.data.StrData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.arg
 import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092VarArgs.checkint
@@ -18,7 +19,8 @@ import me.hd.hookgg.hook.utils.GGUtil
 
 object RLGG2092Hooker : BaseGGHooker() {
     override fun addListItems() {
-        YLog.error("addListItems")
+        val func = StrData.Forbidden.format("addListItems")
+        YLog.error(func)
 //        "android.ext.̯".toClassOrNull()?.apply {
 //            method {
 //                name = "̢"
@@ -158,7 +160,8 @@ object RLGG2092Hooker : BaseGGHooker() {
     }
 
     override fun getValues() {
-        YLog.error("getValues")
+        val func = StrData.Forbidden.format("getValues")
+        YLog.error(func)
 //        "android.ext.ͣ".toClassOrNull()?.apply {
 //            method {
 //                name = "̢"
@@ -289,7 +292,8 @@ object RLGG2092Hooker : BaseGGHooker() {
     }
 
     override fun setValues() {
-        YLog.error("setValues")
+        val func = StrData.Forbidden.format("setValues")
+        YLog.error(func)
 //        "android.ext.\u05CD".toClassOrNull()?.apply {
 //            method {
 //                name = "̢"
@@ -306,7 +310,8 @@ object RLGG2092Hooker : BaseGGHooker() {
     }
 
     override fun toast() {
-        YLog.error("toast")
+        val func = StrData.Unsupported.format("toast")
+        YLog.error(func)
 //        "android.ext.\u05F5".toClassOrNull()?.apply {
 //            method {
 //                name = "̢"
