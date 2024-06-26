@@ -172,6 +172,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❌</td>
         <td align="center">❓</td>
     </tr>
