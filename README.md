@@ -30,9 +30,29 @@
         <td colspan="1" align="center"><b>Description</b></td>
     </tr>
     <tr>
+        <td align="center">⚠️</td>
         <td align="center">三方GG</td>
+        <td align="center">可能存在检测及惩罚机制</td>
+    </tr>
+    <tr>
+        <td align="center">✅</td>
         <td align="center">All</td>
-        <td align="center">⚠️可能存在检测及惩罚机制</td>
+        <td align="center">适配</td>
+    </tr>
+    <tr>
+        <td align="center">🚫</td>
+        <td align="center">All</td>
+        <td align="center">禁止</td>
+    </tr>
+    <tr>
+        <td align="center">❓</td>
+        <td align="center">All</td>
+        <td align="center">未知</td>
+    </tr>
+    <tr>
+        <td align="center">❌</td>
+        <td align="center">All</td>
+        <td align="center">不支持/未适配</td>
     </tr>
 </table>
 
