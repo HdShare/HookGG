@@ -16,17 +16,16 @@ import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.opttable
 import me.hd.hookgg.hook.utils.GGUtil
 
 object ELGG114Hooker : BaseGGHooker() {
-    override fun toast() {
-        "android.ext.ۧۧۦۧ".toClassOrNull()?.apply {
+    override fun addListItems() {
+        "android.ext.ۣۧۧۢ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
             }.ignored().hook {
                 after {
                     val varArgs = args(0).any()
-                    val text = varArgs.checkjstring(1)
-                    val fast = varArgs.optboolean(2, false)
-                    val func = "gg.toast($text, $fast)"
+                    val items = varArgs.checktable(1)
+                    val func = "gg.addListItems($items)"
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()
@@ -70,6 +69,126 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
+    override fun clearResults() {
+        "android.ext.۟ۧ۠۠ۨ".toClassOrNull()?.apply {
+            method {
+                name = "d"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val func = "gg.clearResults()"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun editAll() {
+        "android.ext.ۧۧۢۡ".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val value = varArgs.checkjstring(1)
+                    val type = varArgs.checkint(2)
+                    val func = "gg.editAll($value, $type)"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun getRangesList() {
+        "android.ext.ۧۧۡۦ".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val filter = varArgs.optjstring(1, "")
+                    val func = "gg.getRangesList($filter)"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun getResults() {
+        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
+            method {
+                name = "d"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val maxCount = varArgs.checkint(1)
+                    val skip = varArgs.optint(2, 0)
+                    val addressMin = varArgs.optlong(3, 0L)
+                    val addressMax = varArgs.optlong(4, -1L)
+                    val valueMin = varArgs.optjstring(5, "nil")
+                    val valueMax = varArgs.optjstring(6, "nil")
+                    val type = varArgs.optint(7, 0)
+                    val fractional = varArgs.optjstring(8, "nil")
+                    val pointer = varArgs.optint(9, 0)
+                    val func =
+                        "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun getResultsCount() {
+        "android.ext.ۧۧۡۢ".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val func = "gg.getResultsCount()"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun getValues() {
+        "android.ext.ۧۧۥ۟".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val values = varArgs.checktable(1)
+                    val func = "gg.getValues($values)"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    override fun makeRequest() {
+        "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val url = varArgs.checkjstring(1)
+                    val headers = varArgs.opttable(2, null)
+                    val data = varArgs.optstring(3, null)
+                    val func = "gg.makeRequest($url, $headers, $data)"
+                    sendLog(func, result)
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
     override fun multiChoice() {
         "android.ext.ۦۤۡ۟".toClassOrNull()?.apply {
             method {
@@ -100,52 +219,6 @@ object ELGG114Hooker : BaseGGHooker() {
                     val defaults = varArgs.opttable(2, null)
                     val types = varArgs.opttable(3, null)
                     val func = "gg.prompt($items, $defaults, $types)"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun clearResults() {
-        "android.ext.۟ۧ۠۠ۨ".toClassOrNull()?.apply {
-            method {
-                name = "d"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val func = "gg.clearResults()"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun setRanges() {
-        "android.ext.۟ۧ۠ۥۣ".toClassOrNull()?.apply {
-            method {
-                name = "d"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val ranges = varArgs.checkint(1)
-                    val func = "gg.setRanges($ranges)"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun getRangesList() {
-        "android.ext.ۧۧۡۦ".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val filter = varArgs.optjstring(1, "")
-                    val func = "gg.getRangesList($filter)"
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()
@@ -196,72 +269,16 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResultsCount() {
-        "android.ext.ۧۧۡۢ".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val func = "gg.getResultsCount()"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun getResults() {
-        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
+    override fun setRanges() {
+        "android.ext.۟ۧ۠ۥۣ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
             }.ignored().hook {
                 after {
                     val varArgs = args(0).any()
-                    val maxCount = varArgs.checkint(1)
-                    val skip = varArgs.optint(2, 0)
-                    val addressMin = varArgs.optlong(3, 0L)
-                    val addressMax = varArgs.optlong(4, -1L)
-                    val valueMin = varArgs.optjstring(5, "nil")
-                    val valueMax = varArgs.optjstring(6, "nil")
-                    val type = varArgs.optint(7, 0)
-                    val fractional = varArgs.optjstring(8, "nil")
-                    val pointer = varArgs.optint(9, 0)
-                    val func =
-                        "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun editAll() {
-        "android.ext.ۧۧۢۡ".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val value = varArgs.checkjstring(1)
-                    val type = varArgs.checkint(2)
-                    val func = "gg.editAll($value, $type)"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun getValues() {
-        "android.ext.ۧۧۥ۟".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val values = varArgs.checktable(1)
-                    val func = "gg.getValues($values)"
+                    val ranges = varArgs.checkint(1)
+                    val func = "gg.setRanges($ranges)"
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()
@@ -284,34 +301,17 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun addListItems() {
-        "android.ext.ۣۧۧۢ".toClassOrNull()?.apply {
+    override fun toast() {
+        "android.ext.ۧۧۦۧ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
             }.ignored().hook {
                 after {
                     val varArgs = args(0).any()
-                    val items = varArgs.checktable(1)
-                    val func = "gg.addListItems($items)"
-                    sendLog(func, result)
-                }
-            }.ignoredAllFailure()
-        }
-    }
-
-    override fun makeRequest() {
-        "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
-            method {
-                name = "b"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val url = varArgs.checkjstring(1)
-                    val headers = varArgs.opttable(2, null)
-                    val data = varArgs.optstring(3, null)
-                    val func = "gg.makeRequest($url, $headers, $data)"
+                    val text = varArgs.checkjstring(1)
+                    val fast = varArgs.optboolean(2, false)
+                    val func = "gg.toast($text, $fast)"
                     sendLog(func, result)
                 }
             }.ignoredAllFailure()
