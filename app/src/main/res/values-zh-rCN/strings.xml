@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">HookGG</string>
+    <string name="module_inactive">未激活</string>
+    <string name="module_active">已激活</string>
+    <string name="nav_log_page">日志页</string>
+    <string name="nav_set_page">设置页</string>
+    <string name="tab_copy">复制</string>
+    <string name="tab_save">保存</string>
+    <string name="tab_clear">清空</string>
+    <string name="tab_wrap">换行</string>
+    <string name="dialog_accept">接受</string>
+    <string name="dialog_decline">拒绝</string>
+    <string name="prefs_basic">基础</string>
+    <string name="prefs_key_package_name">包名</string>
+    <string name="prefs_def_package_name">catch_.me_.if_.you_.can_</string>
+    <string name="prefs_key_version_name">版本</string>
+    <string name="prefs_def_version_name">96.0</string>
+    <string name="prefs_key_function_list">功能</string>
+    <string name="prefs_def_function_list">启用 [0]</string>
+    <string name="prefs_def_function_num">启用 [%1$s]</string>
+    <string name="prefs_more">更多</string>
+    <string name="prefs_key_log_return">打印返回</string>
+    <string name="prefs_key_filter_param">过滤参数</string>
+</resources>
