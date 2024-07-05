@@ -99,7 +99,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                     prefs.edit {
                         put(SetPagePrefsData.FUNCTION_LIST, newFunctionListSet)
                     }
-                    binding.setTvDefFunctionList.text = newFunctionListSet.toString()
+                    binding.setTvDefFunctionList.text =
+                        getString(R.string.prefs_def_function_num).format(newFunctionListSet.size)
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
