@@ -1,26 +1,53 @@
-<div align="center">
+<p align="center">
+    <a href="https://github.com/HdShare/HookGG">
+        <img src="https://socialify.git.ci/HdShare/HookGG/image?description=1&font=Rokkitt&language=1&name=1&owner=1&theme=Auto" alt="socialify"/>
+    </a>
+</p>
 
-<h1>HookGG</h1>
+<p align="center">
+    <a href="https://github.com/HdShare/HookGG/releases">
+        <img src="https://img.shields.io/github/downloads/HdShare/HookGG/total?style=flat-square&label=GithubRepo&labelColor=1b1f23&color=eeeeee" alt="downloads">
+    </a>
+    <a href="https://github.com/HdShare/HookGG/stargazers">
+        <img src="https://img.shields.io/github/stars/HdShare/HookGG?style=flat-square&label=Stars&labelColor=1b1f23&color=dfb317" alt="stars">
+    </a>
+    <a href="https://github.com/HdShare/HookGG/network/members">
+        <img src="https://img.shields.io/github/forks/HdShare/HookGG?style=flat-square&label=Forks&labelColor=1b1f23&color=97ca00" alt="forks">
+    </a>
+    <a href="https://github.com/HdShare/HookGG/issues">
+        <img src="https://img.shields.io/github/issues/HdShare/HookGG?style=flat-square&label=Issues&labelColor=1b1f23&color=007ec6" alt="issues">
+    </a>
+    <a href="https://github.com/HdShare/HookGG/pulls">
+        <img src="https://img.shields.io/github/issues-pr/HdShare/HookGG?style=flat-square&label=Pulls&labelColor=1b1f23&color=fe7d37" alt="pulls">
+    </a>
+</p>
 
-> **HookGG By HdShare**
+<p align="center">
+    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/releases">
+        <img src="https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.hd.hookgg/total?style=flat-square&label=LSPosedRepo&labelColor=f48fb1&color=eeeeee" alt="downloads">
+    </a>
+    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/stargazers">
+        <img src="https://img.shields.io/github/stars/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Stars&labelColor=f48fb1&color=dfb317" alt="stars">
+    </a>
+    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/network/members">
+        <img src="https://img.shields.io/github/forks/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Forks&labelColor=f48fb1&color=97ca00" alt="forks">
+    </a>
+    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/issues">
+        <img src="https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Issues&labelColor=f48fb1&color=007ec6" alt="issues">
+    </a>
+    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/pulls">
+        <img src="https://img.shields.io/github/issues-pr/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Pulls&labelColor=f48fb1&color=fe7d37" alt="pulls">
+    </a>
+</p>
 
-<div align="center">
-  
-  [![LSP Stars](https://img.shields.io/github/stars/Xposed-Modules-Repo/me.hd.hookgg?label=LSP%20Stars)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg)
-  [![LSP Repo](https://img.shields.io/github/downloads/Xposed-Modules-Repo/me.hd.hookgg/total?label=LSP%20Repo&labelColor=f48fb1)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/releases)
-  [![LSP Issues](https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.hookgg?label=LSP%20Issues)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/issues)
-
-  [![Source Stars](https://img.shields.io/github/stars/HdShare/HookGG?label=Source%20Stars)](https://github.com/HdShare/HookGG)
-  [![Source Repo](https://img.shields.io/github/downloads/HdShare/HookGG/total?label=Source%20Repo&labelColor=1f2328)](https://github.com/HdShare/HookGG/releases)
-  [![Source Issues](https://img.shields.io/github/issues/HdShare/HookGG?label=Source%20Issues)](https://github.com/HdShare/HookGG/issues)
-
-</div>
-
-[![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/me.hd.hookgg)](https://github.com/Xposed-Modules-Repo/me.hd.hookgg/releases/latest)
-
-</div>
+<p align="center">
+    <a href="https://github.com/HdShare/HookGG/releases/latest">
+        <img src="https://img.shields.io/github/v/release/HdShare/HookGG?style=flat-square&label=Release&labelColor=8b00c5&color=c8c8c8" alt="release">
+    </a>
+</p>
 
 ---
+
 ## 说明:
 
 <table>
@@ -57,6 +84,7 @@
 </table>
 
 ---
+
 ## 功能:
 
 后续将依据star和download情况进一步更新与适配.
@@ -287,6 +315,7 @@ We will continue to update and adapt based on the number of stars and downloads 
 </table>
 
 ---
+
 ## 贡献:
 
 在使用过程中有任何问题或建议, 请通过issues提交.
@@ -294,9 +323,10 @@ We will continue to update and adapt based on the number of stars and downloads 
 If you encounter any issues or have any suggestions during use, please submit them through issues.
 
 ---
+
 ## 致谢:
 
-|     Name     |                               Source                               |
-| ------------ | ------------------------------------------------------------------ |
-| YukiHookAPI  | [YukiHookAPI](https://github.com/HighCapable/YukiHookAPI)          |
+| Name        | Source                                                    |
+|-------------|-----------------------------------------------------------|
+| YukiHookAPI | [YukiHookAPI](https://github.com/HighCapable/YukiHookAPI) |
 
