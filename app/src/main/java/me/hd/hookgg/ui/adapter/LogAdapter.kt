@@ -1,19 +1,24 @@
 package me.hd.hookgg.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import me.hd.hookgg.databinding.ItemRvLogBinding
+import me.hd.hookgg.ui.utils.ToolUtil
 import java.io.FileOutputStream
 
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     private var logList = mutableListOf<CharSequence>()
 
+    fun copyLog(context: Context) {
+        val logStr = logList.joinToString("\n")
+        ToolUtil.copyToClipboard(context, logStr)
+    }
+
     fun outLog(outputStream: FileOutputStream) {
-        logList.forEach {
-            outputStream.write(it.toString().toByteArray())
-            outputStream.write("\n".toByteArray())
-        }
+        val logStr = logList.joinToString("\n") { it.toString() }
+        outputStream.write(logStr.toByteArray())
     }
 
     fun clearLog() {

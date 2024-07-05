@@ -47,6 +47,11 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
     private fun initMenu(binding: FragmentLogPageBinding) {
         binding.logPageToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
+                R.id.tab_copy -> {
+                    logAdapter.copyLog(requireContext())
+                    true
+                }
+
                 R.id.tab_save -> {
                     saveLogsLauncher.launch("${BuildConfig.TAG}_${System.currentTimeMillis()}.lua")
                     true
