@@ -1,6 +1,10 @@
 package me.hd.hookgg.hook.utils
 
 object GGUtil {
+    fun isValidItems(items: String): Boolean {
+        return items.length in 1..102400
+    }
+
     fun isValidParams(text: String): Boolean {
         val isValidLength = text.length in 1..100
         val isSearchNumber = text.matches(Regex("^\\s*[0-9\\s]+\\s*$"))
