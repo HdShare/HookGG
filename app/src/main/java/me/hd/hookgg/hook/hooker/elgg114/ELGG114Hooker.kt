@@ -1,6 +1,7 @@
 package me.hd.hookgg.hook.hooker.elgg114
 
 import com.highcapable.yukihookapi.hook.factory.method
+import kotlinx.coroutines.launch
 import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.arg
@@ -25,8 +26,13 @@ object ELGG114Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    val func = "gg.addListItems($items)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.addListItems($items)"
+                        val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                            sendLog(func, result)
+                        }
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -44,8 +50,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val positive = varArgs.optjstring(2, "ok")
                     val negative = varArgs.optjstring(3, "nil")
                     val neutral = varArgs.optjstring(4, "nil")
-                    val func = "gg.alert($text, $positive, $negative, $neutral)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.alert($text, $positive, $negative, $neutral)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -62,8 +70,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val items = varArgs.checktable(1)
                     val selected = varArgs.arg(2)
                     val message = varArgs.optjstring(3, "nil")
-                    val func = "gg.choice($items, $selected, $message)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.choice($items, $selected, $message)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -76,8 +86,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 paramCount = 1
             }.ignored().hook {
                 after {
-                    val func = "gg.clearResults()"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.clearResults()"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -93,8 +105,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val value = varArgs.checkjstring(1)
                     val type = varArgs.checkint(2)
-                    val func = "gg.editAll($value, $type)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.editAll($value, $type)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -109,8 +123,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val filter = varArgs.optjstring(1, "")
-                    val func = "gg.getRangesList($filter)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.getRangesList($filter)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -133,9 +149,11 @@ object ELGG114Hooker : BaseGGHooker() {
                     val type = varArgs.optint(7, 0)
                     val fractional = varArgs.optjstring(8, "nil")
                     val pointer = varArgs.optint(9, 0)
-                    val func =
-                        "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func =
+                            "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -148,8 +166,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 paramCount = 1
             }.ignored().hook {
                 after {
-                    val func = "gg.getResultsCount()"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.getResultsCount()"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -164,8 +184,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    val func = "gg.getValues($values)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.getValues($values)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -182,8 +204,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val url = varArgs.checkjstring(1)
                     val headers = varArgs.opttable(2, null)
                     val data = varArgs.optstring(3, null)
-                    val func = "gg.makeRequest($url, $headers, $data)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.makeRequest($url, $headers, $data)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -200,8 +224,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val items = varArgs.checktable(1)
                     val selection = varArgs.opttable(2, null)
                     val message = varArgs.optjstring(3, "nil")
-                    val func = "gg.multiChoice($items, $selection, $message)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.multiChoice($items, $selection, $message)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -218,8 +244,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val items = varArgs.checktable(1)
                     val defaults = varArgs.opttable(2, null)
                     val types = varArgs.opttable(3, null)
-                    val func = "gg.prompt($items, $defaults, $types)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.prompt($items, $defaults, $types)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -240,11 +268,14 @@ object ELGG114Hooker : BaseGGHooker() {
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
                     val limit = varArgs.optlong(7, 0L)
-                    val func =
-                        "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
-                    val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
-                    if (filterParams && !GGUtil.isValidParams("$text")) return@after
-                    sendLog(func, result)
+                    scope.launch {
+                        val func =
+                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
+                        val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidParams("$text"))) {
+                            sendLog(func, result)
+                        }
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -262,8 +293,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val memoryFrom = varArgs.optlong(2, 0L)
                     val memoryTo = varArgs.optlong(3, -1L)
                     val limit = varArgs.optlong(4, 0L)
-                    val func = "gg.searchPointer($maxOffset, $memoryFrom, $memoryTo, $limit)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.searchPointer($maxOffset, $memoryFrom, $memoryTo, $limit)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -278,8 +311,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val ranges = varArgs.checkint(1)
-                    val func = "gg.setRanges($ranges)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.setRanges($ranges)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -294,8 +329,10 @@ object ELGG114Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    val func = "gg.setValues($values)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.setValues($values)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
@@ -311,8 +348,10 @@ object ELGG114Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val text = varArgs.checkjstring(1)
                     val fast = varArgs.optboolean(2, false)
-                    val func = "gg.toast($text, $fast)"
-                    sendLog(func, result)
+                    scope.launch {
+                        val func = "gg.toast($text, $fast)"
+                        sendLog(func, result)
+                    }
                 }
             }.ignoredAllFailure()
         }
