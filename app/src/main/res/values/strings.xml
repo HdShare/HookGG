@@ -4,8 +4,10 @@
     <string name="module_active">Active</string>
     <string name="nav_log_page">LogPage</string>
     <string name="nav_set_page">SetPage</string>
+    <string name="tab_copy">Copy</string>
     <string name="tab_save">Save</string>
     <string name="tab_clear">Clear</string>
+    <string name="tab_wrap">Wrap</string>
     <string name="dialog_accept">Accept</string>
     <string name="dialog_decline">Decline</string>
     <string name="prefs_basic">Basic</string>
