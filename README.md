@@ -17,9 +17,6 @@
     <a href="https://github.com/HdShare/HookGG/issues">
         <img src="https://img.shields.io/github/issues/HdShare/HookGG?style=flat-square&label=Issues&labelColor=1b1f23&color=007ec6" alt="issues">
     </a>
-    <a href="https://github.com/HdShare/HookGG/pulls">
-        <img src="https://img.shields.io/github/issues-pr/HdShare/HookGG?style=flat-square&label=Pulls&labelColor=1b1f23&color=fe7d37" alt="pulls">
-    </a>
 </p>
 
 <p align="center">
@@ -34,9 +31,6 @@
     </a>
     <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/issues">
         <img src="https://img.shields.io/github/issues/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Issues&labelColor=f48fb1&color=007ec6" alt="issues">
-    </a>
-    <a href="https://github.com/Xposed-Modules-Repo/me.hd.hookgg/pulls">
-        <img src="https://img.shields.io/github/issues-pr/Xposed-Modules-Repo/me.hd.hookgg?style=flat-square&label=Pulls&labelColor=f48fb1&color=fe7d37" alt="pulls">
     </a>
 </p>
 
