@@ -131,7 +131,40 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">allocatePage</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">bytes</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">choice</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">clearList</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -153,6 +186,50 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">copyMemory</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">copyText</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">disasm</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">dumpMemory</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">editAll</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -161,6 +238,72 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getActiveTab</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getFile</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getLine</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getListItems</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getLocale</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getRanges</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
         <td align="center">❓</td>
     </tr>
     <tr>
@@ -197,6 +340,61 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">getSelectedElements</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getSelectedListItems</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getSelectedResults</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getSpeed</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">getTargetInfo</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">getTargetPackage</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -219,6 +417,50 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">getValuesRange</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">gotoAddress</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">hideUiButton</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">isClickedUiButton</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">isPackageInstalled</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -227,6 +469,50 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">isProcessPaused</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">isVisible</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">loadList</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">loadResults</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
         <td align="center">❓</td>
     </tr>
     <tr>
@@ -252,6 +538,72 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">numberFromLocale</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">numberToLocale</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">processKill</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">processPause</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">processResume</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">processToggle</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">prompt</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -260,6 +612,83 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">removeListItems</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">removeResults</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">require</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">saveList</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">saveVariable</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">searchAddress</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">searchFuzzy</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
         <td align="center">❓</td>
     </tr>
     <tr>
@@ -296,6 +725,17 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">setSpeed</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">setValues</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -307,6 +747,72 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">❓</td>
     </tr>
     <tr>
+        <td align="center">setVisible</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">showUiButton</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">skipRestoreState</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">sleep</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">startFuzzy</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">timeJump</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
         <td align="center">toast</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -315,6 +821,17 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">unrandomizer</td>
+        <td align="center">✅</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
+        <td align="center">❓</td>
         <td align="center">❓</td>
     </tr>
     <tr>
