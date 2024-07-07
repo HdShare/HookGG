@@ -1,11 +1,9 @@
 package me.hd.hookgg.hook.hooker.gg.v960
 
 import com.highcapable.yukihookapi.hook.factory.method
-import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
-import me.hd.hookgg.data.func.GG
 import me.hd.hookgg.data.SetPrefsData
-import me.hd.hookgg.data.StrData
+import me.hd.hookgg.data.func.GG
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.arg
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checkint
@@ -30,11 +28,11 @@ object GGv960Hooker : BaseGGHooker() {
         GG.getResults to { getResults() },
         GG.getResultsCount to { getResultsCount() },
         GG.getValues to { getValues() },
+        GG.isPackageInstalled to { isPackageInstalled() },
         GG.makeRequest to { makeRequest() },
         GG.multiChoice to { multiChoice() },
         GG.prompt to { prompt() },
         GG.searchNumber to { searchNumber() },
-        GG.searchPointer to { searchPointer() },
         GG.setRanges to { setRanges() },
         GG.setValues to { setValues() },
         GG.toast to { toast() }
@@ -216,6 +214,24 @@ object GGv960Hooker : BaseGGHooker() {
         }
     }
 
+    private fun isPackageInstalled() {
+        "android.ext.Script\$isPackageInstalled".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val pkg = varArgs.checkjstring(1)
+                    scope.launch {
+                        val func = "gg.isPackageInstalled($pkg)"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
     private fun makeRequest() {
         "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
             method {
@@ -301,11 +317,6 @@ object GGv960Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
-    }
-
-    private fun searchPointer() {
-        val func = StrData.Unsupported.format("searchPointer")
-        YLog.error(func)
     }
 
     private fun setRanges() {

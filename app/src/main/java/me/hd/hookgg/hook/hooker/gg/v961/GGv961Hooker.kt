@@ -1,11 +1,9 @@
 package me.hd.hookgg.hook.hooker.gg.v961
 
 import com.highcapable.yukihookapi.hook.factory.method
-import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
-import me.hd.hookgg.data.func.GG
 import me.hd.hookgg.data.SetPrefsData
-import me.hd.hookgg.data.StrData
+import me.hd.hookgg.data.func.GG
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961VarArgs.arg
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961VarArgs.checkint
@@ -34,7 +32,6 @@ object GGv961Hooker : BaseGGHooker() {
         GG.multiChoice to { multiChoice() },
         GG.prompt to { prompt() },
         GG.searchNumber to { searchNumber() },
-        GG.searchPointer to { searchPointer() },
         GG.setRanges to { setRanges() },
         GG.setValues to { setValues() },
         GG.toast to { toast() }
@@ -301,11 +298,6 @@ object GGv961Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
-    }
-
-    private fun searchPointer() {
-        val func = StrData.Unsupported.format("searchPointer")
-        YLog.error(func)
     }
 
     private fun setRanges() {
