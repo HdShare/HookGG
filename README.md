@@ -68,12 +68,12 @@
     <tr>
         <td align="center">❓</td>
         <td align="center">All</td>
-        <td align="center">未知</td>
+        <td align="center">未适配</td>
     </tr>
     <tr>
         <td align="center">❌</td>
         <td align="center">All</td>
-        <td align="center">不支持/未适配</td>
+        <td align="center">不支持</td>
     </tr>
 </table>
 
