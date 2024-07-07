@@ -16,18 +16,18 @@ object RLGGv2092VarArgs : BaseGGVarArgs {
     }
 
     override fun Any?.checkboolean(i: Int): Any {
-        val clazz = "".toClass()
-        return callStaticMethod(clazz, "", this, i)
+        val clazz = "۟.a.ۣۡ۟ۤ".toClass()
+        return callStaticMethod(clazz, "ۨۥۨۤ", this, i)
     }
 
     override fun Any?.optdouble(i: Int, defVal: Double): Any {
-        val clazz = "".toClass()
-        return callStaticMethod(clazz, "", this, i, defVal) ?: defVal
+        val clazz = "rlyun.modules.base.ۨۥۧ۠".toClass()
+        return callStaticMethod(clazz, "ۤۤۡ۠", this, i, defVal) ?: defVal
     }
 
     override fun Any?.checkdouble(i: Int): Any {
-        val clazz = "".toClass()
-        return callStaticMethod(clazz, "", this, i)
+        val clazz = "android.ext.۟ۡۥۤ".toClass()
+        return callStaticMethod(clazz, "ۡ۟ۦۤ", this, i)
     }
 
     override fun Any?.optint(i: Int, defVal: Int): Any {
@@ -46,8 +46,8 @@ object RLGGv2092VarArgs : BaseGGVarArgs {
     }
 
     override fun Any?.checklong(i: Int): Any {
-        val clazz = "".toClass()
-        return callStaticMethod(clazz, "", this, i)
+        val clazz = "android.app.ۦۣۨۨ".toClass()
+        return callStaticMethod(clazz, "ۡۧ۟ۥ", this, i)
     }
 
     override fun Any?.optjstring(i: Int, defVal: String): Any {
