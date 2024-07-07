@@ -5,13 +5,13 @@ import com.highcapable.yukihookapi.hook.factory.dataChannel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import me.hd.hookgg.BuildConfig
-import me.hd.hookgg.data.SetPagePrefsData
+import me.hd.hookgg.data.SetPrefsData
 
 abstract class BaseGGHooker : YukiBaseHooker() {
     protected val scope = CoroutineScope(Dispatchers.Default)
 
     protected fun sendLog(func: String, result: Any?) {
-        val logReturn = prefs.get(SetPagePrefsData.LOG_RETURN)
+        val logReturn = prefs.get(SetPrefsData.LOG_RETURN)
         val log = "$func\n${if (logReturn) "--[[$result]]\n" else ""}"
         appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
     }
@@ -19,7 +19,7 @@ abstract class BaseGGHooker : YukiBaseHooker() {
     abstract val functionMap: Map<String, () -> Unit>
 
     override fun onHook() {
-        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+        val setFuncList = prefs.get(SetPrefsData.FUNCTION_LIST)
         setFuncList.forEach { function ->
             functionMap[function]?.invoke()
         }

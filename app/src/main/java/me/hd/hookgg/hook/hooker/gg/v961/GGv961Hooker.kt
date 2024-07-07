@@ -3,8 +3,8 @@ package me.hd.hookgg.hook.hooker.gg.v961
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
-import me.hd.hookgg.data.GGData
-import me.hd.hookgg.data.SetPagePrefsData
+import me.hd.hookgg.data.func.GG
+import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.data.StrData
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961VarArgs.arg
@@ -21,23 +21,23 @@ import me.hd.hookgg.hook.utils.GGUtil
 
 object GGv961Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
-        GGData.addListItems to { addListItems() },
-        GGData.alert to { alert() },
-        GGData.choice to { choice() },
-        GGData.clearResults to { clearResults() },
-        GGData.editAll to { editAll() },
-        GGData.getRangesList to { getRangesList() },
-        GGData.getResults to { getResults() },
-        GGData.getResultsCount to { getResultsCount() },
-        GGData.getValues to { getValues() },
-        GGData.makeRequest to { makeRequest() },
-        GGData.multiChoice to { multiChoice() },
-        GGData.prompt to { prompt() },
-        GGData.searchNumber to { searchNumber() },
-        GGData.searchPointer to { searchPointer() },
-        GGData.setRanges to { setRanges() },
-        GGData.setValues to { setValues() },
-        GGData.toast to { toast() }
+        GG.addListItems to { addListItems() },
+        GG.alert to { alert() },
+        GG.choice to { choice() },
+        GG.clearResults to { clearResults() },
+        GG.editAll to { editAll() },
+        GG.getRangesList to { getRangesList() },
+        GG.getResults to { getResults() },
+        GG.getResultsCount to { getResultsCount() },
+        GG.getValues to { getValues() },
+        GG.makeRequest to { makeRequest() },
+        GG.multiChoice to { multiChoice() },
+        GG.prompt to { prompt() },
+        GG.searchNumber to { searchNumber() },
+        GG.searchPointer to { searchPointer() },
+        GG.setRanges to { setRanges() },
+        GG.setValues to { setValues() },
+        GG.toast to { toast() }
     )
 
     private fun addListItems() {
@@ -51,7 +51,7 @@ object GGv961Hooker : BaseGGHooker() {
                     val items = varArgs.checktable(1)
                     scope.launch {
                         val func = "gg.addListItems($items)"
-                        val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidItems("$items"))) {
                             sendLog(func, result)
                         }
@@ -293,7 +293,7 @@ object GGv961Hooker : BaseGGHooker() {
                     scope.launch {
                         val func =
                             "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
-                        val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
                             sendLog(func, result)
                         }

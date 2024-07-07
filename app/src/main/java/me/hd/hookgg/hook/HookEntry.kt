@@ -7,7 +7,7 @@ import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.AppData
-import me.hd.hookgg.data.SetPagePrefsData
+import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
 import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker
 import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker
@@ -28,9 +28,9 @@ object HookEntry : IYukiHookXposedInit {
 
     override fun onHook() = encase {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
-            if (prefs.get(SetPagePrefsData.PACKAGE_NAME, "") == packageName) {
+            if (prefs.get(SetPrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    when (prefs.get(SetPagePrefsData.VERSION_NAME)) {
+                    when (prefs.get(SetPrefsData.VERSION_NAME)) {
                         AppData.getVersionList()[0] -> loadHooker(GGv960Hooker)
                         AppData.getVersionList()[1] -> loadHooker(GGv961Hooker)
                         AppData.getVersionList()[2] -> loadHooker(GGv1011Hooker)

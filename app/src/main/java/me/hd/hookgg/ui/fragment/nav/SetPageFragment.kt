@@ -8,7 +8,7 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
 import me.hd.hookgg.data.AppData
-import me.hd.hookgg.data.SetPagePrefsData
+import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
 import me.hd.hookgg.ui.fragment.base.BaseFragment
@@ -31,18 +31,18 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
 
     private fun initPrefsDefVal(binding: FragmentSetPageBinding) {
         val prefs = MyApp.context.prefs()
-        binding.setTvDefPackageName.text = prefs.get(SetPagePrefsData.PACKAGE_NAME)
-        binding.setTvDefVersionName.text = prefs.get(SetPagePrefsData.VERSION_NAME)
+        binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
+        binding.setTvDefVersionName.text = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefFunctionList.text = getString(R.string.prefs_def_function_num)
-            .format(prefs.get(SetPagePrefsData.FUNCTION_LIST).size)
-        binding.setSwitchLogReturn.isChecked = prefs.get(SetPagePrefsData.LOG_RETURN)
-        binding.setSwitchFilterParams.isChecked = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+            .format(prefs.get(SetPrefsData.FUNCTION_LIST).size)
+        binding.setSwitchLogReturn.isChecked = prefs.get(SetPrefsData.LOG_RETURN)
+        binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
     }
 
     private fun initPrefsOnClick(binding: FragmentSetPageBinding) {
         val prefs = MyApp.context.prefs()
         binding.setLLPackageName.setOnClickListener {
-            val oldPackageName = prefs.get(SetPagePrefsData.PACKAGE_NAME)
+            val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)
             val dialogBinding =
                 DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
             dialogBinding.textInputEditText.setText(oldPackageName)
@@ -53,7 +53,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                     val newPackageName = dialogBinding.textInputEditText.text.toString()
                     if (newPackageName.isNotEmpty()) {
                         prefs.edit {
-                            put(SetPagePrefsData.PACKAGE_NAME, newPackageName)
+                            put(SetPrefsData.PACKAGE_NAME, newPackageName)
                         }
                     }
                     binding.setTvDefPackageName.text = newPackageName
@@ -63,7 +63,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
         }
         binding.setLLVersionName.setOnClickListener {
             val versionList = AppData.getVersionList()
-            val oldVersionName = prefs.get(SetPagePrefsData.VERSION_NAME)
+            val oldVersionName = prefs.get(SetPrefsData.VERSION_NAME)
             val oldVersionIndex = versionList.indexOf(oldVersionName)
             var newVersionIndex = oldVersionIndex
             MaterialAlertDialogBuilder(requireContext())
@@ -75,8 +75,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                     val newVersionName = versionList[newVersionIndex]
                     val newFunctionListSet = setOf<String>()
                     prefs.edit {
-                        put(SetPagePrefsData.VERSION_NAME, newVersionName)
-                        put(SetPagePrefsData.FUNCTION_LIST, newFunctionListSet)
+                        put(SetPrefsData.VERSION_NAME, newVersionName)
+                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
                     }
                     binding.setTvDefVersionName.text = newVersionName
                     binding.setTvDefFunctionList.text =
@@ -86,9 +86,9 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 .show()
         }
         binding.setLLFunctionList.setOnClickListener {
-            val versionName = prefs.get(SetPagePrefsData.VERSION_NAME)
+            val versionName = prefs.get(SetPrefsData.VERSION_NAME)
             val functionList = AppData.getFunctionList(versionName)
-            val oldFunctionList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+            val oldFunctionList = prefs.get(SetPrefsData.FUNCTION_LIST)
             val oldFunctionStatus = BooleanArray(functionList.size) {
                 functionList[it] in oldFunctionList
             }
@@ -102,7 +102,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                         oldFunctionStatus[index]
                     }.toSet()
                     prefs.edit {
-                        put(SetPagePrefsData.FUNCTION_LIST, newFunctionListSet)
+                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
                     }
                     binding.setTvDefFunctionList.text =
                         getString(R.string.prefs_def_function_num).format(newFunctionListSet.size)
@@ -111,18 +111,18 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 .show()
         }
         binding.setSwitchLogReturn.setOnClickListener {
-            val oldLogReturn = prefs.get(SetPagePrefsData.LOG_RETURN)
+            val oldLogReturn = prefs.get(SetPrefsData.LOG_RETURN)
             val newLogReturn = !oldLogReturn
             prefs.edit {
-                put(SetPagePrefsData.LOG_RETURN, newLogReturn)
+                put(SetPrefsData.LOG_RETURN, newLogReturn)
             }
             binding.setSwitchLogReturn.isChecked = newLogReturn
         }
         binding.setSwitchFilterParams.setOnClickListener {
-            val oldFilterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
+            val oldFilterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
             val newFilterParams = !oldFilterParams
             prefs.edit {
-                put(SetPagePrefsData.FILTER_PARAMS, newFilterParams)
+                put(SetPrefsData.FILTER_PARAMS, newFilterParams)
             }
             binding.setSwitchFilterParams.isChecked = newFilterParams
         }
