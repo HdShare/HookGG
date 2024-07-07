@@ -27,6 +27,7 @@ object AGGv333Hooker : BaseGGHooker() {
         GG.getRangesList to { this.getRangesList() },
         GG.getResults to { this.getResults() },
         GG.getResultsCount to { this.getResultsCount() },
+        GG.getTargetPackage to { this.getTargetPackage() },
         GG.getValues to { this.getValues() },
         GG.isPackageInstalled to { this.isPackageInstalled() },
         GG.makeRequest to { this.makeRequest() },
@@ -196,6 +197,22 @@ object AGGv333Hooker : BaseGGHooker() {
                 after {
                     scope.launch {
                         val func = "gg.getResultsCount()"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    private fun getTargetPackage() {
+        "android.ext.function.getTargetPackage".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    scope.launch {
+                        val func = "gg.getTargetPackage()"
                         sendLog(func, result)
                     }
                 }
