@@ -19,22 +19,23 @@ import me.hd.hookgg.hook.utils.GGUtil
 
 object AGGv333Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
-        GG.addListItems to { addListItems() },
-        GG.alert to { alert() },
-        GG.choice to { choice() },
-        GG.clearResults to { clearResults() },
-        GG.editAll to { editAll() },
-        GG.getRangesList to { getRangesList() },
-        GG.getResults to { getResults() },
-        GG.getResultsCount to { getResultsCount() },
-        GG.getValues to { getValues() },
-        GG.makeRequest to { makeRequest() },
-        GG.multiChoice to { multiChoice() },
-        GG.prompt to { prompt() },
-        GG.searchNumber to { searchNumber() },
-        GG.setRanges to { setRanges() },
-        GG.setValues to { setValues() },
-        GG.toast to { toast() }
+        GG.addListItems to { this.addListItems() },
+        GG.alert to { this.alert() },
+        GG.choice to { this.choice() },
+        GG.clearResults to { this.clearResults() },
+        GG.editAll to { this.editAll() },
+        GG.getRangesList to { this.getRangesList() },
+        GG.getResults to { this.getResults() },
+        GG.getResultsCount to { this.getResultsCount() },
+        GG.getValues to { this.getValues() },
+        GG.isPackageInstalled to { this.isPackageInstalled() },
+        GG.makeRequest to { this.makeRequest() },
+        GG.multiChoice to { this.multiChoice() },
+        GG.prompt to { this.prompt() },
+        GG.searchNumber to { this.searchNumber() },
+        GG.setRanges to { this.setRanges() },
+        GG.setValues to { this.setValues() },
+        GG.toast to { this.toast() }
     )
 
     override fun onHook() {
@@ -213,6 +214,24 @@ object AGGv333Hooker : BaseGGHooker() {
                     val values = varArgs.checktable(1)
                     scope.launch {
                         val func = "gg.getValues($values)"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    private fun isPackageInstalled() {
+        "android.ext.function.isPackageInstalled".toClassOrNull()?.apply {
+            method {
+                name = "invoke2"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val pkg = varArgs.checkjstring(1)
+                    scope.launch {
+                        val func = "gg.isPackageInstalled($pkg)"
                         sendLog(func, result)
                     }
                 }
