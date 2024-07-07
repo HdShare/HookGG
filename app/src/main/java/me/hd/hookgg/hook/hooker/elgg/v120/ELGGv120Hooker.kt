@@ -1,24 +1,46 @@
-package me.hd.hookgg.hook.hooker.elgg114
+package me.hd.hookgg.hook.hooker.elgg.v120
 
 import com.highcapable.yukihookapi.hook.factory.method
 import kotlinx.coroutines.launch
+import me.hd.hookgg.data.GGData
 import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.hook.base.BaseGGHooker
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.arg
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.checkint
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.checkjstring
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.checktable
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optboolean
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optint
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optjstring
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optlong
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.optstring
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114VarArgs.opttable
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.arg
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.checkint
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.checkjstring
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.checktable
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.optboolean
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.optint
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.optjstring
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.optlong
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.optstring
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.opttable
 import me.hd.hookgg.hook.utils.GGUtil
 
-object ELGG114Hooker : BaseGGHooker() {
-    override fun addListItems() {
-        "android.ext.ۣۧۧۢ".toClassOrNull()?.apply {
+object ELGGv120Hooker : BaseGGHooker() {
+    override fun onHook() {
+        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+        if (GGData.addListItems in setFuncList) addListItems()
+        if (GGData.alert in setFuncList) alert()
+        if (GGData.choice in setFuncList) choice()
+        if (GGData.clearResults in setFuncList) clearResults()
+        if (GGData.editAll in setFuncList) editAll()
+        if (GGData.getRangesList in setFuncList) getRangesList()
+        if (GGData.getResults in setFuncList) getResults()
+        if (GGData.getResultsCount in setFuncList) getResultsCount()
+        if (GGData.getValues in setFuncList) getValues()
+        if (GGData.makeRequest in setFuncList) makeRequest()
+        if (GGData.multiChoice in setFuncList) multiChoice()
+        if (GGData.prompt in setFuncList) prompt()
+        if (GGData.searchNumber in setFuncList) searchNumber()
+        if (GGData.searchPointer in setFuncList) searchPointer()
+        if (GGData.setRanges in setFuncList) setRanges()
+        if (GGData.setValues in setFuncList) setValues()
+        if (GGData.toast in setFuncList) toast()
+    }
+
+    private fun addListItems() {
+        "android.ext.ۣۧۧۡ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -38,8 +60,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun alert() {
-        "android.ext.۟ۧ۠ۡ۠".toClassOrNull()?.apply {
+    private fun alert() {
+        "android.ext.ۦۤ۠۠".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -59,8 +81,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun choice() {
-        "android.ext.۟ۧ۠ۡۥ".toClassOrNull()?.apply {
+    private fun choice() {
+        "android.ext.۟ۧ۠ۡۦ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -79,8 +101,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun clearResults() {
-        "android.ext.۟ۧ۠۠ۨ".toClassOrNull()?.apply {
+    private fun clearResults() {
+        "android.ext.۟ۧ۠ۡۨ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -95,8 +117,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun editAll() {
-        "android.ext.ۧۧۢۡ".toClassOrNull()?.apply {
+    private fun editAll() {
+        "android.ext.ۧۧۢ۠".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -114,8 +136,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getRangesList() {
-        "android.ext.ۧۧۡۦ".toClassOrNull()?.apply {
+    private fun getRangesList() {
+        "android.ext.ۧۧۡۥ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -132,8 +154,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResults() {
-        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
+    private fun getResults() {
+        "android.ext.ۧۧۡۤ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -159,8 +181,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResultsCount() {
-        "android.ext.ۧۧۡۢ".toClassOrNull()?.apply {
+    private fun getResultsCount() {
+        "android.ext.ۧۧۡۡ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -175,8 +197,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getValues() {
-        "android.ext.ۧۧۥ۟".toClassOrNull()?.apply {
+    private fun getValues() {
+        "android.ext.ۧۧۥۢ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -193,7 +215,7 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun makeRequest() {
+    private fun makeRequest() {
         "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -213,8 +235,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun multiChoice() {
-        "android.ext.ۦۤۡ۟".toClassOrNull()?.apply {
+    private fun multiChoice() {
+        "android.ext.ۣۧۧۤ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -233,8 +255,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun prompt() {
-        "android.ext.ۣۧۧۨ".toClassOrNull()?.apply {
+    private fun prompt() {
+        "android.ext.ۦۤ۠ۨ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1
@@ -253,8 +275,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchNumber() {
-        "android.ext.ۣۣۧۧ".toClassOrNull()?.apply {
+    private fun searchNumber() {
+        "android.ext.ۣۧۧۦ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -281,8 +303,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchPointer() {
-        "android.ext.ۧۧۧۡ".toClassOrNull()?.apply {
+    private fun searchPointer() {
+        "android.ext.۟ۧ۠ۥۢ".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -302,8 +324,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun setRanges() {
-        "android.ext.۟ۧ۠ۥۣ".toClassOrNull()?.apply {
+    private fun setRanges() {
+        "android.ext.ۧۧۧ۠".toClassOrNull()?.apply {
             method {
                 name = "d"
                 paramCount = 1
@@ -320,7 +342,7 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun setValues() {
+    private fun setValues() {
         "android.ext.Script\$setValues".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -338,8 +360,8 @@ object ELGG114Hooker : BaseGGHooker() {
         }
     }
 
-    override fun toast() {
-        "android.ext.ۧۧۦۧ".toClassOrNull()?.apply {
+    private fun toast() {
+        "android.ext.ۦۣۤۧ".toClassOrNull()?.apply {
             method {
                 name = "b"
                 paramCount = 1

@@ -1,10 +1,10 @@
-package me.hd.hookgg.hook.hooker.rlgg2092
+package me.hd.hookgg.hook.hooker.rlgg.v2092
 
 import de.robv.android.xposed.XposedHelpers.callStaticMethod
 import me.hd.hookgg.hook.base.BaseGGVarArgs
-import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092Hooker.toClass
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker.toClass
 
-object RLGG2092VarArgs : BaseGGVarArgs {
+object RLGGv2092VarArgs : BaseGGVarArgs {
     override fun Any?.arg(i: Int): Any {
         val clazz = "۟.lib.jse.ۤۦۢ".toClass()
         return callStaticMethod(clazz, "۠ۧۤۨ", this, i)

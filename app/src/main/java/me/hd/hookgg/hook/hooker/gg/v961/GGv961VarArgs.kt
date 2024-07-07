@@ -1,11 +1,11 @@
-package me.hd.hookgg.hook.hooker.elgg114
+package me.hd.hookgg.hook.hooker.gg.v961
 
 import com.highcapable.yukihookapi.hook.type.java.IntType
 import de.robv.android.xposed.XposedHelpers.callMethod
 import me.hd.hookgg.hook.base.BaseGGVarArgs
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114Hooker.toClass
+import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker.toClass
 
-object ELGG114VarArgs : BaseGGVarArgs {
+object GGv961VarArgs : BaseGGVarArgs {
     override fun Any?.arg(i: Int): Any {
         return callMethod(this, "c", i)
     }
@@ -61,7 +61,7 @@ object ELGG114VarArgs : BaseGGVarArgs {
     }
 
     override fun Any?.opttable(i: Int, defVal: Any?): Any {
-        val clazz = "luaj.ۦۤۦ۟".toClass()
+        val clazz = "luaj.LuaTable".toClass()
         val parameterTypes = arrayOf(IntType, clazz)
         return callMethod(this, "a", parameterTypes, i, defVal) ?: "{}"
     }

@@ -1,25 +1,45 @@
-package me.hd.hookgg.hook.hooker.gg961
+package me.hd.hookgg.hook.hooker.gg.v1011
 
 import com.highcapable.yukihookapi.hook.factory.method
-import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
+import me.hd.hookgg.data.GGData
 import me.hd.hookgg.data.SetPagePrefsData
-import me.hd.hookgg.data.StrData
 import me.hd.hookgg.hook.base.BaseGGHooker
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.arg
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.checkint
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.checkjstring
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.checktable
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.optboolean
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.optint
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.optjstring
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.optlong
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.optstring
-import me.hd.hookgg.hook.hooker.gg961.GG961VarArgs.opttable
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.arg
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.checkint
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.checkjstring
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.checktable
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optboolean
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optint
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optjstring
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optlong
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optstring
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.opttable
 import me.hd.hookgg.hook.utils.GGUtil
 
-object GG961Hooker : BaseGGHooker() {
-    override fun addListItems() {
+object GGv1011Hooker : BaseGGHooker() {
+    override fun onHook() {
+        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+        if (GGData.addListItems in setFuncList) addListItems()
+        if (GGData.alert in setFuncList) alert()
+        if (GGData.choice in setFuncList) choice()
+        if (GGData.clearResults in setFuncList) clearResults()
+        if (GGData.editAll in setFuncList) editAll()
+        if (GGData.getRangesList in setFuncList) getRangesList()
+        if (GGData.getResults in setFuncList) getResults()
+        if (GGData.getResultsCount in setFuncList) getResultsCount()
+        if (GGData.getValues in setFuncList) getValues()
+        if (GGData.makeRequest in setFuncList) makeRequest()
+        if (GGData.multiChoice in setFuncList) multiChoice()
+        if (GGData.prompt in setFuncList) prompt()
+        if (GGData.searchNumber in setFuncList) searchNumber()
+        if (GGData.searchPointer in setFuncList) searchPointer()
+        if (GGData.setRanges in setFuncList) setRanges()
+        if (GGData.setValues in setFuncList) setValues()
+        if (GGData.toast in setFuncList) toast()
+    }
+
+    private fun addListItems() {
         "android.ext.Script\$addListItems".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -40,7 +60,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun alert() {
+    private fun alert() {
         "android.ext.Script\$alert".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -61,7 +81,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun choice() {
+    private fun choice() {
         "android.ext.Script\$choice".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -81,7 +101,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun clearResults() {
+    private fun clearResults() {
         "android.ext.Script\$clearResults".toClassOrNull()?.apply {
             method {
                 name = "d"
@@ -97,7 +117,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun editAll() {
+    private fun editAll() {
         "android.ext.Script\$editAll".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -116,7 +136,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getRangesList() {
+    private fun getRangesList() {
         "android.ext.Script\$getRangesList".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -134,7 +154,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResults() {
+    private fun getResults() {
         "android.ext.Script\$getResults".toClassOrNull()?.apply {
             method {
                 name = "d"
@@ -161,7 +181,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResultsCount() {
+    private fun getResultsCount() {
         "android.ext.Script\$getResultsCount".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -177,7 +197,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getValues() {
+    private fun getValues() {
         "android.ext.Script\$getValues".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -195,7 +215,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun makeRequest() {
+    private fun makeRequest() {
         "android.ext.Script\$makeRequest".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -215,7 +235,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun multiChoice() {
+    private fun multiChoice() {
         "android.ext.Script\$multiChoice".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -235,7 +255,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun prompt() {
+    private fun prompt() {
         "android.ext.Script\$prompt".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -255,7 +275,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchNumber() {
+    private fun searchNumber() {
         "android.ext.Script\$searchNumber".toClassOrNull()?.apply {
             method {
                 name = "d"
@@ -269,9 +289,10 @@ object GG961Hooker : BaseGGHooker() {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
+                    val limit = varArgs.optlong(7, 0L)
                     scope.launch {
                         val func =
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                         val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
                             sendLog(func, result)
@@ -282,12 +303,28 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchPointer() {
-        val func = StrData.Unsupported.format("searchPointer")
-        YLog.error(func)
+    private fun searchPointer() {
+        "android.ext.Script\$searchPointer".toClassOrNull()?.apply {
+            method {
+                name = "d"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val maxOffset = varArgs.checkint(1)
+                    val memoryFrom = varArgs.optlong(2, 0L)
+                    val memoryTo = varArgs.optlong(3, -1L)
+                    val limit = varArgs.optlong(4, 0L)
+                    scope.launch {
+                        val func = "gg.searchPointer($maxOffset, $memoryFrom, $memoryTo, $limit)"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
     }
 
-    override fun setRanges() {
+    private fun setRanges() {
         "android.ext.Script\$setRanges".toClassOrNull()?.apply {
             method {
                 name = "d"
@@ -305,7 +342,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun setValues() {
+    private fun setValues() {
         "android.ext.Script\$setValues".toClassOrNull()?.apply {
             method {
                 name = "b"
@@ -323,7 +360,7 @@ object GG961Hooker : BaseGGHooker() {
         }
     }
 
-    override fun toast() {
+    private fun toast() {
         "android.ext.Script\$toast".toClassOrNull()?.apply {
             method {
                 name = "b"

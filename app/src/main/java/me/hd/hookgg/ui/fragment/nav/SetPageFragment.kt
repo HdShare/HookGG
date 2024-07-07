@@ -62,7 +62,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 .show()
         }
         binding.setLLVersionName.setOnClickListener {
-            val versionList = AppData.VERSION_LIST
+            val versionList = AppData.getVersionList()
             val oldVersionName = prefs.get(SetPagePrefsData.VERSION_NAME)
             val oldVersionIndex = versionList.indexOf(oldVersionName)
             var newVersionIndex = oldVersionIndex
@@ -73,16 +73,21 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                 }
                 .setPositiveButton(R.string.dialog_accept) { _, _ ->
                     val newVersionName = versionList[newVersionIndex]
+                    val newFunctionListSet = setOf<String>()
                     prefs.edit {
                         put(SetPagePrefsData.VERSION_NAME, newVersionName)
+                        put(SetPagePrefsData.FUNCTION_LIST, newFunctionListSet)
                     }
                     binding.setTvDefVersionName.text = newVersionName
+                    binding.setTvDefFunctionList.text =
+                        getString(R.string.prefs_def_function_num).format(0)
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
         }
         binding.setLLFunctionList.setOnClickListener {
-            val functionList = AppData.FUNCTION_LIST
+            val versionName = prefs.get(SetPagePrefsData.VERSION_NAME)
+            val functionList = AppData.getFunctionList(versionName)
             val oldFunctionList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
             val oldFunctionStatus = BooleanArray(functionList.size) {
                 functionList[it] in oldFunctionList

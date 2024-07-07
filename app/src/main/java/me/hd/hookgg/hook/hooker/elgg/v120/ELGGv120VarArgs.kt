@@ -1,11 +1,11 @@
-package me.hd.hookgg.hook.hooker.elgg120
+package me.hd.hookgg.hook.hooker.elgg.v120
 
 import com.highcapable.yukihookapi.hook.type.java.IntType
 import de.robv.android.xposed.XposedHelpers.callMethod
 import me.hd.hookgg.hook.base.BaseGGVarArgs
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114Hooker.toClass
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker.toClass
 
-object ELGG120VarArgs : BaseGGVarArgs {
+object ELGGv120VarArgs : BaseGGVarArgs {
     override fun Any?.arg(i: Int): Any {
         return callMethod(this, "c", i)
     }

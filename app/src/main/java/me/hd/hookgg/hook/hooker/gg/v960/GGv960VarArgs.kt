@@ -1,9 +1,9 @@
-package me.hd.hookgg.hook.hooker.gg960
+package me.hd.hookgg.hook.hooker.gg.v960
 
 import de.robv.android.xposed.XposedHelpers.callMethod
 import me.hd.hookgg.hook.base.BaseGGVarArgs
 
-object GG960VarArgs : BaseGGVarArgs {
+object GGv960VarArgs : BaseGGVarArgs {
     override fun Any?.arg(i: Int): Any {
         return callMethod(this, "arg", i)
     }

@@ -3,8 +3,8 @@ package me.hd.hookgg.hook.helper
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
 import com.highcapable.yukihookapi.hook.param.PackageParam
-import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092Hooker.hook
-import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092Hooker.toClassOrNull
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker.hook
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker.toClassOrNull
 import java.lang.reflect.Modifier
 
 object Test {

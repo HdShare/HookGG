@@ -1,49 +1,68 @@
-package me.hd.hookgg.hook.hooker.agg333
+package me.hd.hookgg.hook.hooker.rlgg.v2092
 
 import com.highcapable.yukihookapi.hook.factory.method
 import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
+import me.hd.hookgg.data.GGData
 import me.hd.hookgg.data.SetPagePrefsData
 import me.hd.hookgg.data.StrData
 import me.hd.hookgg.hook.base.BaseGGHooker
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.arg
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.checkint
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.checkjstring
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.checktable
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.optboolean
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.optint
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.optjstring
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.optlong
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.optstring
-import me.hd.hookgg.hook.hooker.agg333.AGG333VarArgs.opttable
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.arg
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.checkint
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.checkjstring
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.checktable
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.optboolean
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.optint
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.optjstring
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.optlong
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.optstring
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.opttable
 import me.hd.hookgg.hook.utils.GGUtil
 
-object AGG333Hooker : BaseGGHooker() {
-    override fun addListItems() {
-        "android.ext.function.addListItems".toClassOrNull()?.apply {
-            method {
-                name = "invoke2"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val items = varArgs.checktable(1)
-                    scope.launch {
-                        val func = "gg.addListItems($items)"
-                        val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
-                            sendLog(func, result)
-                        }
-                    }
-                }
-            }.ignoredAllFailure()
-        }
+object RLGGv2092Hooker : BaseGGHooker() {
+    override fun onHook() {
+        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+        if (GGData.addListItems in setFuncList) addListItems()
+        if (GGData.alert in setFuncList) alert()
+        if (GGData.choice in setFuncList) choice()
+        if (GGData.clearResults in setFuncList) clearResults()
+        if (GGData.editAll in setFuncList) editAll()
+        if (GGData.getRangesList in setFuncList) getRangesList()
+        if (GGData.getResults in setFuncList) getResults()
+        if (GGData.getResultsCount in setFuncList) getResultsCount()
+        if (GGData.getValues in setFuncList) getValues()
+        if (GGData.makeRequest in setFuncList) makeRequest()
+        if (GGData.multiChoice in setFuncList) multiChoice()
+        if (GGData.prompt in setFuncList) prompt()
+        if (GGData.searchNumber in setFuncList) searchNumber()
+        if (GGData.searchPointer in setFuncList) searchPointer()
+        if (GGData.setRanges in setFuncList) setRanges()
+        if (GGData.setValues in setFuncList) setValues()
+        if (GGData.toast in setFuncList) toast()
     }
 
-    override fun alert() {
-        "android.ext.function.alert".toClassOrNull()?.apply {
+    private fun addListItems() {
+        val func = StrData.Forbidden.format("addListItems")
+        YLog.error(func)
+//        "android.ext.̯".toClassOrNull()?.apply {
+//            method {
+//                name = "̢"
+//                paramCount = 1
+//            }.ignored().hook {
+//                after {
+//                    val varArgs = args(0).any()
+//                    val items = varArgs.checktable(1)
+//                    val func = "gg.addListItems($items)"
+//                    sendLog(func, result)
+//                }
+//            }.ignoredAllFailure()
+//        }
+    }
+
+    private fun alert() {
+        "android.ext.̳".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -61,10 +80,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun choice() {
-        "android.ext.function.choice".toClassOrNull()?.apply {
+    private fun choice() {
+        "android.ext.̷".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -81,10 +100,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun clearResults() {
-        "android.ext.function.clearResults".toClassOrNull()?.apply {
+    private fun clearResults() {
+        "android.ext.̻".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -97,10 +116,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun editAll() {
-        "android.ext.function.editAll".toClassOrNull()?.apply {
+    private fun editAll() {
+        "android.ext.͆".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -116,10 +135,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getRangesList() {
-        "android.ext.function.getRangesList".toClassOrNull()?.apply {
+    private fun getRangesList() {
+        "android.ext.͒".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -134,10 +153,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResults() {
-        "android.ext.function.getResults".toClassOrNull()?.apply {
+    private fun getResults() {
+        "android.ext.͔".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -161,10 +180,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getResultsCount() {
-        "android.ext.function.getResultsCount".toClassOrNull()?.apply {
+    private fun getResultsCount() {
+        "android.ext.͕".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -177,28 +196,28 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun getValues() {
-        "android.ext.function.getValues".toClassOrNull()?.apply {
-            method {
-                name = "invoke2"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val values = varArgs.checktable(1)
-                    scope.launch {
-                        val func = "gg.getValues($values)"
-                        sendLog(func, result)
-                    }
-                }
-            }.ignoredAllFailure()
-        }
+    private fun getValues() {
+        val func = StrData.Forbidden.format("getValues")
+        YLog.error(func)
+//        "android.ext.ͣ".toClassOrNull()?.apply {
+//            method {
+//                name = "̢"
+//                paramCount = 1
+//            }.ignored().hook {
+//                after {
+//                    val varArgs = args(0).any()
+//                    val values = varArgs.checktable(1)
+//                    val func = "gg.getValues($values)"
+//                    sendLog(func, result)
+//                }
+//            }.ignoredAllFailure()
+//        }
     }
 
-    override fun makeRequest() {
-        "android.ext.function.makeRequest".toClassOrNull()?.apply {
+    private fun makeRequest() {
+        "android.ext.\u0378".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -215,10 +234,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun multiChoice() {
-        "android.ext.function.multiChoice".toClassOrNull()?.apply {
+    private fun multiChoice() {
+        "android.ext.Ϳ".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -235,10 +254,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun prompt() {
-        "android.ext.function.prompt".toClassOrNull()?.apply {
+    private fun prompt() {
+        "android.ext.Ԭ".toClassOrNull()?.apply {
             method {
-                name = "invoke2"
+                name = "̢"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -255,10 +274,10 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchNumber() {
-        "android.ext.function.searchNumber".toClassOrNull()?.apply {
+    private fun searchNumber() {
+        "android.ext.ԯ".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -269,9 +288,10 @@ object AGG333Hooker : BaseGGHooker() {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
+                    val limit = varArgs.optlong(7, 0L)
                     scope.launch {
                         val func =
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                         val filterParams = prefs.get(SetPagePrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
                             sendLog(func, result)
@@ -282,15 +302,31 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun searchPointer() {
-        val func = StrData.Unsupported.format("searchPointer")
-        YLog.error(func)
+    private fun searchPointer() {
+        "android.ext.֏".toClassOrNull()?.apply {
+            method {
+                name = "d"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    val varArgs = args(0).any()
+                    val maxOffset = varArgs.checkint(1)
+                    val memoryFrom = varArgs.optlong(2, 0L)
+                    val memoryTo = varArgs.optlong(3, -1L)
+                    val limit = varArgs.optlong(4, 0L)
+                    scope.launch {
+                        val func = "gg.searchPointer($maxOffset, $memoryFrom, $memoryTo, $limit)"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
     }
 
-    override fun setRanges() {
-        "android.ext.function.setRanges".toClassOrNull()?.apply {
+    private fun setRanges() {
+        "android.ext.\u05CA".toClassOrNull()?.apply {
             method {
-                name = "invokeUi"
+                name = "d"
                 paramCount = 1
             }.ignored().hook {
                 after {
@@ -305,40 +341,40 @@ object AGG333Hooker : BaseGGHooker() {
         }
     }
 
-    override fun setValues() {
-        "android.ext.function.setValues".toClassOrNull()?.apply {
-            method {
-                name = "invoke2"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val values = varArgs.checktable(1)
-                    scope.launch {
-                        val func = "gg.setValues($values)"
-                        sendLog(func, result)
-                    }
-                }
-            }.ignoredAllFailure()
-        }
+    private fun setValues() {
+        val func = StrData.Forbidden.format("setValues")
+        YLog.error(func)
+//        "android.ext.\u05CD".toClassOrNull()?.apply {
+//            method {
+//                name = "̢"
+//                paramCount = 1
+//            }.ignored().hook {
+//                after {
+//                    val varArgs = args(0).any()
+//                    val values = varArgs.checktable(1)
+//                    val func = "gg.setValues($values)"
+//                    sendLog(func, result)
+//                }
+//            }.ignoredAllFailure()
+//        }
     }
 
-    override fun toast() {
-        "android.ext.function.toast".toClassOrNull()?.apply {
-            method {
-                name = "invoke2"
-                paramCount = 1
-            }.ignored().hook {
-                after {
-                    val varArgs = args(0).any()
-                    val text = varArgs.checkjstring(1)
-                    val fast = varArgs.optboolean(2, false)
-                    scope.launch {
-                        val func = "gg.toast($text, $fast)"
-                        sendLog(func, result)
-                    }
-                }
-            }.ignoredAllFailure()
-        }
+    private fun toast() {
+        val func = StrData.Unsupported.format("toast")
+        YLog.error(func)
+//        "android.ext.\u05F5".toClassOrNull()?.apply {
+//            method {
+//                name = "̢"
+//                paramCount = 1
+//            }.ignored().hook {
+//                after {
+//                    val varArgs = args(0).any()
+//                    val text = varArgs.checkjstring(1)
+//                    val fast = varArgs.optboolean(2, false)
+//                    val func = "gg.toast($text, $fast)"
+//                    sendLog(func, result)
+//                }
+//            }.ignoredAllFailure()
+//        }
     }
 }

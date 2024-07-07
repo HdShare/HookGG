@@ -8,13 +8,13 @@ import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPagePrefsData
-import me.hd.hookgg.hook.hooker.agg333.AGG333Hooker
-import me.hd.hookgg.hook.hooker.elgg114.ELGG114Hooker
-import me.hd.hookgg.hook.hooker.elgg120.ELGG120Hooker
-import me.hd.hookgg.hook.hooker.gg1011.GG1011Hooker
-import me.hd.hookgg.hook.hooker.gg960.GG960Hooker
-import me.hd.hookgg.hook.hooker.gg961.GG961Hooker
-import me.hd.hookgg.hook.hooker.rlgg2092.RLGG2092Hooker
+import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
+import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
+import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
+import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")
 object HookEntry : IYukiHookXposedInit {
@@ -31,13 +31,13 @@ object HookEntry : IYukiHookXposedInit {
             if (prefs.get(SetPagePrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
                     when (prefs.get(SetPagePrefsData.VERSION_NAME)) {
-                        AppData.VERSION_LIST[0] -> loadHooker(GG960Hooker)
-                        AppData.VERSION_LIST[1] -> loadHooker(GG961Hooker)
-                        AppData.VERSION_LIST[2] -> loadHooker(GG1011Hooker)
-                        AppData.VERSION_LIST[3] -> loadHooker(RLGG2092Hooker)
-                        AppData.VERSION_LIST[4] -> loadHooker(ELGG114Hooker)
-                        AppData.VERSION_LIST[5] -> loadHooker(ELGG120Hooker)
-                        AppData.VERSION_LIST[6] -> loadHooker(AGG333Hooker)
+                        AppData.getVersionList()[0] -> loadHooker(GGv960Hooker)
+                        AppData.getVersionList()[1] -> loadHooker(GGv961Hooker)
+                        AppData.getVersionList()[2] -> loadHooker(GGv1011Hooker)
+                        AppData.getVersionList()[3] -> loadHooker(RLGGv2092Hooker)
+                        AppData.getVersionList()[4] -> loadHooker(ELGGv114Hooker)
+                        AppData.getVersionList()[5] -> loadHooker(ELGGv120Hooker)
+                        AppData.getVersionList()[6] -> loadHooker(AGGv333Hooker)
                     }
                 }
             }
