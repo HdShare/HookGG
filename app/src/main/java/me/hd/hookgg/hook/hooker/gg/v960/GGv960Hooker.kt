@@ -19,23 +19,23 @@ import me.hd.hookgg.hook.utils.GGUtil
 
 object GGv960Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
-        GG.addListItems to { addListItems() },
-        GG.alert to { alert() },
-        GG.choice to { choice() },
-        GG.clearResults to { clearResults() },
-        GG.editAll to { editAll() },
-        GG.getRangesList to { getRangesList() },
-        GG.getResults to { getResults() },
-        GG.getResultsCount to { getResultsCount() },
-        GG.getValues to { getValues() },
-        GG.isPackageInstalled to { isPackageInstalled() },
-        GG.makeRequest to { makeRequest() },
-        GG.multiChoice to { multiChoice() },
-        GG.prompt to { prompt() },
-        GG.searchNumber to { searchNumber() },
-        GG.setRanges to { setRanges() },
-        GG.setValues to { setValues() },
-        GG.toast to { toast() }
+        GG.addListItems to { this.addListItems() },
+        GG.alert to { this.alert() },
+        GG.choice to { this.choice() },
+        GG.clearResults to { this.clearResults() },
+        GG.editAll to { this.editAll() },
+        GG.getRangesList to { this.getRangesList() },
+        GG.getResults to { this.getResults() },
+        GG.getResultsCount to { this.getResultsCount() },
+        GG.getValues to { this.getValues() },
+        GG.isPackageInstalled to { this.isPackageInstalled() },
+        GG.makeRequest to { this.makeRequest() },
+        GG.multiChoice to { this.multiChoice() },
+        GG.prompt to { this.prompt() },
+        GG.searchNumber to { this.searchNumber() },
+        GG.setRanges to { this.setRanges() },
+        GG.setValues to { this.setValues() },
+        GG.toast to { this.toast() }
     )
 
     private fun addListItems() {
