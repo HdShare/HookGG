@@ -27,6 +27,7 @@ object ELGGv114Hooker : BaseGGHooker() {
         GG.getRangesList to { this.getRangesList() },
         GG.getResults to { this.getResults() },
         GG.getResultsCount to { this.getResultsCount() },
+        GG.getTargetPackage to { this.getTargetPackage() },
         GG.getValues to { this.getValues() },
         GG.isPackageInstalled to { this.isPackageInstalled() },
         GG.makeRequest to { this.makeRequest() },
@@ -190,6 +191,22 @@ object ELGGv114Hooker : BaseGGHooker() {
                 after {
                     scope.launch {
                         val func = "gg.getResultsCount()"
+                        sendLog(func, result)
+                    }
+                }
+            }.ignoredAllFailure()
+        }
+    }
+
+    private fun getTargetPackage() {
+        "android.ext.ۦۤۢۢ".toClassOrNull()?.apply {
+            method {
+                name = "b"
+                paramCount = 1
+            }.ignored().hook {
+                after {
+                    scope.launch {
+                        val func = "gg.getTargetPackage()"
                         sendLog(func, result)
                     }
                 }
