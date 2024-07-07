@@ -1,10 +1,8 @@
 package me.hd.hookgg.hook.hooker.rlgg.v2092
 
 import com.highcapable.yukihookapi.hook.factory.method
-import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
 import me.hd.hookgg.data.SetPrefsData
-import me.hd.hookgg.data.StrData
 import me.hd.hookgg.data.func.GG
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.arg
@@ -96,9 +94,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
     )
 
     private fun addListItems() {
-        val func = StrData.Forbidden.format("addListItems")
-        YLog.error(func)
-        /*
         "android.ext.̯".toClassOrNull()?.apply {
             method {
                 name = "̢"
@@ -117,7 +112,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
-        */
     }
 
     private fun alert() {
@@ -584,9 +578,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun getValues() {
-        val func = StrData.Forbidden.format("getValues")
-        YLog.error(func)
-        /*
         "android.ext.ͣ".toClassOrNull()?.apply {
             method {
                 name = "̢"
@@ -602,7 +593,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
-        */
     }
 
     private fun getValuesRange() {
@@ -1151,9 +1141,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun setValues() {
-        val func = StrData.Forbidden.format("setValues")
-        YLog.error(func)
-        /*
         "android.ext.\u05CD".toClassOrNull()?.apply {
             method {
                 name = "̢"
@@ -1169,7 +1156,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
                 }
             }.ignoredAllFailure()
         }
-        */
     }
 
     private fun setVisible() {
