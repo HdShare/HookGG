@@ -56,14 +56,14 @@
         <td align="center">可能存在检测及惩罚机制</td>
     </tr>
     <tr>
-        <td align="center">✅</td>
-        <td align="center">All</td>
-        <td align="center">适配</td>
-    </tr>
-    <tr>
         <td align="center">🚫</td>
         <td align="center">All</td>
         <td align="center">禁止</td>
+    </tr>
+    <tr>
+        <td align="center">✅</td>
+        <td align="center">All</td>
+        <td align="center">已适配</td>
     </tr>
     <tr>
         <td align="center">❓</td>
