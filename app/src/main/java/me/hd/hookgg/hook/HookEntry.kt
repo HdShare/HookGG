@@ -30,7 +30,7 @@ object HookEntry : IYukiHookXposedInit {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
             if (prefs.get(SetPrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    loadHooker(TestHooker)
+                    //loadHooker(TestHooker)
                     when (prefs.get(SetPrefsData.VERSION_NAME)) {
                         AppData.getVersionList()[0] -> loadHooker(GGv960Hooker)
                         AppData.getVersionList()[1] -> loadHooker(GGv961Hooker)

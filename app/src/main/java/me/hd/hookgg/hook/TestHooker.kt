@@ -22,7 +22,7 @@ object TestHooker : YukiBaseHooker() {
                             //name = "usage","a"
                             returnType = "java.lang.String"
                             paramCount = 0
-                            usingStrings("gg.")
+                            //usingStrings("gg.")
                         }
                     }
                 }
