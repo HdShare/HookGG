@@ -46,34 +46,34 @@
 
 <table>
     <tr>
+        <td colspan="1" align="center"><b>Icon</b></td>
         <td colspan="1" align="center"><b>Name</b></td>
-        <td colspan="1" align="center"><b>Version</b></td>
         <td colspan="1" align="center"><b>Description</b></td>
     </tr>
     <tr>
         <td align="center">⚠️</td>
-        <td align="center">三方GG</td>
+        <td align="center">高风险</td>
         <td align="center">可能存在检测及惩罚机制</td>
     </tr>
     <tr>
         <td align="center">🚫</td>
-        <td align="center">All</td>
         <td align="center">禁止</td>
+        <td align="center">暂无说明</td>
     </tr>
     <tr>
         <td align="center">✅</td>
-        <td align="center">All</td>
         <td align="center">已适配</td>
+        <td align="center">暂无说明</td>
     </tr>
     <tr>
         <td align="center">❓</td>
-        <td align="center">All</td>
         <td align="center">未适配</td>
+        <td align="center">暂无说明</td>
     </tr>
     <tr>
         <td align="center">❌</td>
-        <td align="center">All</td>
         <td align="center">不支持</td>
+        <td align="center">暂无说明</td>
     </tr>
 </table>
 
@@ -113,7 +113,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
-        <td align="center">🚫</td>
+        <td align="center">⚠️</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -410,7 +410,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
-        <td align="center">🚫</td>
+        <td align="center">⚠️</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
@@ -740,7 +740,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
-        <td align="center">🚫</td>
+        <td align="center">⚠️</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
         <td align="center">✅</td>
