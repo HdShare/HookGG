@@ -1,4 +1,4 @@
-package me.hd.hookgg.hook.helper
+package me.hd.hookgg.hook.utils
 
 import com.highcapable.yukihookapi.hook.param.PackageParam
 import org.luckypray.dexkit.DexKitBridge
@@ -6,10 +6,9 @@ import org.luckypray.dexkit.query.enums.MatchType
 import org.luckypray.dexkit.query.enums.StringMatchType
 import java.lang.reflect.Modifier
 
-object Demo {
-
+object DexKitDemo {
     private fun test(packageParam: PackageParam) {
-        DexKitHelper.create(packageParam) {
+        DexKitUtil.create(packageParam) {
             findPlayActivity(this)
         }
     }
