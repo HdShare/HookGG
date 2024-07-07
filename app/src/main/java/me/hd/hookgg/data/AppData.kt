@@ -8,7 +8,7 @@ object AppData {
         "RLGG 2.0.9.2",
         "ELGG 1.1.0~1.1.6",
         "ELGG 1.2.0",
-        "AGG 3.3.3",
+        "AGG 3.3.3~3.3.91",
     )
     val FUNCTION_LIST = arrayOf(
         GGData.addListItems,

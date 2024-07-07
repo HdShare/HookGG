@@ -105,7 +105,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center"><b>2.0.9.2</b></td>
         <td align="center"><b>1.1.0~1.1.6</b></td>
         <td align="center"><b>1.2.0</b></td>
-        <td align="center"><b>3.3.3</b></td>
+        <td align="center"><b>3.3.3~3.3.91</b></td>
         <td align="center"><b>Unknown</b></td>
     </tr>
     <tr>
