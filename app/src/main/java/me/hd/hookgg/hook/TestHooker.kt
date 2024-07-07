@@ -15,11 +15,11 @@ object TestHooker : YukiBaseHooker() {
                         add {
                             modifiers = Modifier.PROTECTED
                             returnType = "int"
-                            name = "getMaxArgs"
+                            //name = "getMaxArgs","m_"
                             paramCount = 0
                         }
                         add {
-                            name = "usage"
+                            //name = "usage","a"
                             returnType = "java.lang.String"
                             paramCount = 0
                             usingStrings("gg.")
