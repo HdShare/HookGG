@@ -133,8 +133,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.allocatePage</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -144,8 +144,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.bytes</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -188,8 +188,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.copyMemory</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -199,8 +199,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.copyText</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -210,8 +210,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.disasm</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -221,8 +221,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.dumpMemory</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -243,8 +243,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getActiveTab</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -254,8 +254,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getFile</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -265,8 +265,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getLine</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -276,8 +276,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getListItems</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -287,8 +287,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getLocale</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -298,8 +298,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getRanges</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -342,8 +342,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getSelectedElements</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -353,8 +353,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getSelectedListItems</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -364,8 +364,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getSelectedResults</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -375,8 +375,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getSpeed</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -386,8 +386,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getTargetInfo</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -419,8 +419,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.getValuesRange</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -430,8 +430,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.gotoAddress</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -441,8 +441,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.hideUiButton</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -452,8 +452,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.isClickedUiButton</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -474,8 +474,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.isProcessPaused</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -485,8 +485,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.isVisible</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -496,8 +496,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.loadList</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -507,8 +507,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.loadResults</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -540,8 +540,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.numberFromLocale</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -551,8 +551,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.numberToLocale</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -562,8 +562,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.processKill</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -573,8 +573,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.processPause</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -584,8 +584,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.processResume</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -595,8 +595,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.processToggle</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -617,8 +617,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.removeListItems</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -628,8 +628,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.removeResults</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -639,8 +639,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.require</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -650,8 +650,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.saveList</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -661,8 +661,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.saveVariable</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -672,8 +672,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.searchAddress</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -683,8 +683,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.searchFuzzy</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -727,8 +727,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.setSpeed</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -749,8 +749,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.setVisible</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -760,8 +760,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.showUiButton</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -771,8 +771,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.skipRestoreState</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -782,8 +782,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.sleep</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -793,8 +793,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.startFuzzy</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -804,8 +804,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.timeJump</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
@@ -826,8 +826,8 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td align="center">gg.unrandomizer</td>
         <td align="center">✅</td>
-        <td align="center">❓</td>
-        <td align="center">❓</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
         <td align="center">❓</td>
