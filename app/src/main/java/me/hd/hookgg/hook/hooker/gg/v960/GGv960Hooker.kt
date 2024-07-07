@@ -100,9 +100,9 @@ object GGv960Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.addListItems($items)"
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                            val func = "gg.addListItems($items)"
                             sendLog(func, result)
                         }
                     }
@@ -919,8 +919,11 @@ object GGv960Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.removeListItems($items)"
-                        sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                            val func = "gg.removeListItems($items)"
+                            sendLog(func, result)
+                        }
                     }
                 }
             }.ignoredAllFailure()
@@ -1064,10 +1067,10 @@ object GGv960Hooker : BaseGGHooker() {
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
                     scope.launch {
-                        val func =
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
+                            val func =
+                                "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
                             sendLog(func, result)
                         }
                     }
