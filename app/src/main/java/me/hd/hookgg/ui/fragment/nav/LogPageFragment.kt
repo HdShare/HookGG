@@ -8,7 +8,7 @@ import com.highcapable.yukihookapi.YukiHookAPI
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.R
 import me.hd.hookgg.databinding.FragmentLogPageBinding
-import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
+import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.ui.adapter.LogAdapter
 import me.hd.hookgg.ui.fragment.base.BaseFragment
 import java.io.FileOutputStream
@@ -71,7 +71,7 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
         logAdapter = LogAdapter()
         binding.logPageRvLog.layoutManager = LinearLayoutManager(requireContext())
         binding.logPageRvLog.adapter = logAdapter
-        GGv960Hooker.dataChannel.wait<CharSequence>("log") { value ->
+        BaseGGHooker().dataChannel.wait<CharSequence>("log") { value ->
             logAdapter.addLog(value)
         }
     }

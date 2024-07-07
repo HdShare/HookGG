@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.SetPagePrefsData
 
-abstract class BaseGGHooker : YukiBaseHooker() {
+open class BaseGGHooker : YukiBaseHooker() {
     protected val scope = CoroutineScope(Dispatchers.Default)
 
     protected fun sendLog(func: String, result: Any?) {
@@ -15,4 +15,6 @@ abstract class BaseGGHooker : YukiBaseHooker() {
         val log = "$func\n${if (logReturn) "--[[$result]]\n" else ""}"
         appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
     }
+
+    override fun onHook() {}
 }
