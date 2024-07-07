@@ -325,10 +325,10 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     val memoryTo = varArgs.optlong(6, -1L)
                     val limit = varArgs.optlong(7, 0L)
                     scope.launch {
-                        val func =
-                            "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
+                            val func =
+                                "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo, $limit)"
                             sendLog(func, result)
                         }
                     }
