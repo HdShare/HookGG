@@ -20,26 +20,25 @@ import me.hd.hookgg.hook.hooker.gg.v961.GGv961VarArgs.opttable
 import me.hd.hookgg.hook.utils.GGUtil
 
 object GGv961Hooker : BaseGGHooker() {
-    override fun onHook() {
-        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
-        if (GGData.addListItems in setFuncList) addListItems()
-        if (GGData.alert in setFuncList) alert()
-        if (GGData.choice in setFuncList) choice()
-        if (GGData.clearResults in setFuncList) clearResults()
-        if (GGData.editAll in setFuncList) editAll()
-        if (GGData.getRangesList in setFuncList) getRangesList()
-        if (GGData.getResults in setFuncList) getResults()
-        if (GGData.getResultsCount in setFuncList) getResultsCount()
-        if (GGData.getValues in setFuncList) getValues()
-        if (GGData.makeRequest in setFuncList) makeRequest()
-        if (GGData.multiChoice in setFuncList) multiChoice()
-        if (GGData.prompt in setFuncList) prompt()
-        if (GGData.searchNumber in setFuncList) searchNumber()
-        if (GGData.searchPointer in setFuncList) searchPointer()
-        if (GGData.setRanges in setFuncList) setRanges()
-        if (GGData.setValues in setFuncList) setValues()
-        if (GGData.toast in setFuncList) toast()
-    }
+    override val functionMap = mapOf(
+        GGData.addListItems to { addListItems() },
+        GGData.alert to { alert() },
+        GGData.choice to { choice() },
+        GGData.clearResults to { clearResults() },
+        GGData.editAll to { editAll() },
+        GGData.getRangesList to { getRangesList() },
+        GGData.getResults to { getResults() },
+        GGData.getResultsCount to { getResultsCount() },
+        GGData.getValues to { getValues() },
+        GGData.makeRequest to { makeRequest() },
+        GGData.multiChoice to { multiChoice() },
+        GGData.prompt to { prompt() },
+        GGData.searchNumber to { searchNumber() },
+        GGData.searchPointer to { searchPointer() },
+        GGData.setRanges to { setRanges() },
+        GGData.setValues to { setValues() },
+        GGData.toast to { toast() }
+    )
 
     private fun addListItems() {
         "android.ext.Script\$addListItems".toClassOrNull()?.apply {

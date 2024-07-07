@@ -1,147 +1,33 @@
 package me.hd.hookgg.data
 
-object AppData {
-    private val map = mapOf(
-        "GG 96.0" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "GG 96.1" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "GG 101.1" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "RLGG 2.0.9.2" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "ELGG 1.1.0~1.1.6" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "ELGG 1.2.0" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-        "AGG 3.3.3~3.3.91" to arrayOf(
-            GGData.addListItems,
-            GGData.alert,
-            GGData.choice,
-            GGData.clearResults,
-            GGData.editAll,
-            GGData.getRangesList,
-            GGData.getResults,
-            GGData.getResultsCount,
-            GGData.getValues,
-            GGData.makeRequest,
-            GGData.multiChoice,
-            GGData.prompt,
-            GGData.searchNumber,
-            GGData.searchPointer,
-            GGData.setRanges,
-            GGData.setValues,
-            GGData.toast,
-        ),
-    )
+import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
+import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker
+import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker
+import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
+import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
+import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
+import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
 
-    fun getVersionList(): Array<String> {
+object AppData {
+    private fun getMapKey(map: Map<String, *>): Array<String> {
         return map.keys.toTypedArray()
     }
 
+    private val map = mapOf(
+        "GG 96.0" to getMapKey(GGv960Hooker.functionMap),
+        "GG 96.1" to getMapKey(GGv961Hooker.functionMap),
+        "GG 101.1" to getMapKey(GGv1011Hooker.functionMap),
+        "RLGG 2.0.9.2" to getMapKey(RLGGv2092Hooker.functionMap),
+        "ELGG 1.1.0~1.1.6" to getMapKey(ELGGv114Hooker.functionMap),
+        "ELGG 1.2.0" to getMapKey(ELGGv120Hooker.functionMap),
+        "AGG 3.3.3~3.3.91" to getMapKey(AGGv333Hooker.functionMap),
+    )
+
+    fun getVersionList(): Array<String> {
+        return getMapKey(map)
+    }
+
     fun getFunctionList(version: String): Array<String> {
-        return map.get(version) ?: emptyArray()
+        return map[version] ?: emptyArray()
     }
 }

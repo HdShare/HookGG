@@ -7,7 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.SetPagePrefsData
 
-open class BaseGGHooker : YukiBaseHooker() {
+abstract class BaseGGHooker : YukiBaseHooker() {
     protected val scope = CoroutineScope(Dispatchers.Default)
 
     protected fun sendLog(func: String, result: Any?) {
@@ -16,5 +16,12 @@ open class BaseGGHooker : YukiBaseHooker() {
         appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
     }
 
-    override fun onHook() {}
+    abstract val functionMap: Map<String, () -> Unit>
+
+    override fun onHook() {
+        val setFuncList = prefs.get(SetPagePrefsData.FUNCTION_LIST)
+        setFuncList.forEach { function ->
+            functionMap[function]?.invoke()
+        }
+    }
 }
