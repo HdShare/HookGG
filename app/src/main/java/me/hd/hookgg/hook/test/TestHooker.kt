@@ -1,4 +1,4 @@
-package me.hd.hookgg.hook
+package me.hd.hookgg.hook.test
 
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import com.highcapable.yukihookapi.hook.log.YLog
