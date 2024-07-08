@@ -1074,7 +1074,7 @@ object AGGv333Hooker : BaseGGHooker() {
                     val memoryTo = varArgs.optlong(5, -1L)
                     scope.launch {
                         val func =
-                            "gg.searchAddress($difference, $sign, $type, $memoryFrom, $memoryTo)"
+                            "gg.searchFuzzy($difference, $sign, $type, $memoryFrom, $memoryTo)"
                         sendLog(func, result)
                     }
                 }

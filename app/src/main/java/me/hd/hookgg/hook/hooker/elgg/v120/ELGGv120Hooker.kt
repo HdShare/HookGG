@@ -1043,9 +1043,10 @@ object ELGGv120Hooker : BaseGGHooker() {
                     val type = varArgs.optint(3, 127)
                     val memoryFrom = varArgs.optlong(4, 0L)
                     val memoryTo = varArgs.optlong(5, -1L)
+                    val limit = varArgs.optlong(6, 0L)
                     scope.launch {
                         val func =
-                            "gg.searchAddress($difference, $sign, $type, $memoryFrom, $memoryTo)"
+                            "gg.searchFuzzy($difference, $sign, $type, $memoryFrom, $memoryTo, $limit)"
                         sendLog(func, result)
                     }
                 }
