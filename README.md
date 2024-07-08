@@ -72,7 +72,7 @@
     </tr>
     <tr>
         <td align="center">🚫</td>
-        <td align="center">不存在</td>
+        <td align="center">不支持</td>
         <td align="center">暂无说明</td>
     </tr>
 </table>
