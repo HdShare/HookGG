@@ -49,11 +49,13 @@
         <td colspan="1" align="center"><b>Icon</b></td>
         <td colspan="1" align="center"><b>Name</b></td>
         <td colspan="1" align="center"><b>Description</b></td>
+        <td colspan="1" align="center"><b>Example</b></td>
     </tr>
     <tr>
         <td align="center">⚠️</td>
         <td align="center">高风险</td>
         <td align="center">可能存在检测及惩罚机制</td>
+        <td align="center">RLGG会重启手机并拉黑设备</td>
     </tr>
     <tr>
         <td align="center">✅</td>
@@ -93,7 +95,7 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td rowspan="1" colspan="1" align="center"><b>Other</b></td>
     </tr>
     <tr>
-        <td colspan="1" align="center"><b>RLGG</b></td>
+        <td colspan="1" align="center"><b>RLGG⚠️</b></td>
         <td colspan="2" align="center"><b>ELGG</b></td>
         <td colspan="1" align="center"><b>AGG</b></td>
         <td colspan="1" align="center"><b>Unknown</b></td>
