@@ -17,7 +17,7 @@
     <string name="prefs_def_package_name">catch_.me_.if_.you_.can_</string>
     <string name="prefs_key_version_name">拦截版本</string>
     <string name="prefs_def_version_name">96.0</string>
-    <string name="prefs_key_function_list">拦截功能</string>
+    <string name="prefs_key_function_list">拦截函数</string>
     <string name="prefs_def_function_list">启用 [0]</string>
     <string name="prefs_def_function_num">启用 [%1$s]</string>
     <string name="prefs_more">更多</string>
