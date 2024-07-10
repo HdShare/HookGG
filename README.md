@@ -55,27 +55,31 @@
         <td align="center">⚠️</td>
         <td align="center">高风险</td>
         <td align="center">可能存在检测及惩罚机制</td>
-        <td align="center">RLGG会重启手机并拉黑设备</td>
+        <td align="center">RLGG会拉黑设备并重启手机</td>
     </tr>
     <tr>
         <td align="center">✅</td>
         <td align="center">已适配</td>
         <td align="center">暂无说明</td>
+        <td align="center">暂无案例</td>
     </tr>
     <tr>
         <td align="center">❓</td>
         <td align="center">未适配</td>
         <td align="center">暂无说明</td>
+        <td align="center">暂无案例</td>
     </tr>
     <tr>
         <td align="center">❌</td>
         <td align="center">不存在</td>
         <td align="center">暂无说明</td>
+        <td align="center">暂无案例</td>
     </tr>
     <tr>
         <td align="center">🚫</td>
         <td align="center">不支持</td>
         <td align="center">暂无说明</td>
+        <td align="center">暂无案例</td>
     </tr>
 </table>
 
