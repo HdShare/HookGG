@@ -1,11 +1,11 @@
-package me.hd.hookgg.hook.test
+package me.hd.hookgg.hook.hooker.test
 
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.hook.utils.DexKitUtil
 import java.lang.reflect.Modifier
 
-object TestHooker : YukiBaseHooker() {
+object DexkitHooker : YukiBaseHooker() {
     override fun onHook() {
         DexKitUtil.create(this) {
             val classData = findClass {
@@ -27,10 +27,7 @@ object TestHooker : YukiBaseHooker() {
                     }
                 }
             }
-            YLog.error("size -> ${classData.size}")
-            classData.forEachIndexed { index, className ->
-                YLog.error("$index -> ${className.name}")
-            }
+            YLog.error("func size -> ${classData.size}")
         }
     }
 }

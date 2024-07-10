@@ -15,6 +15,7 @@ import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
+import me.hd.hookgg.hook.hooker.test.TestEntry
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")
 object HookEntry : IYukiHookXposedInit {
@@ -30,7 +31,7 @@ object HookEntry : IYukiHookXposedInit {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
             if (prefs.get(SetPrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    //loadHooker(TestHooker)
+                    if (prefs.get(SetPrefsData.TEST_FUNC)) loadHooker(TestEntry)
                     when (prefs.get(SetPrefsData.VERSION_NAME)) {
                         AppData.getVersionList()[0] -> loadHooker(GGv960Hooker)
                         AppData.getVersionList()[1] -> loadHooker(GGv961Hooker)

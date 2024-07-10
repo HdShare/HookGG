@@ -31,6 +31,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
 
     private fun initPrefsDefVal(binding: FragmentSetPageBinding) {
         val prefs = MyApp.context.prefs()
+        binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         binding.setTvDefVersionName.text = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefFunctionList.text = getString(R.string.prefs_def_function_num)
@@ -41,6 +42,14 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
 
     private fun initPrefsOnClick(binding: FragmentSetPageBinding) {
         val prefs = MyApp.context.prefs()
+        binding.setSwitchTestFunc.setOnClickListener {
+            val oldTestFunc = prefs.get(SetPrefsData.TEST_FUNC)
+            val newTestFunc = !oldTestFunc
+            prefs.edit {
+                put(SetPrefsData.TEST_FUNC, newTestFunc)
+            }
+            binding.setSwitchTestFunc.isChecked = newTestFunc
+        }
         binding.setLLPackageName.setOnClickListener {
             val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)
             val dialogBinding =
