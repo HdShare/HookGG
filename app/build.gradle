@@ -12,8 +12,8 @@ android {
         applicationId "me.hd.hookgg"
         minSdk 26
         targetSdk 34
-        versionCode 20240708
-        versionName "1.8.500"
+        versionCode 20240710
+        versionName "1.8.600"
         buildConfigField 'String', 'TAG', '"HookGG"'
     }
 
