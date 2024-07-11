@@ -54,8 +54,8 @@
     <tr>
         <td align="center">⚠️</td>
         <td align="center">高风险</td>
-        <td align="center">可能存在检测及惩罚机制</td>
-        <td align="center">RLGG会拉黑设备并重启手机</td>
+        <td align="center">存在惩罚机制</td>
+        <td align="center">RLGG拉黑并重启设备</td>
     </tr>
     <tr>
         <td align="center">✅</td>
