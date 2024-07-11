@@ -3,6 +3,7 @@
     <string name="module_inactive">Inactive</string>
     <string name="module_active">Active</string>
     <string name="nav_log_page">LogPage</string>
+    <string name="nav_edit_page">EditPage</string>
     <string name="nav_set_page">SetPage</string>
     <string name="tab_copy">Copy</string>
     <string name="tab_save">Save</string>
@@ -18,7 +19,7 @@
     <string name="prefs_key_version_name">VersionName</string>
     <string name="prefs_def_version_name">96.0</string>
     <string name="prefs_key_function_list">FunctionList</string>
-    <string name="prefs_def_function_list">EnableNum [0]</string>
+    <string name="prefs_def_function_list">EnableNum [ 0 / 0 ]</string>
     <string name="prefs_def_function_num">EnableNum [ %1$s / %2$s ]</string>
     <string name="prefs_more">More</string>
     <string name="prefs_key_log_return">LogReturn</string>

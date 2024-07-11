@@ -5,6 +5,10 @@
         android:icon="@drawable/ic_nav_log_24dp"
         android:title="@string/nav_log_page" />
     <item
+        android:id="@+id/navEditPageFragment"
+        android:icon="@drawable/ic_nav_edit_24dp"
+        android:title="@string/nav_edit_page" />
+    <item
         android:id="@+id/navSetPageFragment"
         android:icon="@drawable/ic_nav_set_24dp"
         android:title="@string/nav_set_page" />
