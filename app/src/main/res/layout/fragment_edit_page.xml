@@ -23,11 +23,33 @@
             app:title="@string/nav_edit_page"
             app:titleTextColor="?attr/colorOnPrimary" />
 
-        <io.github.rosemoe.sora.widget.CodeEditor
-            android:id="@+id/editPageEditor"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:text="Hello, world!"
-            app:textSize="14sp" />
+            android:orientation="vertical">
+
+            <io.github.rosemoe.sora.widget.CodeEditor
+                android:id="@+id/editPageCodeEditor"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:lnPanelPosition="center"
+                app:lnPanelPositionMode="follow"
+                app:text="print('Hello World')"
+                app:textSize="14sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="36dp">
+
+                <io.github.rosemoe.sora.widget.SymbolInputView
+                    android:id="@+id/editPageSymbolInputView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_vertical" />
+
+            </HorizontalScrollView>
+        </LinearLayout>
+
     </LinearLayout>
 </FrameLayout>
