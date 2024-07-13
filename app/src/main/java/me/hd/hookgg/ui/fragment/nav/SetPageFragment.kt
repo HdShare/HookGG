@@ -35,11 +35,11 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         val versionName = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefVersionName.text = versionName
-        binding.setTvDefFunctionList.text = getString(R.string.prefs_def_function_num)
-            .format(
-                prefs.get(SetPrefsData.FUNCTION_LIST).size,
-                AppData.getFunctionList(versionName).size
-            )
+        binding.setTvDefFunctionList.text = getString(
+            R.string.prefs_def_function_num,
+            prefs.get(SetPrefsData.FUNCTION_LIST).size,
+            AppData.getFunctionList(versionName).size
+        )
         binding.setSwitchLogReturn.isChecked = prefs.get(SetPrefsData.LOG_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
     }
@@ -93,7 +93,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                     }
                     binding.setTvDefVersionName.text = newVersionName
                     binding.setTvDefFunctionList.text =
-                        getString(R.string.prefs_def_function_num).format(
+                        getString(
+                            R.string.prefs_def_function_num,
                             0,
                             AppData.getFunctionList(newVersionName).size
                         )
@@ -121,7 +122,8 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                         put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
                     }
                     binding.setTvDefFunctionList.text =
-                        getString(R.string.prefs_def_function_num).format(
+                        getString(
+                            R.string.prefs_def_function_num,
                             newFunctionListSet.size,
                             functionList.size
                         )

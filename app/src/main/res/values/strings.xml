@@ -20,7 +20,7 @@
     <string name="prefs_def_version_name">96.0</string>
     <string name="prefs_key_function_list">FunctionList</string>
     <string name="prefs_def_function_list">EnableNum [ 0 / 0 ]</string>
-    <string name="prefs_def_function_num">EnableNum [ %1$s / %2$s ]</string>
+    <string name="prefs_def_function_num">EnableNum [ %1$d / %2$d ]</string>
     <string name="prefs_more">More</string>
     <string name="prefs_key_log_return">LogReturn</string>
     <string name="prefs_key_filter_param">FilterParam</string>
