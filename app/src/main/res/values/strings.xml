@@ -3,7 +3,6 @@
     <string name="module_inactive">Inactive</string>
     <string name="module_active">Active</string>
     <string name="nav_log_page">LogPage</string>
-    <string name="nav_edit_page">EditPage</string>
     <string name="nav_set_page">SetPage</string>
     <string name="tab_copy">Copy</string>
     <string name="tab_save">Save</string>

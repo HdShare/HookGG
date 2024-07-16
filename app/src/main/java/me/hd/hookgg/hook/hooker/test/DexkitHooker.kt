@@ -6,7 +6,7 @@ import me.hd.hookgg.hook.utils.DexKitUtil
 import java.lang.reflect.Modifier
 
 object DexkitHooker : YukiBaseHooker() {
-    override fun onHook() {
+    private fun logFunc() {
         DexKitUtil.create(this) {
             val classData = findClass {
                 searchPackages("android.ext")
@@ -29,5 +29,8 @@ object DexkitHooker : YukiBaseHooker() {
             }
             YLog.error("func size -> ${classData.size}")
         }
+    }
+
+    override fun onHook() {
     }
 }
