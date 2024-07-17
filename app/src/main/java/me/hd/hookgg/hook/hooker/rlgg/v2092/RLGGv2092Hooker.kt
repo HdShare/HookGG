@@ -587,8 +587,11 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.getValues($values)"
-                        sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                            val func = "gg.getValues($values)"
+                            sendLog(func, result)
+                        }
                     }
                 }
             }.ignoredAllFailure()
@@ -742,8 +745,11 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val results = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.loadResults($results)"
-                        sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                            val func = "gg.loadResults($results)"
+                            sendLog(func, result)
+                        }
                     }
                 }
             }.ignoredAllFailure()
@@ -943,8 +949,11 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val results = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.removeResults($results)"
-                        sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                            val func = "gg.removeResults($results)"
+                            sendLog(func, result)
+                        }
                     }
                 }
             }.ignoredAllFailure()
@@ -1151,8 +1160,11 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
                     scope.launch {
-                        val func = "gg.setValues($values)"
-                        sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                            val func = "gg.setValues($values)"
+                            sendLog(func, result)
+                        }
                     }
                 }
             }.ignoredAllFailure()
