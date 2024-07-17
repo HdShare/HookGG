@@ -18,8 +18,8 @@
     <string name="prefs_key_version_name">拦截版本</string>
     <string name="prefs_def_version_name">96.0</string>
     <string name="prefs_key_function_list">拦截函数</string>
-    <string name="prefs_def_function_list">启用 [ 0 / 0 ]</string>
-    <string name="prefs_def_function_num">启用 [ %1$d / %2$d ]</string>
+    <string name="prefs_def_function_list">启用数 [ 0 / 0 ]</string>
+    <string name="prefs_def_function_num">启用数 [ %1$d / %2$d ]</string>
     <string name="prefs_more">更多</string>
     <string name="prefs_key_log_return">打印函数返回</string>
     <string name="prefs_key_filter_param">过滤异常参数</string>
