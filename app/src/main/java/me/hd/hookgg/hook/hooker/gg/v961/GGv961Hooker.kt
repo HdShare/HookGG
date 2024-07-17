@@ -99,9 +99,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                        scope.launch {
                             val func = "gg.addListItems($items)"
                             sendLog(func, result)
                         }
@@ -583,9 +583,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                        scope.launch {
                             val func = "gg.getValues($values)"
                             sendLog(func, result)
                         }
@@ -741,9 +741,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val results = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                        scope.launch {
                             val func = "gg.loadResults($results)"
                             sendLog(func, result)
                         }
@@ -924,9 +924,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val items = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$items"))) {
+                        scope.launch {
                             val func = "gg.removeListItems($items)"
                             sendLog(func, result)
                         }
@@ -945,9 +945,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val results = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$results"))) {
+                        scope.launch {
                             val func = "gg.removeResults($results)"
                             sendLog(func, result)
                         }
@@ -1075,9 +1075,9 @@ object GGv961Hooker : BaseGGHooker() {
                     val sign = varArgs.optint(4, 0x20000000)
                     val memoryFrom = varArgs.optlong(5, 0L)
                     val memoryTo = varArgs.optlong(6, -1L)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidParams("$text"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidParams("$text"))) {
+                        scope.launch {
                             val func =
                                 "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
                             sendLog(func, result)
@@ -1133,9 +1133,9 @@ object GGv961Hooker : BaseGGHooker() {
                 after {
                     val varArgs = args(0).any()
                     val values = varArgs.checktable(1)
-                    scope.launch {
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                    val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                    if (!(filterParams && !GGUtil.isValidItems("$values"))) {
+                        scope.launch {
                             val func = "gg.setValues($values)"
                             sendLog(func, result)
                         }
