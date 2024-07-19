@@ -38,8 +38,8 @@
     <a href="https://github.com/HdShare/HookGG/releases/latest">
         <img src="https://img.shields.io/github/v/release/HdShare/HookGG?style=flat-square&label=Release&labelColor=8b00c5&color=c8c8c8" alt="release">
     </a>
-    <a href="https://t.me/Hd_HookGG">
-        <img src="https://img.shields.io/badge/群组-@Hd_HookGG-blue.svg?logo=telegram" alt="Telegram">
+    <a href="https://t.me/Hd_HookGG_Chat">
+        <img src="https://img.shields.io/static/v1?style=flat-square&label=Telegram&labelColor=01bfaf&message=Chat&color=099fdf" alt="Telegram">
     </a>
 </p>
 
