@@ -129,6 +129,18 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
                         )
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
+                .setNeutralButton(R.string.dialog_select_all) { _, _ ->
+                    val newFunctionListSet = AppData.getFunctionList(versionName).toSet()
+                    prefs.edit {
+                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
+                    }
+                    binding.setTvDefFunctionList.text =
+                        getString(
+                            R.string.prefs_def_function_num,
+                            newFunctionListSet.size,
+                            functionList.size
+                        )
+                }
                 .show()
         }
         binding.setSwitchLogReturn.setOnClickListener {
