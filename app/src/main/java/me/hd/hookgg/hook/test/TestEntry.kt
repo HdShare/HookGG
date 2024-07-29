@@ -1,10 +1,8 @@
-package me.hd.hookgg.hook.hooker.test
+package me.hd.hookgg.hook.test
 
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 
 object TestEntry : YukiBaseHooker() {
     override fun onHook() {
-        //loadHooker(DexkitHooker)
-        //loadHooker(DaemonHooker)
     }
 }

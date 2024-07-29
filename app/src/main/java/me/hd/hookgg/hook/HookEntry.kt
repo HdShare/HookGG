@@ -15,7 +15,7 @@ import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
-import me.hd.hookgg.hook.hooker.test.TestEntry
+import me.hd.hookgg.hook.test.TestEntry
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")
 object HookEntry : IYukiHookXposedInit {
