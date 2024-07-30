@@ -55,6 +55,11 @@ object RLGGv2092VarArgs : BaseGGVarArgs {
         return callStaticMethod(clazz, "۟۠ۦۣۢ", this, i, defVal) ?: defVal
     }
 
+    override fun Any?.tojstring(i: Int): Any {
+        val clazz = "android.app.ۦۣۨۨ".toClass()
+        return callStaticMethod(clazz, "۟ۧۧ۠ۤ", this, i)
+    }
+
     override fun Any?.checkjstring(i: Int): Any {
         val clazz = "android.fix.ۣۣۤۧ".toClass()
         return callStaticMethod(clazz, "ۥ۟۠۟", this, i)

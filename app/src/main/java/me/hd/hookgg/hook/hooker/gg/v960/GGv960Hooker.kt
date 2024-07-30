@@ -19,6 +19,7 @@ import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optjstring
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optlong
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optstring
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.opttable
+import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.tojstring
 import me.hd.hookgg.hook.utils.GGUtil
 
 object GGv960Hooker : BaseGGHooker() {
@@ -801,8 +802,7 @@ object GGv960Hooker : BaseGGHooker() {
             }.ignored().hook {
                 after {
                     val varArgs = args(0).any()
-                    // TODO: tojstring
-                    val num = varArgs.checkjstring(1)
+                    val num = varArgs.tojstring(1)
                     scope.launch {
                         val func = "gg.numberFromLocale($num)"
                         sendLog(func, result)
@@ -820,8 +820,7 @@ object GGv960Hooker : BaseGGHooker() {
             }.ignored().hook {
                 after {
                     val varArgs = args(0).any()
-                    // TODO: tojstring
-                    val num = varArgs.checkjstring(1)
+                    val num = varArgs.tojstring(1)
                     scope.launch {
                         val func = "gg.numberToLocale($num)"
                         sendLog(func, result)

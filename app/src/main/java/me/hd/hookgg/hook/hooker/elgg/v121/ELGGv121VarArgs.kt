@@ -46,6 +46,10 @@ object ELGGv121VarArgs : BaseGGVarArgs {
         return callMethod(this, "c", i, defVal) ?: defVal
     }
 
+    override fun Any?.tojstring(i: Int): Any {
+        return callMethod(this, "y", i)
+    }
+
     override fun Any?.checkjstring(i: Int): Any {
         return callMethod(this, "r", i)
     }

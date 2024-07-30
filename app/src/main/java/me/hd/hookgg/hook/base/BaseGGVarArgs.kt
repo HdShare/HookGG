@@ -11,6 +11,7 @@ interface BaseGGVarArgs {
     fun Any?.optlong(i: Int, defVal: Long): Any
     fun Any?.checklong(i: Int): Any
     fun Any?.optjstring(i: Int, defVal: String): Any
+    fun Any?.tojstring(i: Int): Any
     fun Any?.checkjstring(i: Int): Any
     fun Any?.optstring(i: Int, defVal: Any?): Any
     fun Any?.checkstring(i: Int): Any

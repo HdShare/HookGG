@@ -44,6 +44,10 @@ object GGv960VarArgs : BaseGGVarArgs {
         return callMethod(this, "optjstring", i, defVal) ?: defVal
     }
 
+    override fun Any?.tojstring(i: Int): Any {
+        return callMethod(this, "tojstring", i)
+    }
+
     override fun Any?.checkjstring(i: Int): Any {
         return callMethod(this, "checkjstring", i)
     }
