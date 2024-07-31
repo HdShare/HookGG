@@ -340,9 +340,9 @@ object ELGGv114Hooker : BaseGGHooker() {
     }
 
     private fun getFile() {
-        "android.ext.ۦۤۢۡ".toClassOrNull()?.apply {
+        "android.ext.۟ۧ۠ۢۧ".toClassOrNull()?.apply {
             method {
-                name = "b"
+                name = "a_"
                 paramCount = 1
             }.ignored().hook {
                 after {
