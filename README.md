@@ -98,7 +98,7 @@ We will continue to update and adapt based on the number of stars and downloads 
     <tr>
         <td rowspan="3" colspan="1" align="center"><b>FuncName</b></td>
         <td rowspan="2" colspan="2" align="center"><b>Official GG</b></td>
-        <td rowspan="1" colspan="4" align="center"><b>Third-party GG</b></td>
+        <td rowspan="1" colspan="3" align="center"><b>Third-party GG</b></td>
         <td rowspan="1" colspan="1" align="center"><b>Other</b></td>
     </tr>
     <tr>
