@@ -3,6 +3,7 @@
     <string name="module_inactive">未激活</string>
     <string name="module_active">已激活</string>
     <string name="nav_log_page">日志页</string>
+    <string name="nav_module_page">模块页</string>
     <string name="nav_set_page">设置页</string>
     <string name="tab_copy">复制</string>
     <string name="tab_save">保存</string>
