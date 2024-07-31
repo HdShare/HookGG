@@ -1,6 +1,8 @@
 package me.hd.hookgg.ui.fragment.nav
 
 import android.net.Uri
+import android.os.Bundle
+import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -10,13 +12,12 @@ import me.hd.hookgg.R
 import me.hd.hookgg.databinding.FragmentLogPageBinding
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.ui.adapter.LogAdapter
-import me.hd.hookgg.ui.fragment.base.BaseFragment
+import me.hd.hookgg.ui.fragment.base.FragmentBase
 import java.io.FileOutputStream
 import java.util.concurrent.CompletableFuture
 
-class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
-    FragmentLogPageBinding::inflate,
-    null
+class LogPageFragment : FragmentBase<FragmentLogPageBinding, ViewModel>(
+    FragmentLogPageBinding::inflate
 ) {
     private lateinit var logAdapter: LogAdapter
     private val saveLogsLauncher = registerForActivityResult(
@@ -32,19 +33,20 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
         }
     }
 
-    override fun initFragment(binding: FragmentLogPageBinding, viewModel: ViewModel?) {
-        initView(binding)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
-    private fun initView(binding: FragmentLogPageBinding) {
+    private fun initView() {
         if (YukiHookAPI.Status.isModuleActive) {
             binding.logPageToolbar.subtitle = getString(R.string.module_active)
         }
-        initMenu(binding)
-        initAdapter(binding)
+        initMenu()
+        initAdapter()
     }
 
-    private fun initMenu(binding: FragmentLogPageBinding) {
+    private fun initMenu() {
         binding.logPageToolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.tab_copy -> {
@@ -67,7 +69,7 @@ class LogPageFragment : BaseFragment<FragmentLogPageBinding, ViewModel>(
         }
     }
 
-    private fun initAdapter(binding: FragmentLogPageBinding) {
+    private fun initAdapter() {
         logAdapter = LogAdapter()
         binding.logPageRvLog.layoutManager = LinearLayoutManager(requireContext())
         binding.logPageRvLog.adapter = logAdapter

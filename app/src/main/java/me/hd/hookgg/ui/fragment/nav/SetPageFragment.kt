@@ -1,6 +1,8 @@
 package me.hd.hookgg.ui.fragment.nav
 
+import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
@@ -11,25 +13,25 @@ import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
-import me.hd.hookgg.ui.fragment.base.BaseFragment
+import me.hd.hookgg.ui.fragment.base.FragmentBase
 
-class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
-    FragmentSetPageBinding::inflate,
-    null
+class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
+    FragmentSetPageBinding::inflate
 ) {
-    override fun initFragment(binding: FragmentSetPageBinding, viewModel: ViewModel?) {
-        initView(binding)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
     }
 
-    private fun initView(binding: FragmentSetPageBinding) {
+    private fun initView() {
         if (YukiHookAPI.Status.isModuleActive) {
             binding.setPageToolbar.subtitle = getString(R.string.module_active)
         }
-        initPrefsDefVal(binding)
-        initPrefsOnClick(binding)
+        initPrefsDefVal()
+        initPrefsOnClick()
     }
 
-    private fun initPrefsDefVal(binding: FragmentSetPageBinding) {
+    private fun initPrefsDefVal() {
         val prefs = MyApp.context.prefs()
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
@@ -44,7 +46,7 @@ class SetPageFragment : BaseFragment<FragmentSetPageBinding, ViewModel>(
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
     }
 
-    private fun initPrefsOnClick(binding: FragmentSetPageBinding) {
+    private fun initPrefsOnClick() {
         val prefs = MyApp.context.prefs()
         binding.setSwitchTestFunc.setOnClickListener {
             val oldTestFunc = prefs.get(SetPrefsData.TEST_FUNC)
