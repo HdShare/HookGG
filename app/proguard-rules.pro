@@ -7,4 +7,4 @@
 
 -allowaccessmodification
 -overloadaggressively
--repackageclasses 'me.hd.hookgg.obfuscator'
+-repackageclasses 'me.hd.hookgg.obf'
