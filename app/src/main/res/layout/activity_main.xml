@@ -9,4 +9,5 @@
     android:background="?android:colorBackground"
     app:defaultNavHost="true"
     app:navGraph="@navigation/app_nav"
-    tools:context=".ui.activity.MainActivity" />
+    tools:context=".ui.activity.MainActivity"
+    tools:layout="@layout/fragment_main_nav" />
