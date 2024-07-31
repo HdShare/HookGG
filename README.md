@@ -108,8 +108,8 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td colspan="1" align="center"><b>Unknown</b></td>
     </tr>
     <tr>
-        <td align="center"><b>96.0~96.1</b></td>
-        <td align="center"><b>101.1</b></td>
+        <td align="center"><b>96.0~98.0</b></td>
+        <td align="center"><b>99.0~101.1</b></td>
         <td align="center"><b>2.0.9.2</b></td>
         <td align="center"><b>1.1.0~1.1.7, 1.1.9~1.2.1</b></td>
         <td align="center"><b>3.3.3~3.3.91</b></td>
