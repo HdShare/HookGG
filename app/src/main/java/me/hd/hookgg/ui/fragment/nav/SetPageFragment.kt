@@ -34,6 +34,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
     private fun initPrefsDefVal() {
         val prefs = MyApp.context.prefs()
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
+        binding.setSwitchModuleFunc.isChecked = prefs.get(SetPrefsData.MODULE_FUNC)
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         val versionName = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefVersionName.text = versionName
@@ -55,6 +56,14 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 put(SetPrefsData.TEST_FUNC, newTestFunc)
             }
             binding.setSwitchTestFunc.isChecked = newTestFunc
+        }
+        binding.setSwitchModuleFunc.setOnClickListener {
+            val oldModuleFunc = prefs.get(SetPrefsData.MODULE_FUNC)
+            val newModuleFunc = !oldModuleFunc
+            prefs.edit {
+                put(SetPrefsData.MODULE_FUNC, newModuleFunc)
+            }
+            binding.setSwitchModuleFunc.isChecked = newModuleFunc
         }
         binding.setLLPackageName.setOnClickListener {
             val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)

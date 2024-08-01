@@ -14,6 +14,7 @@
     <string name="dialog_select_all">Select All</string>
     <string name="prefs_test">Test</string>
     <string name="prefs_key_test_func">TestFunc</string>
+    <string name="prefs_key_module_func">ModuleFunc</string>
     <string name="prefs_basic">Basic</string>
     <string name="prefs_key_package_name">Intercept Package Name</string>
     <string name="prefs_def_package_name">catch_.me_.if_.you_.can_</string>
