@@ -18,3 +18,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "HookGG"
 include ':app'
+include ':libs:GG960'
