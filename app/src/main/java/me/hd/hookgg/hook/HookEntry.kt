@@ -24,9 +24,13 @@ object HookEntry : IYukiHookXposedInit {
         if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
             if (prefs.get(SetPrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
-                    if (prefs.get(SetPrefsData.TEST_FUNC)) loadHooker(TestEntry)
-                    AppData.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let { hooker ->
-                        loadHooker(hooker)
+                    onAppLifecycle {
+                        onCreate {
+                            if (prefs.get(SetPrefsData.TEST_FUNC)) loadHooker(TestEntry)
+                            AppData.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let {
+                                loadHooker(it)
+                            }
+                        }
                     }
                 }
             }
