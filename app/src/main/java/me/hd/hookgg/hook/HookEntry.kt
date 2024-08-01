@@ -29,14 +29,14 @@ object HookEntry : IYukiHookXposedInit {
                 loadApp(packageName) {
                     onAppLifecycle(false) {
                         onCreate {
-                            if (prefs.get(SetPrefsData.TEST_FUNC)) {
-                                loadHooker(TestEntry)
-                            }
                             if (prefs.get(SetPrefsData.MODULE_FUNC)) {
                                 HdClassLoader.hostClassLoader = appClassLoader!!
                                 if (injectClassloader(HookEntry::class.java.classLoader)) {
                                     loadHooker(DemoModule)
                                 }
+                            }
+                            if (prefs.get(SetPrefsData.TEST_FUNC)) {
+                                loadHooker(TestEntry)
                             }
                             AppData.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let {
                                 loadHooker(it)

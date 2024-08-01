@@ -12,9 +12,6 @@
     <string name="dialog_accept">接受</string>
     <string name="dialog_decline">拒绝</string>
     <string name="dialog_select_all">全选</string>
-    <string name="prefs_test">测试</string>
-    <string name="prefs_key_test_func">测试功能</string>
-    <string name="prefs_key_module_func">模块功能</string>
     <string name="prefs_basic">基础</string>
     <string name="prefs_key_package_name">拦截包名</string>
     <string name="prefs_def_package_name">catch_.me_.if_.you_.can_</string>
@@ -26,4 +23,8 @@
     <string name="prefs_more">更多</string>
     <string name="prefs_key_log_return">打印函数返回</string>
     <string name="prefs_key_filter_param">过滤异常参数</string>
+    <string name="prefs_test">测试</string>
+    <string name="prefs_key_module_func">模块功能</string>
+    <string name="prefs_desc_module_func">仅支持官方GG96.0版本</string>
+    <string name="prefs_key_test_func">测试功能</string>
 </resources>
