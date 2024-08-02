@@ -1,11 +1,13 @@
 package me.hd.hookgg.ui.adapter
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.databinding.ItemRvLogBinding
-import me.hd.hookgg.ui.utils.ToolUtil
 import java.io.FileOutputStream
 
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
@@ -13,7 +15,9 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
 
     fun copyLog(context: Context) {
         val logStr = logList.joinToString("\n")
-        ToolUtil.copyToClipboard(context, logStr)
+        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+        val clip = ClipData.newPlainText(BuildConfig.TAG, logStr)
+        clipboard.setPrimaryClip(clip)
     }
 
     fun outLog(outputStream: FileOutputStream) {
