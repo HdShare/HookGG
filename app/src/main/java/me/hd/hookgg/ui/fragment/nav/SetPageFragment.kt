@@ -1,5 +1,7 @@
 package me.hd.hookgg.ui.fragment.nav
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
+import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
 import me.hd.hookgg.data.AppData
@@ -33,22 +36,35 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
 
     private fun initPrefsDefVal() {
         val prefs = MyApp.context.prefs()
+        binding.setTvDescAppVersion.text = getString(
+            R.string.prefs_desc_app_version_fmt,
+            BuildConfig.VERSION_NAME,
+            BuildConfig.VERSION_CODE,
+        )
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         val versionName = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefVersionName.text = versionName
         binding.setTvDefFunctionList.text = getString(
-            R.string.prefs_def_function_num,
+            R.string.prefs_desc_function_num,
             prefs.get(SetPrefsData.FUNCTION_LIST).size,
             AppData.getFunctionList(versionName).size
         )
-        binding.setSwitchLogReturn.isChecked = prefs.get(SetPrefsData.LOG_RETURN)
+        binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
-        binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
         binding.setSwitchModuleFunc.isChecked = prefs.get(SetPrefsData.MODULE_FUNC)
+        binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
     }
 
     private fun initPrefsOnClick() {
         val prefs = MyApp.context.prefs()
+        binding.setLLAppVersion.setOnClickListener {
+            startActivity(
+                Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://github.com/HdShare/HookGG")
+                )
+            )
+        }
         binding.setLLPackageName.setOnClickListener {
             val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)
             val dialogBinding =
@@ -89,7 +105,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     binding.setTvDefVersionName.text = newVersionName
                     binding.setTvDefFunctionList.text =
                         getString(
-                            R.string.prefs_def_function_num,
+                            R.string.prefs_desc_function_num,
                             0,
                             AppData.getFunctionList(newVersionName).size
                         )
@@ -118,7 +134,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     }
                     binding.setTvDefFunctionList.text =
                         getString(
-                            R.string.prefs_def_function_num,
+                            R.string.prefs_desc_function_num,
                             newFunctionListSet.size,
                             functionList.size
                         )
@@ -131,20 +147,26 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     }
                     binding.setTvDefFunctionList.text =
                         getString(
-                            R.string.prefs_def_function_num,
+                            R.string.prefs_desc_function_num,
                             newFunctionListSet.size,
                             functionList.size
                         )
                 }
                 .show()
         }
-        binding.setSwitchLogReturn.setOnClickListener {
-            val oldLogReturn = prefs.get(SetPrefsData.LOG_RETURN)
-            val newLogReturn = !oldLogReturn
+        binding.setLLPrintReturn.setOnClickListener {
+            binding.setSwitchPrintReturn.performClick()
+        }
+        binding.setSwitchPrintReturn.setOnClickListener {
+            val oldPrintReturn = prefs.get(SetPrefsData.PRINT_RETURN)
+            val newPrintReturn = !oldPrintReturn
             prefs.edit {
-                put(SetPrefsData.LOG_RETURN, newLogReturn)
+                put(SetPrefsData.PRINT_RETURN, newPrintReturn)
             }
-            binding.setSwitchLogReturn.isChecked = newLogReturn
+            binding.setSwitchPrintReturn.isChecked = newPrintReturn
+        }
+        binding.setLLFilterParam.setOnClickListener {
+            binding.setSwitchFilterParams.performClick()
         }
         binding.setSwitchFilterParams.setOnClickListener {
             val oldFilterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
@@ -154,6 +176,9 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             }
             binding.setSwitchFilterParams.isChecked = newFilterParams
         }
+        binding.setLLModuleFunc.setOnClickListener {
+            binding.setSwitchModuleFunc.performClick()
+        }
         binding.setSwitchModuleFunc.setOnClickListener {
             val oldModuleFunc = prefs.get(SetPrefsData.MODULE_FUNC)
             val newModuleFunc = !oldModuleFunc
@@ -161,6 +186,9 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 put(SetPrefsData.MODULE_FUNC, newModuleFunc)
             }
             binding.setSwitchModuleFunc.isChecked = newModuleFunc
+        }
+        binding.setLLTestFunc.setOnClickListener {
+            binding.setSwitchTestFunc.performClick()
         }
         binding.setSwitchTestFunc.setOnClickListener {
             val oldTestFunc = prefs.get(SetPrefsData.TEST_FUNC)

@@ -34,6 +34,65 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prefs_about"
+                            android:textColor="?attr/colorPrimary"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setLLAppVersion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_nav_set_24dp"
+                            tools:ignore="ContentDescription" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prefs_key_app_version"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/setTvDescAppVersion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prefs_desc_app_version"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -41,7 +100,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="16dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -55,12 +114,13 @@
                         android:id="@+id/setLLPackageName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -69,7 +129,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -82,7 +143,7 @@
                                 android:id="@+id/setTvDefPackageName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/prefs_def_package_name"
+                                android:text="@string/prefs_desc_package_name"
                                 android:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -91,12 +152,13 @@
                         android:id="@+id/setLLVersionName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -105,7 +167,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -118,7 +181,7 @@
                                 android:id="@+id/setTvDefVersionName"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/prefs_def_version_name"
+                                android:text="@string/prefs_desc_version_name"
                                 android:textSize="14sp" />
                         </LinearLayout>
                     </LinearLayout>
@@ -127,12 +190,13 @@
                         android:id="@+id/setLLFunctionList"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -141,7 +205,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -156,10 +221,9 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:maxLines="2"
-                                android:text="@string/prefs_def_function_list"
+                                android:text="@string/prefs_desc_function_list"
                                 android:textSize="14sp" />
                         </LinearLayout>
-
                     </LinearLayout>
 
                 </LinearLayout>
@@ -173,7 +237,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="16dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -184,15 +248,16 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/setLLLogReturn"
+                        android:id="@+id/setLLPrintReturn"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -201,36 +266,37 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/prefs_key_log_return"
+                                android:text="@string/prefs_key_print_return"
                                 android:textSize="16sp"
                                 android:textStyle="bold" />
 
                         </LinearLayout>
 
                         <com.google.android.material.materialswitch.MaterialSwitch
-                            android:id="@+id/setSwitchLogReturn"
+                            android:id="@+id/setSwitchPrintReturn"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp" />
-
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp" />
                     </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/setLLFilterParam"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -239,7 +305,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -254,10 +321,10 @@
                             android:id="@+id/setSwitchFilterParams"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp" />
-
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp" />
                     </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -269,7 +336,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:padding="20dp">
+                        android:padding="16dp">
 
                         <TextView
                             android:layout_width="match_parent"
@@ -280,53 +347,16 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/setLLTestFunc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
-                            android:src="@drawable/ic_nav_set_24dp"
-                            tools:ignore="ContentDescription" />
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="@string/prefs_key_test_func"
-                                android:textSize="16sp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                        <com.google.android.material.materialswitch.MaterialSwitch
-                            android:id="@+id/setSwitchTestFunc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
                         android:id="@+id/setLLModuleFunc"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="20dp"
+                            android:layout_margin="16dp"
                             android:src="@drawable/ic_nav_set_24dp"
                             tools:ignore="ContentDescription" />
 
@@ -335,7 +365,8 @@
                             android:layout_height="match_parent"
                             android:layout_weight="1"
                             android:gravity="center"
-                            android:orientation="vertical">
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -356,10 +387,49 @@
                             android:id="@+id/setSwitchModuleFunc"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:layout_marginStart="15dp"
-                            android:layout_marginEnd="15dp" />
-
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp" />
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/setLLTestFunc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:src="@drawable/ic_nav_set_24dp"
+                            tools:ignore="ContentDescription" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingHorizontal="16dp">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/prefs_key_test_func"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <com.google.android.material.materialswitch.MaterialSwitch
+                            android:id="@+id/setSwitchTestFunc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>

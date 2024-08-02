@@ -11,8 +11,8 @@ abstract class BaseGGHooker : YukiBaseHooker() {
     protected val scope = CoroutineScope(Dispatchers.Default)
 
     protected fun sendLog(func: String, result: Any?) {
-        val logReturn = prefs.get(SetPrefsData.LOG_RETURN)
-        val log = "$func\n${if (logReturn) "--[[$result]]\n" else ""}"
+        val printReturn = prefs.get(SetPrefsData.PRINT_RETURN)
+        val log = "$func\n${if (printReturn) "--[[$result]]\n" else ""}"
         appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
     }
 
