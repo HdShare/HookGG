@@ -1,5 +1,6 @@
 package me.hd.hookgg.hook
 
+import android.annotation.SuppressLint
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.annotation.xposed.InjectYukiHookWithXposed
 import com.highcapable.yukihookapi.hook.factory.configs
@@ -30,8 +31,10 @@ object HookEntry : IYukiHookXposedInit {
                     onAppLifecycle(false) {
                         onCreate {
                             if (prefs.get(SetPrefsData.MODULE_FUNC)) {
-                                HdClassLoader.hostClassLoader = appClassLoader!!
-                                if (injectClassloader(HookEntry::class.java.classLoader)) {
+                                val self = HookEntry::class.java.classLoader!!
+                                HdClassLoader.parentLoader = self.parent
+                                HdClassLoader.hostLoader = appClassLoader!!
+                                if (injectClassLoader(self, HdClassLoader)) {
                                     loadHooker(DemoModule)
                                 }
                             }
@@ -48,25 +51,17 @@ object HookEntry : IYukiHookXposedInit {
         }
     }
 
-    private fun injectClassloader(moduleLoader: ClassLoader?): Boolean {
-        moduleLoader ?: return false
-        val varArgsClassName = "luaj.Varargs"
-        if (runCatching { moduleLoader.loadClass(varArgsClassName) }.isSuccess) {
-            YLog.debug("already load stub")
-            return true
-        }
-        val classLoaderParent = ClassLoader::class.java.declaredFields
-            .first { it.name == "parent" }
-            .apply { isAccessible = true }
-        classLoaderParent.set(moduleLoader, null)
-        if (HdClassLoader.load(varArgsClassName) == null) {
-            YLog.debug("load stub failed")
-            return false
-        }
-        classLoaderParent.set(moduleLoader, HdClassLoader)
-        return runCatching { Class.forName(varArgsClassName) }
-            .onFailure { YLog.debug("inject failure") }
-            .onSuccess { YLog.debug("inject success") }
-            .isSuccess
+    @SuppressLint("DiscouragedPrivateApi")
+    private fun injectClassLoader(self: ClassLoader, newParent: ClassLoader): Boolean {
+        return runCatching {
+            val fieldParent = ClassLoader::class.java
+                .getDeclaredField("parent")
+                .apply { isAccessible = true }
+            fieldParent.set(self, newParent)
+        }.onFailure {
+            YLog.error("injectClassLoader failure")
+        }.onSuccess {
+            YLog.error("injectClassLoader success")
+        }.isSuccess
     }
 }

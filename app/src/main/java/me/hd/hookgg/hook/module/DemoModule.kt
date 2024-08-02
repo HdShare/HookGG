@@ -43,8 +43,7 @@ object DemoModule : YukiBaseHooker() {
             }.ignored().hook {
                 after {
                     val field = instance::class.java
-                        .declaredFields
-                        .first { it.name == "globals" }
+                        .getDeclaredField("globals")
                         .apply { isAccessible = true }
                     val globals = field.get(instance) as Globals
                     globals.load(TestLib())
