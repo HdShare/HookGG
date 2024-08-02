@@ -24,7 +24,7 @@ import me.hd.hookgg.hook.utils.GGUtil
 
 object RLGGv2092Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
-        "⚠" + GG.addListItems to { this.addListItems() },
+        "[Warn]" + GG.addListItems to { this.addListItems() },
         GG.alert to { this.alert() },
         GG.allocatePage to { this.allocatePage() },
         GG.bytes to { this.bytes() },
@@ -52,7 +52,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GG.getSpeed to { this.getSpeed() },
         GG.getTargetInfo to { this.getTargetInfo() },
         GG.getTargetPackage to { this.getTargetPackage() },
-        "⚠" + GG.getValues to { this.getValues() },
+        "[Warn]" + GG.getValues to { this.getValues() },
         GG.getValuesRange to { this.getValuesRange() },
         GG.gotoAddress to { this.gotoAddress() },
         GG.hideUiButton to { this.hideUiButton() },
@@ -83,7 +83,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GG.searchPointer to { this.searchPointer() },
         GG.setRanges to { this.setRanges() },
         GG.setSpeed to { this.setSpeed() },
-        "⚠" + GG.setValues to { this.setValues() },
+        "[Warn]" + GG.setValues to { this.setValues() },
         GG.setVisible to { this.setVisible() },
         GG.showUiButton to { this.showUiButton() },
         GG.skipRestoreState to { this.skipRestoreState() },
