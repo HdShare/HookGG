@@ -10,9 +10,9 @@ android {
 
     defaultConfig {
         applicationId "me.hd.hookgg"
-        minSdk 26
+        minSdk 27
         targetSdk 34
-        versionCode 20240801
+        versionCode 20240803
         versionName "1.9.500"
         buildConfigField 'String', 'TAG', '"HookGG"'
     }
@@ -21,15 +21,22 @@ android {
         buildConfig true
         viewBinding true
     }
-
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
-            versionNameSuffix '-release'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            packagingOptions {
+                resources {
+                    excludes += "kotlin/**"
+                    excludes += "META-INF/*.version"
+                    excludes += "DebugProbesKt.bin"
+                    excludes += "kotlin-tooling-metadata.json"
+                }
+            }
         }
     }
+
     applicationVariants.configureEach { variant ->
         variant.outputs.configureEach { output ->
             def outputFile = output.outputFile
@@ -41,6 +48,7 @@ android {
             }
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -55,10 +63,10 @@ dependencies {
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
     implementation 'androidx.navigation:navigation-ui-ktx:2.7.7'
-    //implementation 'net.bytebuddy:byte-buddy-android:1.14.18'
-    //implementation 'org.luaj:luaj-jse:3.0.1'
-    implementation 'org.luckypray:dexkit:2.0.2'
     compileOnly 'de.robv.android.xposed:api:82'
     implementation 'com.highcapable.yukihookapi:api:1.2.1'
     ksp 'com.highcapable.yukihookapi:ksp-xposed:1.2.1'
+    implementation 'org.luckypray:dexkit:2.0.2'
+    //implementation 'net.bytebuddy:byte-buddy-android:1.14.18'
+    //implementation 'org.luaj:luaj-jse:3.0.1'
 }

@@ -61,7 +61,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             startActivity(
                 Intent(
                     Intent.ACTION_VIEW,
-                    Uri.parse("https://github.com/HdShare/HookGG")
+                    Uri.parse("https://github.com/HdShare/HookGG/releases")
                 )
             )
         }

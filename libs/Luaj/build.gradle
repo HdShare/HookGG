@@ -5,9 +5,11 @@ plugins {
 android {
     namespace 'me.hd.luaj'
     compileSdk 34
+
     lintOptions {
-        abortOnError = true
+        abortOnError true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
