@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'me.hd.gg960'
+    namespace 'me.hd.luaj'
     compileSdk 34
     lintOptions {
         abortOnError = true
