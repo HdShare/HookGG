@@ -16,18 +16,18 @@ import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
 
 object AppData {
     private val mapHooker = mapOf(
-        "GG(96.0)" to GGv960Hooker,
-        "GG(96.1~97.0)" to GGv961Hooker,
-        "GG(98.0)" to GGv980Hooker,
-        "GG(99.0~101.1)" to GGv1011Hooker,
-        "RLGG(2.0.9.2)" to RLGGv2092Hooker,
-        "ELGG(1.1.0~1.1.6)" to ELGGv114Hooker,
-        "ELGG(1.1.7)" to ELGGv117Hooker,
-        "ELGG(1.1.9)" to ELGGv119Hooker,
-        "ELGG(1.2.0)" to ELGGv120Hooker,
-        "ELGG(1.2.1)" to ELGGv121Hooker,
-        "ELGG(1.2.2)" to ELGGv122Hooker,
-        "AGG(3.3.3~3.3.91)" to AGGv333Hooker,
+        "GG [96.0]" to GGv960Hooker,
+        "GG [96.1~97.0]" to GGv961Hooker,
+        "GG [98.0]" to GGv980Hooker,
+        "GG [99.0~101.1]" to GGv1011Hooker,
+        "AGG [3.3.3~3.3.91]" to AGGv333Hooker,
+        "ELGG [1.1.0~1.1.6]" to ELGGv114Hooker,
+        "ELGG [1.1.7]" to ELGGv117Hooker,
+        "ELGG [1.1.9]" to ELGGv119Hooker,
+        "ELGG [1.2.0]" to ELGGv120Hooker,
+        "ELGG [1.2.1]" to ELGGv121Hooker,
+        "ELGG [1.2.2]" to ELGGv122Hooker,
+        "RLGG [2.0.9.2]" to RLGGv2092Hooker,
     )
 
     fun getMapHooker(version: String): BaseGGHooker? {
