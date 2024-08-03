@@ -102,17 +102,17 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td rowspan="1" colspan="1" align="center"><b>Other</b></td>
     </tr>
     <tr>
-        <td colspan="1" align="center"><b>RLGG</b></td>
-        <td colspan="1" align="center"><b>ELGG</b></td>
         <td colspan="1" align="center"><b>AGG</b></td>
+        <td colspan="1" align="center"><b>ELGG</b></td>
+        <td colspan="1" align="center"><b>RLGG</b></td>
         <td colspan="1" align="center"><b>Unknown</b></td>
     </tr>
     <tr>
         <td align="center"><b>96.0~98.0</b></td>
         <td align="center"><b>99.0~101.1</b></td>
-        <td align="center"><b>2.0.9.2</b></td>
-        <td align="center"><b>1.1.0~1.1.7, 1.1.9~1.2.1</b></td>
         <td align="center"><b>3.3.3~3.3.91</b></td>
+        <td align="center"><b>1.1.0~1.2.2</b></td>
+        <td align="center"><b>2.0.9.2</b></td>
         <td align="center"><b>Unknown</b></td>
     </tr>
     <tr>
@@ -605,9 +605,9 @@ We will continue to update and adapt based on the number of stars and downloads 
         <td align="center">gg.searchPointer</td>
         <td align="center">❌</td>
         <td align="center">✅</td>
-        <td align="center">✅</td>
-        <td align="center">✅</td>
         <td align="center">❌</td>
+        <td align="center">✅</td>
+        <td align="center">✅</td>
         <td align="center">❓</td>
     </tr>
     <tr>
