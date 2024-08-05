@@ -153,11 +153,15 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val positive = varArgs.optjstring(2, "ok")
+                        val positiveTmp = GGUtil.getStringValue(positive as String)
                         val negative = varArgs.optjstring(3, "nil")
+                        val negativeTmp = GGUtil.getStringValue(negative as String)
                         val neutral = varArgs.optjstring(4, "nil")
+                        val neutralTmp = GGUtil.getStringValue(neutral as String)
                         scope.launch {
-                            val func = "gg.alert($text, $positive, $negative, $neutral)"
+                            val func = "gg.alert($textTmp, $positiveTmp, $negativeTmp, $neutralTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -175,9 +179,11 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val mode = varArgs.optint(1, 6)
+                        val modeTmp = GGUtil.getConstValue(GG.CONST.PROT, mode as Int)
                         val address = varArgs.optlong(2, 0L)
+                        val addressTmp = GGUtil.getHexValue(address as Long)
                         scope.launch {
-                            val func = "gg.allocatePage($mode, $address)"
+                            val func = "gg.allocatePage($modeTmp, $addressTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -195,9 +201,11 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val encoding = varArgs.optjstring(2, "UTF-8")
+                        val encodingTmp = GGUtil.getStringValue(encoding as String)
                         scope.launch {
-                            val func = "gg.bytes($text, $encoding)"
+                            val func = "gg.bytes($textTmp, $encodingTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -217,8 +225,9 @@ object AGGv333Hooker : BaseGGHooker() {
                         val items = varArgs.checktable(1)
                         val selected = varArgs.arg(2)
                         val message = varArgs.optjstring(3, "nil")
+                        val messageTmp = GGUtil.getStringValue(message as String)
                         scope.launch {
-                            val func = "gg.choice($items, $selected, $message)"
+                            val func = "gg.choice($items, $selected, $messageTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -270,10 +279,12 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val from = varArgs.checklong(1)
+                        val fromTmp = GGUtil.getHexValue(from as Long)
                         val to = varArgs.checklong(2)
+                        val toTmp = GGUtil.getHexValue(to as Long)
                         val bytes = varArgs.checkint(3)
                         scope.launch {
-                            val func = "gg.copyMemory($from, $to, $bytes)"
+                            val func = "gg.copyMemory($fromTmp, $toTmp, $bytes)"
                             sendLog(func, result)
                         }
                     }
@@ -291,9 +302,10 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val fixLocale = varArgs.optboolean(2, true)
                         scope.launch {
-                            val func = "gg.copyText($text, $fixLocale)"
+                            val func = "gg.copyText($textTmp, $fixLocale)"
                             sendLog(func, result)
                         }
                     }
@@ -311,10 +323,12 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val type = varArgs.checkint(1)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.ASM, type as Int)
                         val address = varArgs.checklong(2)
+                        val addressTmp = GGUtil.getHexValue(address as Long)
                         val opcode = varArgs.checkint(3)
                         scope.launch {
-                            val func = "gg.disasm($type, $address, $opcode)"
+                            val func = "gg.disasm($typeTmp, $addressTmp, $opcode)"
                             sendLog(func, result)
                         }
                     }
@@ -332,11 +346,15 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val from = varArgs.checklong(1)
+                        val fromTmp = GGUtil.getHexValue(from as Long)
                         val to = varArgs.checklong(2)
+                        val toTmp = GGUtil.getHexValue(to as Long)
                         val dir = varArgs.checkjstring(3)
+                        val dirTmp = GGUtil.getStringValue(dir as String)
                         val flags = varArgs.optint(4, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.DUMP, flags as Int)
                         scope.launch {
-                            val func = "gg.dumpMemory($from, $to, $dir, $flags)"
+                            val func = "gg.dumpMemory($fromTmp, $toTmp, $dirTmp, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -354,9 +372,11 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val value = varArgs.checkjstring(1)
+                        val valueTmp = GGUtil.getStringValue(value as String)
                         val type = varArgs.checkint(2)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         scope.launch {
-                            val func = "gg.editAll($value, $type)"
+                            val func = "gg.editAll($valueTmp, $typeTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -476,8 +496,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val filter = varArgs.optjstring(1, "")
+                        val filterTmp = GGUtil.getStringValue(filter as String)
                         scope.launch {
-                            val func = "gg.getRangesList($filter)"
+                            val func = "gg.getRangesList($filterTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -497,15 +518,22 @@ object AGGv333Hooker : BaseGGHooker() {
                         val maxCount = varArgs.checkint(1)
                         val skip = varArgs.optint(2, 0)
                         val addressMin = varArgs.optlong(3, 0L)
+                        val addressMinTmp = GGUtil.getHexValue(addressMin as Long)
                         val addressMax = varArgs.optlong(4, -1L)
+                        val addressMaxTmp = GGUtil.getHexValue(addressMax as Long)
                         val valueMin = varArgs.optjstring(5, "nil")
+                        val valueMinTmp = GGUtil.getStringValue(valueMin as String)
                         val valueMax = varArgs.optjstring(6, "nil")
+                        val valueMaxTmp = GGUtil.getStringValue(valueMax as String)
                         val type = varArgs.optint(7, 0)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val fractional = varArgs.optjstring(8, "nil")
+                        val fractionalTmp = GGUtil.getStringValue(fractional as String)
                         val pointer = varArgs.optint(9, 0)
+                        val pointerTmp = GGUtil.getConstValue(GG.CONST.POINTER, pointer as Int)
                         scope.launch {
                             val func =
-                                "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
+                                "gg.getResults($maxCount, $skip, $addressMinTmp, $addressMaxTmp, $valueMinTmp, $valueMaxTmp, $typeTmp, $fractionalTmp, $pointerTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -683,8 +711,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val address = varArgs.checklong(1)
+                        val addressTmp = GGUtil.getHexValue(address as Long)
                         scope.launch {
-                            val func = "gg.gotoAddress($address)"
+                            val func = "gg.gotoAddress($addressTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -736,8 +765,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val pkg = varArgs.checkjstring(1)
+                        val pkgTmp = GGUtil.getStringValue(pkg as String)
                         scope.launch {
-                            val func = "gg.isPackageInstalled($pkg)"
+                            val func = "gg.isPackageInstalled($pkgTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -789,9 +819,11 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val file = varArgs.checkjstring(1)
+                        val fileTmp = GGUtil.getStringValue(file as String)
                         val flags = varArgs.optint(2, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.LOAD, flags as Int)
                         scope.launch {
-                            val func = "gg.loadList($file, $flags)"
+                            val func = "gg.loadList($fileTmp, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -831,10 +863,12 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val url = varArgs.checkjstring(1)
+                        val urlTmp = GGUtil.getStringValue(url as String)
                         val headers = varArgs.opttable(2, null)
                         val data = varArgs.optstring(3, null)
+                        val dataTmp = GGUtil.getStringValue(data as String)
                         scope.launch {
-                            val func = "gg.makeRequest($url, $headers, $data)"
+                            val func = "gg.makeRequest($urlTmp, $headers, $dataTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -854,8 +888,9 @@ object AGGv333Hooker : BaseGGHooker() {
                         val items = varArgs.checktable(1)
                         val selection = varArgs.opttable(2, null)
                         val message = varArgs.optjstring(3, "nil")
+                        val messageTmp = GGUtil.getStringValue(message as String)
                         scope.launch {
-                            val func = "gg.multiChoice($items, $selection, $message)"
+                            val func = "gg.multiChoice($items, $selection, $messageTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -873,8 +908,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
+                        val numTmp = GGUtil.getStringValue(num as String)
                         scope.launch {
-                            val func = "gg.numberFromLocale($num)"
+                            val func = "gg.numberFromLocale($numTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -892,8 +928,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
+                        val numTmp = GGUtil.getStringValue(num as String)
                         scope.launch {
-                            val func = "gg.numberToLocale($num)"
+                            val func = "gg.numberToLocale($numTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1044,9 +1081,10 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val version = varArgs.optjstring(1, "0")
+                        val versionTmp = GGUtil.getStringValue(version as String)
                         val build = varArgs.optint(2, 0)
                         scope.launch {
-                            val func = "gg.require($version, $build)"
+                            val func = "gg.require($versionTmp, $build)"
                             sendLog(func, result)
                         }
                     }
@@ -1064,9 +1102,11 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val file = varArgs.checkjstring(1)
+                        val fileTmp = GGUtil.getStringValue(file as String)
                         val flags = varArgs.optint(2, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.SAVE, flags as Int)
                         scope.launch {
-                            val func = "gg.saveList($file, $flags)"
+                            val func = "gg.saveList($fileTmp, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1085,8 +1125,9 @@ object AGGv333Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val variable = varArgs.arg(1)
                         val filename = varArgs.checkjstring(2)
+                        val filenameTmp = GGUtil.getStringValue(filename as String)
                         scope.launch {
-                            val func = "gg.saveVariable($variable, $filename)"
+                            val func = "gg.saveVariable($variable, $filenameTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1104,14 +1145,20 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val mask = varArgs.optlong(2, -1L)
+                        val maskTmp = GGUtil.getHexValue(mask as Long)
                         val type = varArgs.optint(3, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val sign = varArgs.optint(4, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN, sign as Int)
                         val memoryFrom = varArgs.optlong(5, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(6, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         scope.launch {
                             val func =
-                                "gg.searchAddress($text, $mask, $type, $sign, $memoryFrom, $memoryTo)"
+                                "gg.searchAddress($textTmp, $maskTmp, $typeTmp, $signTmp, $memoryFromTmp, $memoryToTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1129,13 +1176,18 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val difference = varArgs.optjstring(1, "0")
+                        val differenceTmp = GGUtil.getStringValue(difference as String)
                         val sign = varArgs.optint(2, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN_FUZZY, sign as Int)
                         val type = varArgs.optint(3, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val memoryFrom = varArgs.optlong(4, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(5, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         scope.launch {
                             val func =
-                                "gg.searchFuzzy($difference, $sign, $type, $memoryFrom, $memoryTo)"
+                                "gg.searchFuzzy($differenceTmp, $signTmp, $typeTmp, $memoryFromTmp, $memoryToTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1153,16 +1205,21 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val type = varArgs.optint(2, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val encrypted = varArgs.optboolean(3, false)
                         val sign = varArgs.optint(4, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN, sign as Int)
                         val memoryFrom = varArgs.optlong(5, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(6, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
                             scope.launch {
                                 val func =
-                                    "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                                    "gg.searchNumber($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp)"
                                 sendLog(func, result)
                             }
                         }
@@ -1181,8 +1238,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val ranges = varArgs.checkint(1)
+                        val rangesTmp = GGUtil.getConstValue(GG.CONST.REGION, ranges as Int)
                         scope.launch {
-                            val func = "gg.setRanges($ranges)"
+                            val func = "gg.setRanges($rangesTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1313,10 +1371,13 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val type = varArgs.optint(1, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val memoryFrom = varArgs.optlong(2, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(3, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         scope.launch {
-                            val func = "gg.startFuzzy($type, $memoryFrom, $memoryTo)"
+                            val func = "gg.startFuzzy($typeTmp, $memoryFromTmp, $memoryToTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1334,8 +1395,9 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val time = varArgs.checkjstring(1)
+                        val timeTmp = GGUtil.getStringValue(time as String)
                         scope.launch {
-                            val func = "gg.timeJump($time)"
+                            val func = "gg.timeJump($timeTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1353,9 +1415,10 @@ object AGGv333Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val fast = varArgs.optboolean(2, false)
                         scope.launch {
-                            val func = "gg.toast($text, $fast)"
+                            val func = "gg.toast($textTmp, $fast)"
                             sendLog(func, result)
                         }
                     }
