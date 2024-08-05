@@ -1,6 +1,7 @@
 package me.hd.hookgg.hook.utils
 
 
+@OptIn(ExperimentalStdlibApi::class)
 object GGUtil {
     fun isValidItems(items: String): Boolean {
         return items.length in 1..102400
@@ -30,5 +31,17 @@ object GGUtil {
         }
         if (empty || tmpValue != 0) constValue.add(tmpValue.toString())
         return constValue.joinToString(" | ")
+    }
+
+    fun getHexValue(value: Long): String {
+        return if (value == 0L || value == -1L) {
+            value.toString()
+        } else {
+            "0x${value.toHexString()}"
+        }
+    }
+
+    fun getStringValue(value: String): String {
+        return "\"$value\""
     }
 }
