@@ -37,7 +37,13 @@ object GGUtil {
         return if (value == 0L || value == -1L) {
             value.toString()
         } else {
-            "0x${value.toHexString()}"
+            val format = HexFormat {
+                upperCase = false
+                number {
+                    removeLeadingZeros = true
+                }
+            }
+            "0x${value.toHexString(format)}"
         }
     }
 
