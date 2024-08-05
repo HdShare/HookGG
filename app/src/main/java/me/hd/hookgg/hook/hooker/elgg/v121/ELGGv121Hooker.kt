@@ -1080,9 +1080,10 @@ object ELGGv121Hooker : BaseGGHooker() {
                         val sign = varArgs.optint(4, 0x20000000)
                         val memoryFrom = varArgs.optlong(5, 0L)
                         val memoryTo = varArgs.optlong(6, -1L)
+                        val limit = varArgs.optlong(7, 0L)
                         scope.launch {
                             val func =
-                                "gg.searchAddress($text, $mask, $type, $sign, $memoryFrom, $memoryTo)"
+                                "gg.searchAddress($text, $mask, $type, $sign, $memoryFrom, $memoryTo, $limit)"
                             sendLog(func, result)
                         }
                     }
