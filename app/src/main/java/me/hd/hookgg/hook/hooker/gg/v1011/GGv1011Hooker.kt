@@ -124,7 +124,7 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                         val textTmp = GGUtil.getStringValue(text as String)
+                        val textTmp = GGUtil.getStringValue(text as String)
                         val positive = varArgs.optjstring(2, "ok")
                         val positiveTmp = GGUtil.getStringValue(positive as String)
                         val negative = varArgs.optjstring(3, "nil")
@@ -150,7 +150,7 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val mode = varArgs.optint(1, 6)
-                         val modeTmp = GGUtil.getConstValue(GG.CONST.PROT, mode as Int)
+                        val modeTmp = GGUtil.getConstValue(GG.CONST.PROT, mode as Int)
                         val address = varArgs.optlong(2, 0L)
                         val addressTmp = GGUtil.getHexValue(address as Long)
                         scope.launch {
