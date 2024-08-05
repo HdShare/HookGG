@@ -1,5 +1,6 @@
 package me.hd.hookgg.hook.utils
 
+
 object GGUtil {
     fun isValidItems(items: String): Boolean {
         return items.length in 1..102400
@@ -14,5 +15,20 @@ object GGUtil {
         val isSearchHexUtf = setOf("Q", "q").any { prefix -> text.startsWith(prefix) }
         val isSearchATA8 = setOf("~A ", "~T ", "~A8 ").any { prefix -> text.startsWith(prefix) }
         return isValidLength && (isSearchNumber || isSearchTextUtf || isSearchHex || isSearchEndian || isSearchHexUtf || isSearchATA8)
+    }
+
+    fun getConstValue(constMap: Map<String, Int>, value: Int): String {
+        val constValue = mutableListOf<String>()
+        var empty = true
+        var tmpValue = value
+        for (const in constMap) {
+            if ((tmpValue and const.value) == const.value) {
+                empty = false
+                constValue.add(const.key)
+                tmpValue = tmpValue and const.value.xor(-1)
+            }
+        }
+        if (empty || tmpValue != 0) constValue.add(tmpValue.toString())
+        return constValue.joinToString(" | ")
     }
 }

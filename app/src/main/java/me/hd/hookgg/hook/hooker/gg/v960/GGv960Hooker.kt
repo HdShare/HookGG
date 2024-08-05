@@ -145,9 +145,10 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val mode = varArgs.optint(1, 6)
+                        val modeTmp = GGUtil.getConstValue(GG.CONST.PROT, mode as Int)
                         val address = varArgs.optlong(2, 0L)
                         scope.launch {
-                            val func = "gg.allocatePage($mode, $address)"
+                            val func = "gg.allocatePage($modeTmp, $address)"
                             sendLog(func, result)
                         }
                     }
@@ -281,10 +282,11 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val type = varArgs.checkint(1)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.ASM, type as Int)
                         val address = varArgs.checklong(2)
                         val opcode = varArgs.checkint(3)
                         scope.launch {
-                            val func = "gg.disasm($type, $address, $opcode)"
+                            val func = "gg.disasm($typeTmp, $address, $opcode)"
                             sendLog(func, result)
                         }
                     }
@@ -305,8 +307,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val to = varArgs.checklong(2)
                         val dir = varArgs.checkjstring(3)
                         val flags = varArgs.optint(4, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.DUMP, flags as Int)
                         scope.launch {
-                            val func = "gg.dumpMemory($from, $to, $dir, $flags)"
+                            val func = "gg.dumpMemory($from, $to, $dir, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -325,8 +328,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val value = varArgs.checkjstring(1)
                         val type = varArgs.checkint(2)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         scope.launch {
-                            val func = "gg.editAll($value, $type)"
+                            val func = "gg.editAll($value, $typeTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -471,11 +475,13 @@ object GGv960Hooker : BaseGGHooker() {
                         val valueMin = varArgs.optjstring(5, "nil")
                         val valueMax = varArgs.optjstring(6, "nil")
                         val type = varArgs.optint(7, 0)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val fractional = varArgs.optjstring(8, "nil")
                         val pointer = varArgs.optint(9, 0)
+                        val pointerTmp = GGUtil.getConstValue(GG.CONST.POINTER, pointer as Int)
                         scope.launch {
                             val func =
-                                "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $type, $fractional, $pointer)"
+                                "gg.getResults($maxCount, $skip, $addressMin, $addressMax, $valueMin, $valueMax, $typeTmp, $fractional, $pointerTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -760,8 +766,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val file = varArgs.checkjstring(1)
                         val flags = varArgs.optint(2, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.LOAD, flags as Int)
                         scope.launch {
-                            val func = "gg.loadList($file, $flags)"
+                            val func = "gg.loadList($file, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1035,8 +1042,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val file = varArgs.checkjstring(1)
                         val flags = varArgs.optint(2, 0)
+                        val flagsTmp = GGUtil.getConstValue(GG.CONST.SAVE, flags as Int)
                         scope.launch {
-                            val func = "gg.saveList($file, $flags)"
+                            val func = "gg.saveList($file, $flagsTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1076,12 +1084,14 @@ object GGv960Hooker : BaseGGHooker() {
                         val text = varArgs.checkjstring(1)
                         val mask = varArgs.optlong(2, -1L)
                         val type = varArgs.optint(3, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val sign = varArgs.optint(4, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN, sign as Int)
                         val memoryFrom = varArgs.optlong(5, 0L)
                         val memoryTo = varArgs.optlong(6, -1L)
                         scope.launch {
                             val func =
-                                "gg.searchAddress($text, $mask, $type, $sign, $memoryFrom, $memoryTo)"
+                                "gg.searchAddress($text, $mask, $typeTmp, $signTmp, $memoryFrom, $memoryTo)"
                             sendLog(func, result)
                         }
                     }
@@ -1100,12 +1110,14 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val difference = varArgs.optjstring(1, "0")
                         val sign = varArgs.optint(2, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN_FUZZY, sign as Int)
                         val type = varArgs.optint(3, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val memoryFrom = varArgs.optlong(4, 0L)
                         val memoryTo = varArgs.optlong(5, -1L)
                         scope.launch {
                             val func =
-                                "gg.searchFuzzy($difference, $sign, $type, $memoryFrom, $memoryTo)"
+                                "gg.searchFuzzy($difference, $signTmp, $typeTmp, $memoryFrom, $memoryTo)"
                             sendLog(func, result)
                         }
                     }
@@ -1124,15 +1136,17 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
                         val type = varArgs.optint(2, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val encrypted = varArgs.optboolean(3, false)
                         val sign = varArgs.optint(4, 0x20000000)
+                        val signTmp = GGUtil.getConstValue(GG.CONST.SIGN, sign as Int)
                         val memoryFrom = varArgs.optlong(5, 0L)
                         val memoryTo = varArgs.optlong(6, -1L)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
                         if (!(filterParams && !GGUtil.isValidParams("$text"))) {
                             scope.launch {
                                 val func =
-                                    "gg.searchNumber($text, $type, $encrypted, $sign, $memoryFrom, $memoryTo)"
+                                    "gg.searchNumber($text, $typeTmp, $encrypted, $signTmp, $memoryFrom, $memoryTo)"
                                 sendLog(func, result)
                             }
                         }
@@ -1151,8 +1165,9 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val ranges = varArgs.checkint(1)
+                        val rangesTmp = GGUtil.getConstValue(GG.CONST.REGION, ranges as Int)
                         scope.launch {
-                            val func = "gg.setRanges($ranges)"
+                            val func = "gg.setRanges($rangesTmp)"
                             sendLog(func, result)
                         }
                     }
@@ -1283,10 +1298,11 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val type = varArgs.optint(1, 127)
+                        val typeTmp = GGUtil.getConstValue(GG.CONST.TYPE, type as Int)
                         val memoryFrom = varArgs.optlong(2, 0L)
                         val memoryTo = varArgs.optlong(3, -1L)
                         scope.launch {
-                            val func = "gg.startFuzzy($type, $memoryFrom, $memoryTo)"
+                            val func = "gg.startFuzzy($typeTmp, $memoryFrom, $memoryTo)"
                             sendLog(func, result)
                         }
                     }
