@@ -1,17 +1,16 @@
 plugins {
-    id 'com.android.library'
+    id 'java-library'
 }
 
-android {
-    namespace 'me.hd.luaj'
-    compileSdk 34
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
 
-    lintOptions {
-        abortOnError true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+sourceSets {
+    main {
+        java {
+            srcDirs = ['luaj/src/core']
+        }
     }
 }

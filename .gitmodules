@@ -1,0 +1,3 @@
+[submodule "libs/Luaj/luaj"]
+	path = libs/Luaj/luaj
+	url = https://github.com/luaj/luaj
