@@ -12,9 +12,17 @@ android {
         applicationId "me.hd.hookgg"
         minSdk 27
         targetSdk 34
-        versionCode 20240806
-        versionName "1.9.503"
+        versionCode 20240807
+        versionName "1.9.510"
         buildConfigField 'String', 'TAG', '"HookGG"'
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
+        }
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
     }
 
     buildFeatures {
@@ -56,6 +64,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = '17'
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.22.1'
+        }
     }
 }
 
