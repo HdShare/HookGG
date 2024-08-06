@@ -10,10 +10,12 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
+import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
@@ -22,6 +24,7 @@ import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
 import me.hd.hookgg.ui.fragment.base.FragmentBase
+import java.util.Locale
 
 class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
     FragmentSetPageBinding::inflate
@@ -46,6 +49,11 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             BuildConfig.VERSION_NAME,
             BuildConfig.VERSION_CODE,
         )
+        binding.setTvDescAppLanguage.text = when (prefs.get(SetPrefsData.APP_LANGUAGE)) {
+            Locale.ENGLISH.language -> getString(R.string.language_en)
+            Locale.CHINESE.language -> getString(R.string.language_zh)
+            else -> getString(R.string.language_default)
+        }
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         val versionName = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefVersionName.text = versionName
@@ -69,6 +77,27 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     Uri.parse("https://github.com/HdShare/HookGG/releases")
                 )
             )
+        }
+        binding.setLLAppLanguage.setOnClickListener { view ->
+            fun changeLanguage(locale: Locale) {
+                YLog.error("Change language to ${locale.language}")
+                prefs.edit {
+                    put(SetPrefsData.APP_LANGUAGE, locale.language)
+                }
+                requireActivity().recreate()
+            }
+
+            val popupMenu = PopupMenu(requireContext(), view)
+            popupMenu.menuInflater.inflate(R.menu.language_popup_menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                when (menuItem.itemId) {
+                    R.id.language_default -> changeLanguage(Locale.getDefault())
+                    R.id.language_en -> changeLanguage(Locale.ENGLISH)
+                    R.id.language_zh -> changeLanguage(Locale.CHINESE)
+                }
+                true
+            }
+            popupMenu.show()
         }
         binding.setLLPackageName.setOnClickListener {
             val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)
