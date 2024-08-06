@@ -15,6 +15,13 @@ import me.hd.hookgg.hook.hooker.gg.v980.GGv980Hooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
 
 object AppData {
+    val defaultPackageNameMap = mapOf(
+        "GG" to "catch_.me_.if_.you_.can_",
+        "AGG" to "com.apocalua.run",
+        "ELGG" to "com.e4bcf981ebd09",
+        "RLGG" to "com.eec6e1e69aeee6f6",
+    )
+
     private val mapHooker = mapOf(
         "GG [96.0]" to GGv960Hooker,
         "GG [96.1~97.0]" to GGv961Hooker,

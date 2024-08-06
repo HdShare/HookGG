@@ -3,8 +3,13 @@ package me.hd.hookgg.ui.fragment.nav
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.TextView
 import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
@@ -70,7 +75,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             val dialogBinding =
                 DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
             dialogBinding.textInputEditText.setText(oldPackageName)
-            MaterialAlertDialogBuilder(requireContext())
+            val dialog = MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.prefs_key_package_name)
                 .setView(dialogBinding.root)
                 .setPositiveButton(R.string.dialog_accept) { _, _ ->
@@ -83,7 +88,35 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     binding.setTvDefPackageName.text = newPackageName
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
-                .show()
+                .create()
+            dialogBinding.linearlayoutDefaultPackageName.apply {
+                AppData.defaultPackageNameMap.forEach { entry ->
+                    addView(TextView(context).apply {
+                        setPadding(20, 5, 0, 5)
+                        movementMethod = LinkMovementMethod.getInstance()
+                        text = SpannableStringBuilder("${entry.key} [${entry.value}]").apply {
+                            setSpan(
+                                object : ClickableSpan() {
+                                    override fun onClick(widget: View) {
+                                        val newPackageName = entry.value
+                                        if (newPackageName.isNotEmpty()) {
+                                            prefs.edit {
+                                                put(SetPrefsData.PACKAGE_NAME, newPackageName)
+                                            }
+                                        }
+                                        binding.setTvDefPackageName.text = newPackageName
+                                        dialog.dismiss()
+                                    }
+                                },
+                                0,
+                                length,
+                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                            )
+                        }
+                    })
+                }
+            }
+            dialog.show()
         }
         binding.setLLVersionName.setOnClickListener {
             val versionList = AppData.getVersionList()

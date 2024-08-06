@@ -19,6 +19,7 @@
     <string name="prefs_basic">Basic</string>
     <string name="prefs_key_package_name">Intercept Package Name</string>
     <string name="prefs_desc_package_name">catch_.me_.if_.you_.can_</string>
+    <string name="prefs_desc_package_name_click">Quick Options(Click Settings)</string>
     <string name="prefs_key_version_name">Intercept Version</string>
     <string name="prefs_desc_version_name">96.0</string>
     <string name="prefs_key_function_list">Intercept Function</string>
