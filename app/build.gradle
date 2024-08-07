@@ -83,5 +83,5 @@ dependencies {
     ksp 'com.highcapable.yukihookapi:ksp-xposed:1.2.1'
     implementation 'org.luckypray:dexkit:2.0.2'
     //implementation 'net.bytebuddy:byte-buddy-android:1.14.18'
-    //implementation 'org.luaj:luaj-jse:3.0.1'
+    testImplementation "junit:junit:4.13.2"
 }
