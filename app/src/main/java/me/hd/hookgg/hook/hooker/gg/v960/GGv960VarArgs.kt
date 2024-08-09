@@ -1,11 +1,17 @@
 package me.hd.hookgg.hook.hooker.gg.v960
 
+import com.highcapable.yukihookapi.hook.type.java.IntType
 import de.robv.android.xposed.XposedHelpers.callMethod
 import me.hd.hookgg.hook.base.BaseGGVarArgs
+import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker.toClass
 
 object GGv960VarArgs : BaseGGVarArgs {
     override fun Any?.arg(i: Int): Any {
         return callMethod(this, "arg", i)
+    }
+
+    fun Any?.narg(): Any {
+        return callMethod(this, "narg")
     }
 
     override fun Any?.optboolean(i: Int, defVal: Boolean): Any {
@@ -53,7 +59,9 @@ object GGv960VarArgs : BaseGGVarArgs {
     }
 
     override fun Any?.optstring(i: Int, defVal: Any?): Any {
-        return callMethod(this, "optstring", i, defVal) ?: "nil"
+        val clazz = "luaj.LuaString".toClass()
+        val parameterTypes = arrayOf(IntType, clazz)
+        return callMethod(this, "optstring", parameterTypes, i, defVal) ?: "nil"
     }
 
     override fun Any?.checkstring(i: Int): Any {
@@ -61,7 +69,9 @@ object GGv960VarArgs : BaseGGVarArgs {
     }
 
     override fun Any?.opttable(i: Int, defVal: Any?): Any {
-        return callMethod(this, "opttable", i, defVal) ?: "{}"
+        val clazz = "luaj.LuaTable".toClass()
+        val parameterTypes = arrayOf(IntType, clazz)
+        return callMethod(this, "opttable", parameterTypes, i, defVal) ?: "{}"
     }
 
     override fun Any?.checktable(i: Int): Any {
