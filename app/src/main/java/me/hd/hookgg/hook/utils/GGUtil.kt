@@ -47,7 +47,7 @@ object GGUtil {
         }
     }
 
-    fun getStringValue(value: String): String {
+    fun getStringValue(value: Any): String {
         return "\"$value\""
     }
 }
