@@ -282,7 +282,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textTmp = GGUtil.getStringValue(text as String)
+                        val textStr = ELGGv114Util.decryptText(text as String)
+                        val textTmp = GGUtil.getStringValue(textStr as String)
                         val fixLocale = varArgs.optboolean(2, true)
                         val deferred = scope.async {
                             val func = "gg.copyText($textTmp, $fixLocale)"
@@ -355,7 +356,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val value = varArgs.checkjstring(1)
-                        val valueTmp = GGUtil.getStringValue(value as String)
+                        val valueStr = ELGGv114Util.decryptText(value as String)
+                        val valueTmp = GGUtil.getStringValue(valueStr as String)
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
                         val deferred = scope.async {
@@ -940,7 +942,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
-                        val numTmp = GGUtil.getStringValue(num as String)
+                        val numStr = ELGGv114Util.decryptText(num as String)
+                        val numTmp = GGUtil.getStringValue(numStr as String)
                         val deferred = scope.async {
                             val func = "gg.numberToLocale($numTmp)"
                             sendLog(func, result)
@@ -1168,7 +1171,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textTmp = GGUtil.getStringValue(text as String)
+                        val textStr = ELGGv114Util.decryptText(text as String)
+                        val textTmp = GGUtil.getStringValue(textStr as String)
                         val mask = varArgs.optlong(2, -1L)
                         val maskTmp = GGUtil.getHexValue(mask as Long)
                         val type = varArgs.optint(3, 127)
@@ -1201,7 +1205,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val difference = varArgs.optjstring(1, "0")
-                        val differenceTmp = GGUtil.getStringValue(difference as String)
+                        val differenceStr = ELGGv114Util.decryptText(difference as String)
+                        val differenceTmp = GGUtil.getStringValue(differenceStr as String)
                         val sign = varArgs.optint(2, 0x20000000)
                         val signTmp = GGUtil.getConstValue(GGLib.CONST.SIGN_FUZZY, sign as Int)
                         val type = varArgs.optint(3, 127)
@@ -1232,7 +1237,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textTmp = GGUtil.getStringValue(text as String)
+                        val textStr = ELGGv114Util.decryptText(text as String)
+                        val textTmp = GGUtil.getStringValue(textStr as String)
                         val type = varArgs.optint(2, 127)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
                         val encrypted = varArgs.optboolean(3, false)
@@ -1458,7 +1464,8 @@ object ELGGv114Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val time = varArgs.checkjstring(1)
-                        val timeTmp = GGUtil.getStringValue(time as String)
+                        val timeStr = ELGGv114Util.decryptText(time as String)
+                        val timeTmp = GGUtil.getStringValue(timeStr as String)
                         val deferred = scope.async {
                             val func = "gg.timeJump($timeTmp)"
                             sendLog(func, result)
