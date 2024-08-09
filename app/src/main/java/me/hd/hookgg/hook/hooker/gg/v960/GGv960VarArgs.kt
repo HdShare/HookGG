@@ -10,10 +10,6 @@ object GGv960VarArgs : BaseGGVarArgs {
         return callMethod(this, "arg", i)
     }
 
-    fun Any?.narg(): Any {
-        return callMethod(this, "narg")
-    }
-
     override fun Any?.optboolean(i: Int, defVal: Boolean): Any {
         return callMethod(this, "optboolean", i, defVal) ?: defVal
     }
