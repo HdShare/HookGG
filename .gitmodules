@@ -1,3 +1,6 @@
 [submodule "libs/luaj/luaj"]
 	path = libs/luaj/luaj
 	url = https://github.com/luaj/luaj
+[submodule "libs/luak/luak"]
+	path = libs/luak/luak
+	url = https://github.com/korlibs/korge-luak

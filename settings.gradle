@@ -19,4 +19,5 @@ dependencyResolutionManagement {
 rootProject.name = "HookGG"
 include ':app'
 include ':libs:luaj'
+include ':libs:luak'
 include ':libs:unluac'
