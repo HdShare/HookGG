@@ -9,8 +9,8 @@ import luaj.lib.VarArgFunction
 
 class MethodLib : TwoArgFunction() {
     override fun call(modname: LuaValue, env: LuaValue): LuaValue {
-        return LuaTable().also { testTable ->
-            testTable.setmetatable(LuaTable().apply {
+        return LuaTable().also { methodTable ->
+            methodTable.setmetatable(LuaTable().apply {
                 set(LuaValue.INDEX, object : VarArgFunction() {
                     override fun call(table: LuaValue, value: LuaValue): LuaValue {
                         val methodName = value.checkjstring()
@@ -18,10 +18,8 @@ class MethodLib : TwoArgFunction() {
                     }
                 })
             })
-            env["method"] = testTable
-            if (env["package"].isnil().not()) {
-                env["package"]["loaded"].set("method", testTable)
-            }
+            env["method"] = methodTable
+            env["package"]["loaded"]["method"] = methodTable
         }
     }
 

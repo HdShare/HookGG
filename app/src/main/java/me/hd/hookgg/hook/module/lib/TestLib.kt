@@ -11,9 +11,7 @@ class TestLib : TwoArgFunction() {
             testTable.set("toLower", toLower())
             testTable.set("toUpper", toUpper())
             env["test"] = testTable
-            if (env["package"].isnil().not()) {
-                env["package"]["loaded"].set("test", testTable)
-            }
+            env["package"]["loaded"]["test"] = testTable
         }
     }
 
