@@ -1,6 +1,5 @@
 plugins {
     id 'java-library'
-    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 java {
@@ -14,8 +13,4 @@ sourceSets {
             srcDirs = ['luaj/src/core']
         }
     }
-}
-
-shadowJar {
-    relocate 'org.luaj.vm2', 'luaj'
 }
