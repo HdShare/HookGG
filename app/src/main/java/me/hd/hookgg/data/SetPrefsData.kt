@@ -11,4 +11,5 @@ object SetPrefsData {
     val FILTER_PARAMS = PrefsData("filter_Params", false)
     val MODULE_FUNC = PrefsData("module_func", false)
     val TEST_FUNC = PrefsData("test_func", false)
+    val MODULE_ENABLE_LIST = PrefsData("module_enable_list", setOf<String>())
 }

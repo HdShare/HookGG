@@ -1,4 +1,4 @@
-package me.hd.hookgg.hook.module.lib
+package me.hd.hookgg.hook.module.test
 
 import luaj.LuaString
 import luaj.LuaTable

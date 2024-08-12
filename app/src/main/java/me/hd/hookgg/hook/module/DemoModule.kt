@@ -3,14 +3,12 @@ package me.hd.hookgg.hook.module
 import com.highcapable.yukihookapi.hook.entity.YukiBaseHooker
 import com.highcapable.yukihookapi.hook.factory.method
 import luaj.Globals
-import luaj.lib.LibFunction
-import me.hd.hookgg.hook.module.lib.MethodLib
-import me.hd.hookgg.hook.module.lib.TestLib
+import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.hook.module.lib.Base64Lib
 
 object DemoModule : YukiBaseHooker() {
-    private val modules: Array<LibFunction> = arrayOf(
-        TestLib(),
-        MethodLib(),
+    val moduleNameList = arrayOf(
+        "base64",
     )
 
     override fun onHook() {
@@ -20,12 +18,19 @@ object DemoModule : YukiBaseHooker() {
                 emptyParam()
             }.ignored().hook {
                 after {
+                    val moduleLibList = mapOf(
+                        "base64" to Base64Lib(),
+                    )
                     val globals = instance::class.java
                         .getDeclaredField("globals")
                         .apply { isAccessible = true }
                         .get(instance) as Globals
-                    for (module in modules) {
-                        globals.load(module)
+                    for (moduleLib in moduleLibList) {
+                        prefs.get(SetPrefsData.MODULE_ENABLE_LIST).forEach { moduleEnableName ->
+                            moduleLibList[moduleEnableName]?.let {
+                                globals.load(it)
+                            }
+                        }
                     }
                 }
             }

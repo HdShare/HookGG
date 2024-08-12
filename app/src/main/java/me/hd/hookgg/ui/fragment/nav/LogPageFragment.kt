@@ -71,8 +71,10 @@ class LogPageFragment : FragmentBase<FragmentLogPageBinding, ViewModel>(
 
     private fun initAdapter() {
         logAdapter = LogAdapter()
-        binding.logPageRvLog.layoutManager = LinearLayoutManager(requireContext())
-        binding.logPageRvLog.adapter = logAdapter
+        binding.logPageRvLog.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = logAdapter
+        }
         GGv960Hooker.dataChannel.wait<CharSequence>("log") { value ->
             logAdapter.addLog(value)
         }

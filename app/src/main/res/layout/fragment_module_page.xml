@@ -23,11 +23,10 @@
             app:title="@string/nav_module_page"
             app:titleTextColor="?attr/colorOnPrimary" />
 
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/modulePageRvModule"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="This page is not yet implemented"
-            android:textSize="16sp" />
+            android:layout_height="match_parent"
+            android:padding="16dp" />
     </LinearLayout>
 </FrameLayout>
