@@ -1,11 +1,26 @@
 package me.hd.hookgg
 
 import org.junit.Test
+import org.luaj.vm2.Globals
+import org.luaj.vm2.LoadState
+import org.luaj.vm2.compiler.LuaC
+import org.luaj.vm2.lib.BaseLib
 
 class UnitTest {
     @Test
     fun main() {
         println("main")
+        val globals = Globals().apply {
+            load(BaseLib())
+            LoadState.install(this)
+            LuaC.install(this)
+        }
+        val code = globals.load(
+            """
+            print("Hello!")
+        """.trimIndent()
+        )
+        code.call()
     }
 
     @Test
@@ -22,6 +37,6 @@ class UnitTest {
          * --rawstring：将字符串字节直接复制到输出。
          * --luaj：模拟Luaj的宽容解析器。
          */
-        //unluac.Main.main(arrayOf("--disassemble", "--output", "output.txt", "input.lua"))
+        // unluac.Main.main(arrayOf("--disassemble", "--output", "output.txt", "input.lua"))
     }
 }
