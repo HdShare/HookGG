@@ -12,8 +12,8 @@ android {
         applicationId "me.hd.hookgg"
         minSdk 27
         targetSdk 34
-        versionCode 20240812
-        versionName "1.9.520"
+        versionCode 20240813
+        versionName "2.0.0"
         buildConfigField 'String', 'TAG', '"HookGG"'
         ndk {
             abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -74,7 +74,7 @@ android {
 }
 
 dependencies {
-    compileOnly files('libs/GG960.jar')
+    compileOnly files('../libs/ggjar/GG960.jar')
     //implementation project(':libs:unluac')
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.7.7'
