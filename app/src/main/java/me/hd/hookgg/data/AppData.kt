@@ -8,6 +8,7 @@ import me.hd.hookgg.hook.hooker.elgg.v119.ELGGv119Hooker
 import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker
 import me.hd.hookgg.hook.hooker.elgg.v121.ELGGv121Hooker
 import me.hd.hookgg.hook.hooker.elgg.v122.ELGGv122Hooker
+import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123Hooker
 import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
@@ -34,6 +35,7 @@ object AppData {
         "ELGG [1.2.0]" to ELGGv120Hooker,
         "ELGG [1.2.1]" to ELGGv121Hooker,
         "ELGG [1.2.2]" to ELGGv122Hooker,
+        "ELGG [1.2.3]" to ELGGv123Hooker,
         "RLGG [2.0.9.2]" to RLGGv2092Hooker,
     )
 
