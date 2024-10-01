@@ -1,4 +1,4 @@
-package me.hd.hookgg.hook.hooker.elgg.v123
+package me.hd.hookgg.hook.hooker.elgg.v124
 
 import com.highcapable.yukihookapi.hook.factory.method
 import kotlinx.coroutines.async
@@ -6,24 +6,24 @@ import kotlinx.coroutines.runBlocking
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.data.func.GGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.arg
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checkboolean
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checkdouble
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checkint
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checkjstring
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checklong
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.checktable
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optboolean
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optdouble
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optint
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optjstring
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optlong
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.optstring
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.opttable
-import me.hd.hookgg.hook.hooker.elgg.v123.ELGGv123VarArgs.tojstring
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.arg
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checkboolean
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checkdouble
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checkint
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checkjstring
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checklong
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.checktable
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optboolean
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optdouble
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optint
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optjstring
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optlong
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.optstring
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.opttable
+import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124VarArgs.tojstring
 import me.hd.hookgg.hook.utils.GGUtil
 
-object ELGGv123Hooker : BaseGGHooker() {
+object ELGGv124Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
         GGLib.addListItems to { this.addListItems() },
         GGLib.alert to { this.alert() },
@@ -94,7 +94,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     )
 
     private fun addListItems() {
-        "android.ext.ۣۧۧۢ"
+        "android.ext.۟ۧ۠ۡ۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -117,7 +117,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun alert() {
-        "android.ext.۟ۧ۠ۡ۠"
+        "android.ext.۟ۧ۠ۡۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -144,7 +144,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun allocatePage() {
-        "android.ext.۟ۧ۠ۡ۟"
+        "android.ext.ۣ۟ۧ۠ۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -167,7 +167,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun bytes() {
-        "android.ext.۟ۧ۠ۡۤ"
+        "android.ext.۟ۧ۠ۡۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -190,7 +190,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun choice() {
-        "android.ext.۟ۧ۠ۡۥ"
+        "android.ext.ۧۧۢۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -213,7 +213,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun clearList() {
-        "android.ext.۟ۧ۠ۡۨ"
+        "android.ext.ۦۤ۟ۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -231,7 +231,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun clearResults() {
-        "android.ext.۟ۧ۠۠ۨ"
+        "android.ext.ۧۧۢۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -249,7 +249,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun copyMemory() {
-        "android.ext.ۦۤ۟ۧ"
+        "android.ext.ۦۤ۟ۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -273,7 +273,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun copyText() {
-        "android.ext.ۧۧۢۧ"
+        "android.ext.ۧۧۢۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -282,7 +282,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textStr = ELGGv123Util.decryptText(text as String)
+                        val textStr = ELGGv124Util.decryptText(text as String)
                         val textTmp = GGUtil.getStringValue(textStr)
                         val fixLocale = varArgs.optboolean(2, true)
                         val deferred = scope.async {
@@ -296,7 +296,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun disasm() {
-        "android.ext.ۧۧۢۤ"
+        "android.ext.ۦۤ۟ۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -320,7 +320,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun dumpMemory() {
-        "android.ext.ۣۧۧۢ"
+        "android.ext.ۦۤ۟۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -347,7 +347,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun editAll() {
-        "android.ext.ۧۧۢۡ"
+        "android.ext.۟ۧ۠ۢۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -356,7 +356,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val value = varArgs.checkjstring(1)
-                        val valueStr = ELGGv123Util.decryptText(value as String)
+                        val valueStr = ELGGv124Util.decryptText(value as String)
                         val valueTmp = GGUtil.getStringValue(valueStr)
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
@@ -371,7 +371,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getActiveTab() {
-        "android.ext.۟ۧ۠ۢۡ"
+        "android.ext.۟ۧ۠ۢۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -389,7 +389,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getFile() {
-        "android.ext.۟ۧ۠ۢۧ"
+        "android.ext.ۧۧۡۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "a_"
@@ -407,7 +407,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getLine() {
-        "android.ext.۟ۧ۠ۢۦ"
+        "android.ext.ۧۧۡۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -443,7 +443,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getLocale() {
-        "android.ext.۟ۧ۠ۢۨ"
+        "android.ext.ۧۧۡۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -461,7 +461,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getRanges() {
-        "android.ext.ۧۧۡۥ"
+        "android.ext.ۧۧۡۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -479,7 +479,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getRangesList() {
-        "android.ext.ۧۧۡۦ"
+        "android.ext.ۧۧۡۢ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -500,7 +500,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getResults() {
-        "android.ext.ۧۧۡۡ"
+        "android.ext.ۥۡ۟۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -536,7 +536,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getResultsCount() {
-        "android.ext.ۧۧۡۢ"
+        "android.ext.ۥۡ۟۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -554,7 +554,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getSelectedElements() {
-        "android.ext.ۧۧۥۣ"
+        "android.ext.ۦۣۤۢ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -572,7 +572,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getSelectedListItems() {
-        "android.ext.ۥۡ۟۠"
+        "android.ext.ۧۧۥۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -590,7 +590,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getSelectedResults() {
-        "android.ext.ۥۡ۟۟"
+        "android.ext.ۥۡ۟ۢ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -608,7 +608,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getSpeed() {
-        "android.ext.ۧۧۥۡ"
+        "android.ext.ۧۧۥ۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -626,7 +626,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getTargetInfo() {
-        "android.ext.ۥۡ۟ۢ"
+        "android.ext.ۣ۟ۧ۠۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -644,7 +644,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getTargetPackage() {
-        "android.ext.ۦۤۢۢ"
+        "android.ext.ۣ۟ۧ۠۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -662,7 +662,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getValues() {
-        "android.ext.ۧۧۥ۟"
+        "android.ext.ۣ۟ۧ۠ۢ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -685,7 +685,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun getValuesRange() {
-        "android.ext.ۣ۟ۧ۠۠"
+        "android.ext.ۦۤۢ۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -705,7 +705,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun gotoAddress() {
-        "android.ext.ۦۤۢ۟"
+        "android.ext.ۣ۟ۧ۠ۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -726,7 +726,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun hideUiButton() {
-        "android.ext.ۣ۟ۧ۠ۦ"
+        "android.ext.ۧۧۤۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -744,7 +744,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun isClickedUiButton() {
-        "android.ext.ۧۧۤۦ"
+        "android.ext.ۦۤۡۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -762,7 +762,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun isPackageInstalled() {
-        "android.ext.ۦۣۤۡ"
+        "android.ext.ۧۧۤۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -783,7 +783,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun isProcessPaused() {
-        "android.ext.ۧۧۤۧ"
+        "android.ext.ۦۤۡ۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -801,7 +801,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun isVisible() {
-        "android.ext.ۦۤۡۥ"
+        "android.ext.ۣۧۧۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -819,7 +819,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun loadList() {
-        "android.ext.ۦۤۡ۠"
+        "android.ext.ۦۤۡۢ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -842,7 +842,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun loadResults() {
-        "android.ext.ۧۧۤۢ"
+        "android.ext.۟ۧ۠ۤ۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -889,7 +889,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun multiChoice() {
-        "android.ext.ۦۤۡ۟"
+        "android.ext.ۦۤۡۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -912,7 +912,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun numberFromLocale() {
-        "android.ext.ۦۤۡۢ"
+        "android.ext.۟ۧ۠ۤۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -933,7 +933,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun numberToLocale() {
-        "android.ext.۟ۧ۠ۤ۟"
+        "android.ext.۟ۧ۠ۤ۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -942,7 +942,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
-                        val numStr = ELGGv123Util.decryptText(num as String)
+                        val numStr = ELGGv124Util.decryptText(num as String)
                         val numTmp = GGUtil.getStringValue(numStr)
                         val deferred = scope.async {
                             val func = "gg.numberToLocale($numTmp)"
@@ -955,7 +955,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun processKill() {
-        "android.ext.۟ۧ۠ۤۥ"
+        "android.ext.ۦۤ۠ۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -973,7 +973,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun processPause() {
-        "android.ext.۟ۧ۠ۤۦ"
+        "android.ext.ۣۧۧۧ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -991,7 +991,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun processResume() {
-        "android.ext.۟ۧ۠ۤۨ"
+        "android.ext.ۦۤ۠ۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1009,7 +1009,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun processToggle() {
-        "android.ext.ۦۤ۠ۧ"
+        "android.ext.ۣۧۧۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1027,7 +1027,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun prompt() {
-        "android.ext.ۣۧۧۨ"
+        "android.ext.ۣۧۧۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1049,7 +1049,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun removeListItems() {
-        "android.ext.ۦۣۤۤ"
+        "android.ext.۟ۧ۠ۥ۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1072,7 +1072,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun removeResults() {
-        "android.ext.ۦۤۤۢ"
+        "android.ext.ۦۤۤۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1095,7 +1095,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun require() {
-        "android.ext.ۣۧۧۧ"
+        "android.ext.۟ۧ۠ۥ۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1117,7 +1117,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun saveList() {
-        "android.ext.۟ۧ۠ۥ۠"
+        "android.ext.ۧۧۧۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1140,7 +1140,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun saveVariable() {
-        "android.ext.ۥۡۡۤ"
+        "android.ext.ۦۤۤۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1162,7 +1162,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun searchAddress() {
-        "android.ext.ۦۤ۠ۢ"
+        "android.ext.ۣۧۧۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1171,7 +1171,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textStr = ELGGv123Util.decryptText(text as String)
+                        val textStr = ELGGv124Util.decryptText(text as String)
                         val textTmp = GGUtil.getStringValue(textStr)
                         val mask = varArgs.optlong(2, -1L)
                         val maskTmp = GGUtil.getHexValue(mask as Long)
@@ -1196,7 +1196,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun searchFuzzy() {
-        "android.ext.۟ۧ۠ۥۢ"
+        "android.ext.ۧۧۧ۟"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1205,7 +1205,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val difference = varArgs.optjstring(1, "0")
-                        val differenceStr = ELGGv123Util.decryptText(difference as String)
+                        val differenceStr = ELGGv124Util.decryptText(difference as String)
                         val differenceTmp = GGUtil.getStringValue(differenceStr)
                         val sign = varArgs.optint(2, 0x20000000)
                         val signTmp = GGUtil.getConstValue(GGLib.CONST.SIGN_FUZZY, sign as Int)
@@ -1228,7 +1228,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun searchNumber() {
-        "android.ext.ۣۣۧۧ"
+        "android.ext.ۥۡۡۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1237,7 +1237,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
-                        val textStr = ELGGv123Util.decryptText(text as String)
+                        val textStr = ELGGv124Util.decryptText(text as String)
                         val textTmp = GGUtil.getStringValue(textStr)
                         val type = varArgs.optint(2, 127)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
@@ -1264,7 +1264,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun searchPointer() {
-        "android.ext.ۧۧۧۡ"
+        "android.ext.ۧۧۧ۠"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1290,7 +1290,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun setRanges() {
-        "android.ext.۟ۧ۠ۥۣ"
+        "android.ext.ۥۡ۠ۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1311,7 +1311,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun setSpeed() {
-        "android.ext.ۥۡۡ۟"
+        "android.ext.ۥۡ۠ۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1354,7 +1354,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun setVisible() {
-        "android.ext.۟ۧ۠ۥۥ"
+        "android.ext.ۧۧۦۨ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1374,7 +1374,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun showUiButton() {
-        "android.ext.۟ۧ۠ۥۧ"
+        "android.ext.ۦۣۤۦ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1392,7 +1392,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun skipRestoreState() {
-        "android.ext.ۥۡ۠ۨ"
+        "android.ext.ۦۣۤۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1410,7 +1410,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun sleep() {
-        "android.ext.ۥۡ۠ۥ"
+        "android.ext.ۥۡ۠ۤ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1430,7 +1430,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun startFuzzy() {
-        "android.ext.ۧۧۦۨ"
+        "android.ext.ۥۡ۠ۧ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1455,7 +1455,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun timeJump() {
-        "android.ext.ۥۡ۠ۤ"
+        "android.ext.ۧۧۦۧ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1464,7 +1464,7 @@ object ELGGv123Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val time = varArgs.checkjstring(1)
-                        val timeStr = ELGGv123Util.decryptText(time as String)
+                        val timeStr = ELGGv124Util.decryptText(time as String)
                         val timeTmp = GGUtil.getStringValue(timeStr)
                         val deferred = scope.async {
                             val func = "gg.timeJump($timeTmp)"
@@ -1477,7 +1477,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun toast() {
-        "android.ext.ۧۧۦۧ"
+        "android.ext.ۦۣۤۡ"
             .toClassOrNull()?.apply {
                 method {
                     name = "b"
@@ -1499,7 +1499,7 @@ object ELGGv123Hooker : BaseGGHooker() {
     }
 
     private fun unrandomizer() {
-        "android.ext.ۥۡ۠ۡ"
+        "android.ext.ۧۧۦۥ"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
