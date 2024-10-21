@@ -357,11 +357,14 @@ object GGv980Hooker : BaseGGHooker() {
                         val valueTmp = GGUtil.getStringValue(value)
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
-                        val deferred = scope.async {
-                            val func = "gg.editAll($valueTmp, $typeTmp)"
-                            sendLog(func, result)
+                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+                        if (!(filterParams && !GGUtil.isValidParams("$value"))) {
+                            val deferred = scope.async {
+                                val func = "gg.editAll($valueTmp, $typeTmp)"
+                                sendLog(func, result)
+                            }
+                            runBlocking { deferred.await() }
                         }
-                        runBlocking { deferred.await() }
                     }
                 }.ignoredAllFailure()
             }
