@@ -87,7 +87,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 requireActivity().recreate()
             }
 
-            val popupMenu = PopupMenu(requireContext(), view)
+            val popupMenu = PopupMenu(requireContext(), binding.setLLAppLanguageRight)
             popupMenu.menuInflater.inflate(R.menu.language_popup_menu, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
