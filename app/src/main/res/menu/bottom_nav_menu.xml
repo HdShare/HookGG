@@ -9,6 +9,10 @@
         android:icon="@drawable/ic_nav_module_24dp"
         android:title="@string/nav_module_page" />
     <item
+        android:id="@+id/navFuncPageFragment"
+        android:icon="@drawable/ic_nav_func_24dp"
+        android:title="@string/nav_func_page" />
+    <item
         android:id="@+id/navSetPageFragment"
         android:icon="@drawable/ic_nav_set_24dp"
         android:title="@string/nav_set_page" />

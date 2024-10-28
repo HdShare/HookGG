@@ -4,6 +4,7 @@
     <string name="module_active">Active</string>
     <string name="nav_log_page">LogPage</string>
     <string name="nav_module_page">ModulePage</string>
+    <string name="nav_func_page">FuncPage</string>
     <string name="nav_set_page">SetPage</string>
     <string name="tab_copy">Copy</string>
     <string name="tab_save">Save</string>
