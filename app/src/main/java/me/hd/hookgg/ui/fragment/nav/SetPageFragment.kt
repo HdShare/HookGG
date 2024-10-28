@@ -64,7 +64,6 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         )
         binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
-        binding.setSwitchModuleFunc.isChecked = prefs.get(SetPrefsData.MODULE_FUNC)
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
     }
 
@@ -237,17 +236,6 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 put(SetPrefsData.FILTER_PARAMS, newFilterParams)
             }
             binding.setSwitchFilterParams.isChecked = newFilterParams
-        }
-        binding.setLLModuleFunc.setOnClickListener {
-            binding.setSwitchModuleFunc.performClick()
-        }
-        binding.setSwitchModuleFunc.setOnClickListener {
-            val oldModuleFunc = prefs.get(SetPrefsData.MODULE_FUNC)
-            val newModuleFunc = !oldModuleFunc
-            prefs.edit {
-                put(SetPrefsData.MODULE_FUNC, newModuleFunc)
-            }
-            binding.setSwitchModuleFunc.isChecked = newModuleFunc
         }
         binding.setLLTestFunc.setOnClickListener {
             binding.setSwitchTestFunc.performClick()

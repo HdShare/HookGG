@@ -5,31 +5,31 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
+import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPrefsData
-import me.hd.hookgg.databinding.ItemRvModuleBinding
-import me.hd.hookgg.hook.module.DemoModule
+import me.hd.hookgg.databinding.ItemRvFuncBinding
 
-class ModuleAdapter : RecyclerView.Adapter<ModuleAdapter.ModuleViewHolder>() {
-    private val moduleNameList = DemoModule.moduleNameList
+class FuncAdapter : RecyclerView.Adapter<FuncAdapter.ModuleViewHolder>() {
+    private val moduleNameList = AppData.getFunctionList(MyApp.context.prefs().get(SetPrefsData.VERSION_NAME))
 
-    class ModuleViewHolder(val binding: ItemRvModuleBinding) : RecyclerView.ViewHolder(binding.root)
+    class ModuleViewHolder(val binding: ItemRvFuncBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun getItemCount() = moduleNameList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModuleViewHolder {
-        val view = ItemRvModuleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = ItemRvFuncBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ModuleViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ModuleViewHolder, position: Int) {
         val moduleName = moduleNameList[position]
         holder.binding.apply {
-            itemTvModuleName.text = moduleName
+            itemCbFuncStatus.text = moduleName
             val prefs = MyApp.context.prefs()
             val moduleEnableOldList = prefs.get(SetPrefsData.MODULE_ENABLE_LIST)
-            itemCbModuleStatus.isChecked = moduleEnableOldList.contains(moduleName)
-            itemCbModuleStatus.setOnClickListener {
-                val newModuleEnableSet = if (itemCbModuleStatus.isChecked) {
+            itemCbFuncStatus.isChecked = moduleEnableOldList.contains(moduleName)
+            itemCbFuncStatus.setOnClickListener {
+                val newModuleEnableSet = if (itemCbFuncStatus.isChecked) {
                     prefs.get(SetPrefsData.MODULE_ENABLE_LIST) + moduleName
                 } else {
                     prefs.get(SetPrefsData.MODULE_ENABLE_LIST) - moduleName

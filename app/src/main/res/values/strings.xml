@@ -3,7 +3,6 @@
     <string name="module_inactive">Inactive</string>
     <string name="module_active">Active</string>
     <string name="nav_log_page">LogPage</string>
-    <string name="nav_module_page">ModulePage</string>
     <string name="nav_func_page">FuncPage</string>
     <string name="nav_set_page">SetPage</string>
     <string name="tab_copy">Copy</string>
@@ -35,7 +34,5 @@
     <string name="prefs_key_print_return">Print Function Return</string>
     <string name="prefs_key_filter_param">Filter Exception Param</string>
     <string name="prefs_test">Test</string>
-    <string name="prefs_key_module_func">ModuleFunc</string>
-    <string name="prefs_desc_module_func">Only supports the official GG v96.0</string>
     <string name="prefs_key_test_func">TestFunc</string>
 </resources>

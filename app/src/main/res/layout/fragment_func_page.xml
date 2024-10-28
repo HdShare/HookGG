@@ -23,10 +23,10 @@
             app:title="@string/nav_func_page"
             app:titleTextColor="?attr/colorOnPrimary" />
 
-        <ScrollView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/funcPageRvFunc"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        </ScrollView>
+            android:layout_height="match_parent"
+            android:padding="16dp" />
     </LinearLayout>
 </FrameLayout>
