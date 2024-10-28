@@ -16,12 +16,11 @@
             android:id="@+id/setPageToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:subtitle="@string/module_inactive"
-            app:subtitleTextColor="?attr/colorOnPrimary"
+            app:subtitleTextColor="?attr/colorPrimary"
             app:title="@string/nav_set_page"
-            app:titleTextColor="?attr/colorOnPrimary" />
+            app:titleTextColor="?attr/colorPrimary" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -396,7 +395,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="16dp"
-                            android:src="@drawable/ic_nav_set_24dp"
+                            android:src="@drawable/ic_set_test_24dp"
                             tools:ignore="ContentDescription" />
 
                         <LinearLayout

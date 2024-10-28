@@ -16,12 +16,11 @@
             android:id="@+id/funcPageToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:subtitle="@string/module_inactive"
-            app:subtitleTextColor="?attr/colorOnPrimary"
+            app:subtitleTextColor="?attr/colorPrimary"
             app:title="@string/nav_func_page"
-            app:titleTextColor="?attr/colorOnPrimary" />
+            app:titleTextColor="?attr/colorPrimary" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/funcPageRvFunc"

@@ -16,13 +16,12 @@
             android:id="@+id/logPageToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             app:menu="@menu/log_tab_menu"
             app:subtitle="@string/module_inactive"
-            app:subtitleTextColor="?attr/colorOnPrimary"
+            app:subtitleTextColor="?attr/colorPrimary"
             app:title="@string/nav_log_page"
-            app:titleTextColor="?attr/colorOnPrimary" />
+            app:titleTextColor="?attr/colorPrimary" />
 
         <HorizontalScrollView
             android:layout_width="match_parent"

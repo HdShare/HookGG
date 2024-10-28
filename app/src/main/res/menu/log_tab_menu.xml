@@ -8,19 +8,16 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/tab_save"
-        android:icon="@drawable/ic_tab_save_24dp"
         android:title="@string/tab_save"
         app:showAsAction="never" />
     <item
         android:id="@+id/tab_clear"
-        android:icon="@drawable/ic_tab_clear_24dp"
         android:title="@string/tab_clear"
         app:showAsAction="never" />
     <item
         android:id="@+id/tab_wrap"
         android:checkable="true"
         android:enabled="false"
-        android:icon="@drawable/ic_tab_wrap_24dp"
         android:title="@string/tab_wrap"
         app:showAsAction="never" />
 </menu>

@@ -10,7 +10,8 @@ import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.ItemRvFuncBinding
 
 class FuncAdapter : RecyclerView.Adapter<FuncAdapter.ModuleViewHolder>() {
-    private val moduleNameList = AppData.getFunctionList(MyApp.context.prefs().get(SetPrefsData.VERSION_NAME))
+    private val moduleNameList =
+        AppData.getFunctionList(MyApp.context.prefs().get(SetPrefsData.VERSION_NAME))
 
     class ModuleViewHolder(val binding: ItemRvFuncBinding) : RecyclerView.ViewHolder(binding.root)
 
