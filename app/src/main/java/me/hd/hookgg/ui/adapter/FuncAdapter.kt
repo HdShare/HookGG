@@ -3,6 +3,7 @@ package me.hd.hookgg.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.flexbox.FlexboxLayoutManager
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.data.AppData
@@ -25,9 +26,10 @@ class FuncAdapter : RecyclerView.Adapter<FuncAdapter.ModuleViewHolder>() {
     override fun onBindViewHolder(holder: ModuleViewHolder, position: Int) {
         val moduleName = moduleNameList[position]
         holder.binding.apply {
-            itemCbFuncStatus.text = moduleName
+            (root.layoutParams as FlexboxLayoutManager.LayoutParams).flexGrow = 1.0f
             val prefs = MyApp.context.prefs()
             val moduleEnableOldList = prefs.get(SetPrefsData.MODULE_ENABLE_LIST)
+            itemCbFuncStatus.text = moduleName
             itemCbFuncStatus.isChecked = moduleEnableOldList.contains(moduleName)
             itemCbFuncStatus.setOnClickListener {
                 val newModuleEnableSet = if (itemCbFuncStatus.isChecked) {

@@ -3,6 +3,7 @@ package me.hd.hookgg.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModel
+import com.google.android.material.navigation.NavigationBarView
 import me.hd.hookgg.R
 import me.hd.hookgg.databinding.FragmentMainNavBinding
 import me.hd.hookgg.ui.adapter.MainViewPager2Adapter
@@ -26,7 +27,7 @@ class MainNavFragment : FragmentBase<FragmentMainNavBinding, ViewModel>(
                     SetPageFragment(),
                 )
             )
-            binding.mainNavBottomNav.setOnItemSelectedListener {
+            (binding.mainNavBottomNav as NavigationBarView).setOnItemSelectedListener {
                 when (it.itemId) {
                     R.id.navLogPageFragment -> setCurrentItem(0, false)
                     R.id.navFuncPageFragment -> setCurrentItem(1, false)

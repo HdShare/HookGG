@@ -17,5 +17,4 @@
         android:layout_height="wrap_content"
         app:labelVisibilityMode="selected"
         app:menu="@menu/bottom_nav_menu" />
-
 </LinearLayout>
