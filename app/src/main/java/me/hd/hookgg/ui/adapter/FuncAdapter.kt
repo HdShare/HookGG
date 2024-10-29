@@ -10,35 +10,33 @@ import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.ItemRvFuncBinding
 
-class FuncAdapter : RecyclerView.Adapter<FuncAdapter.ModuleViewHolder>() {
-    private val moduleNameList =
-        AppData.getFunctionList(MyApp.context.prefs().get(SetPrefsData.VERSION_NAME))
+class FuncAdapter : RecyclerView.Adapter<FuncAdapter.FuncViewHolder>() {
+    private val prefs = MyApp.context.prefs()
+    private val moduleNameList = AppData.getFunctionList(prefs.get(SetPrefsData.VERSION_NAME))
 
-    class ModuleViewHolder(val binding: ItemRvFuncBinding) : RecyclerView.ViewHolder(binding.root)
+    class FuncViewHolder(val binding: ItemRvFuncBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun getItemCount() = moduleNameList.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ModuleViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FuncViewHolder {
         val view = ItemRvFuncBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ModuleViewHolder(view)
+        return FuncViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ModuleViewHolder, position: Int) {
-        val moduleName = moduleNameList[position]
+    override fun onBindViewHolder(holder: FuncViewHolder, position: Int) {
+        val funcName = moduleNameList[position]
         holder.binding.apply {
             (root.layoutParams as FlexboxLayoutManager.LayoutParams).flexGrow = 1.0f
-            val prefs = MyApp.context.prefs()
-            val moduleEnableOldList = prefs.get(SetPrefsData.MODULE_ENABLE_LIST)
-            itemCbFuncStatus.text = moduleName
-            itemCbFuncStatus.isChecked = moduleEnableOldList.contains(moduleName)
+            itemCbFuncStatus.text = funcName
+            itemCbFuncStatus.isChecked = prefs.get(SetPrefsData.FUNC_LIST).contains(funcName)
             itemCbFuncStatus.setOnClickListener {
-                val newModuleEnableSet = if (itemCbFuncStatus.isChecked) {
-                    prefs.get(SetPrefsData.MODULE_ENABLE_LIST) + moduleName
+                val newFuncSet = if (itemCbFuncStatus.isChecked) {
+                    prefs.get(SetPrefsData.FUNC_LIST) + funcName
                 } else {
-                    prefs.get(SetPrefsData.MODULE_ENABLE_LIST) - moduleName
+                    prefs.get(SetPrefsData.FUNC_LIST) - funcName
                 }
                 prefs.edit {
-                    put(SetPrefsData.MODULE_ENABLE_LIST, newModuleEnableSet)
+                    put(SetPrefsData.FUNC_LIST, newFuncSet)
                 }
             }
         }

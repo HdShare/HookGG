@@ -22,10 +22,39 @@
             app:title="@string/nav_func_page"
             app:titleTextColor="?attr/colorPrimary" />
 
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="#5b5b5b"
+            app:tabMaxWidth="120dp"
+            app:tabMinWidth="60dp"
+            app:tabMode="scrollable"
+            app:tabRippleColor="@android:color/transparent">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GG" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="String" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Math" />
+
+        </com.google.android.material.tabs.TabLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/funcPageRvFunc"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingHorizontal="16dp" />
+            android:paddingHorizontal="16dp"
+            tools:itemCount="1"
+            tools:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            tools:listitem="@layout/item_rv_func" />
     </LinearLayout>
 </FrameLayout>

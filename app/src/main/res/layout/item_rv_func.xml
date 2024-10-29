@@ -20,6 +20,6 @@
             android:layout_height="wrap_content"
             android:paddingStart="0dp"
             android:paddingEnd="8dp"
-            tools:text="FuncName" />
+            tools:text="func" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

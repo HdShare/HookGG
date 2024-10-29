@@ -19,7 +19,7 @@ abstract class BaseGGHooker : YukiBaseHooker() {
     abstract val functionMap: Map<String, () -> Unit>
 
     override fun onHook() {
-        val setFuncList = prefs.get(SetPrefsData.FUNCTION_LIST)
+        val setFuncList = prefs.get(SetPrefsData.FUNC_LIST)
         setFuncList.forEach { function ->
             functionMap[function]?.invoke()
         }

@@ -27,9 +27,6 @@
     <string name="prefs_desc_package_name_click">Quick Options(Click Settings)</string>
     <string name="prefs_key_version_name">Intercept Version</string>
     <string name="prefs_desc_version_name">96.0</string>
-    <string name="prefs_key_function_list">Intercept Function</string>
-    <string name="prefs_desc_function_list">EnableNum [ 0 / 0 ]</string>
-    <string name="prefs_desc_function_num">EnableNum [ %1$d / %2$d ]</string>
     <string name="prefs_more">More</string>
     <string name="prefs_key_print_return">Print Function Return</string>
     <string name="prefs_key_filter_param">Filter Exception Param</string>

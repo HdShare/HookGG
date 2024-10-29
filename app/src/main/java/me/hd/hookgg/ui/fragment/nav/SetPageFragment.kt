@@ -57,11 +57,6 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
         val versionName = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setTvDefVersionName.text = versionName
-        binding.setTvDefFunctionList.text = getString(
-            R.string.prefs_desc_function_num,
-            prefs.get(SetPrefsData.FUNCTION_LIST).size,
-            AppData.getFunctionList(versionName).size
-        )
         binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
@@ -161,58 +156,11 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                     val newFunctionListSet = setOf<String>()
                     prefs.edit {
                         put(SetPrefsData.VERSION_NAME, newVersionName)
-                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
+                        put(SetPrefsData.FUNC_LIST, newFunctionListSet)
                     }
                     binding.setTvDefVersionName.text = newVersionName
-                    binding.setTvDefFunctionList.text =
-                        getString(
-                            R.string.prefs_desc_function_num,
-                            0,
-                            AppData.getFunctionList(newVersionName).size
-                        )
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
-                .show()
-        }
-        binding.setLLFunctionList.setOnClickListener {
-            val versionName = prefs.get(SetPrefsData.VERSION_NAME)
-            val functionList = AppData.getFunctionList(versionName)
-            val oldFunctionList = prefs.get(SetPrefsData.FUNCTION_LIST)
-            val oldFunctionStatus = BooleanArray(functionList.size) {
-                functionList[it] in oldFunctionList
-            }
-            MaterialAlertDialogBuilder(requireContext())
-                .setTitle(R.string.prefs_key_function_list)
-                .setMultiChoiceItems(functionList, oldFunctionStatus) { _, which, isChecked ->
-                    oldFunctionStatus[which] = isChecked
-                }
-                .setPositiveButton(R.string.dialog_accept) { _, _ ->
-                    val newFunctionListSet = functionList.filterIndexed { index, _ ->
-                        oldFunctionStatus[index]
-                    }.toSet()
-                    prefs.edit {
-                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
-                    }
-                    binding.setTvDefFunctionList.text =
-                        getString(
-                            R.string.prefs_desc_function_num,
-                            newFunctionListSet.size,
-                            functionList.size
-                        )
-                }
-                .setNegativeButton(R.string.dialog_decline) { _, _ -> }
-                .setNeutralButton(R.string.dialog_select_all) { _, _ ->
-                    val newFunctionListSet = AppData.getFunctionList(versionName).toSet()
-                    prefs.edit {
-                        put(SetPrefsData.FUNCTION_LIST, newFunctionListSet)
-                    }
-                    binding.setTvDefFunctionList.text =
-                        getString(
-                            R.string.prefs_desc_function_num,
-                            newFunctionListSet.size,
-                            functionList.size
-                        )
-                }
                 .show()
         }
         binding.setLLPrintReturn.setOnClickListener {
