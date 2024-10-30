@@ -1,5 +1,6 @@
 package me.hd.hookgg.ui.fragment.nav
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModel
@@ -38,16 +39,18 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
         super.onResume()
-        val prefs = MyApp.context.prefs()
-        val funcNewList = AppData.getFunctionList(
-            prefs.get(SetPrefsData.VERSION_NAME)
-        ).toMutableList()
         funcList.apply {
             clear()
-            addAll(funcNewList)
+            addAll(
+                AppData.getFunctionList(
+                    MyApp.context.prefs().get(SetPrefsData.VERSION_NAME)
+                ).toMutableList()
+            )
         }
-        binding.funcPageRvFunc.adapter?.notifyItemRangeChanged(0, funcNewList.size)
+        val adapter = binding.funcPageRvFunc.adapter
+        adapter?.notifyDataSetChanged()
     }
 }
