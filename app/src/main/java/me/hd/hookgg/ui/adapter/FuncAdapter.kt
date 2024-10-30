@@ -6,17 +6,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
-import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.ItemRvFuncBinding
 
-class FuncAdapter : RecyclerView.Adapter<FuncAdapter.FuncViewHolder>() {
-    private val prefs = MyApp.context.prefs()
-    private val moduleNameList = AppData.getFunctionList(prefs.get(SetPrefsData.VERSION_NAME))
+class FuncAdapter(
+    private val funcList: List<String>
+) : RecyclerView.Adapter<FuncAdapter.FuncViewHolder>() {
 
     class FuncViewHolder(val binding: ItemRvFuncBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun getItemCount() = moduleNameList.size
+    override fun getItemCount() = funcList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FuncViewHolder {
         val view = ItemRvFuncBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -24,7 +23,8 @@ class FuncAdapter : RecyclerView.Adapter<FuncAdapter.FuncViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: FuncViewHolder, position: Int) {
-        val funcName = moduleNameList[position]
+        val prefs = MyApp.context.prefs()
+        val funcName = funcList[position]
         holder.binding.apply {
             (root.layoutParams as FlexboxLayoutManager.LayoutParams).flexGrow = 1.0f
             itemCbFuncStatus.text = funcName
