@@ -11,7 +11,7 @@ import me.hd.hookgg.databinding.ItemRvLogBinding
 import java.io.FileOutputStream
 
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
-    private var logList = mutableListOf<CharSequence>()
+    private var logList = mutableListOf<String>()
 
     fun copyLog(context: Context) {
         val logStr = logList.joinToString("\n")
@@ -21,7 +21,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     }
 
     fun outLog(outputStream: FileOutputStream) {
-        val logStr = logList.joinToString("\n") { it.toString() }
+        val logStr = logList.joinToString("\n")
         outputStream.write(logStr.toByteArray())
     }
 
@@ -31,7 +31,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
         notifyItemRangeRemoved(0, count)
     }
 
-    fun addLog(log: CharSequence) {
+    fun addLog(log: String) {
         val pos = logList.size
         logList.add(log)
         notifyItemInserted(pos)
@@ -47,7 +47,8 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: LogViewHolder, position: Int) {
-        holder.tvLog.text = logList[position]
+        val logText = logList[position].replace("\u0000", " ")
+        holder.tvLog.text = logText
     }
 
     override fun getItemCount(): Int = logList.size

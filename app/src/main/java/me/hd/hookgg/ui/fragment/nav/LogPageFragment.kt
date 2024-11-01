@@ -64,6 +64,10 @@ class LogPageFragment : FragmentBase<FragmentLogPageBinding, ViewModel>(
                     true
                 }
 
+                R.id.tab_wrap -> {
+                    true
+                }
+
                 else -> false
             }
         }
@@ -75,7 +79,7 @@ class LogPageFragment : FragmentBase<FragmentLogPageBinding, ViewModel>(
             layoutManager = LinearLayoutManager(context)
             adapter = logAdapter
         }
-        GGv960Hooker.dataChannel.wait<CharSequence>("log") { value ->
+        GGv960Hooker.dataChannel.wait<String>("log") { value ->
             logAdapter.addLog(value)
         }
     }
