@@ -47,7 +47,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: LogViewHolder, position: Int) {
-        val logText = logList[position].replace("\u0000", " ")
+        val logText = logList[position].replace("\u0000", "")
         holder.tvLog.text = logText
     }
 

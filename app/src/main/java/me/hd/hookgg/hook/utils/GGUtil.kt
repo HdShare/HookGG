@@ -1,16 +1,24 @@
 package me.hd.hookgg.hook.utils
 
-
 @OptIn(ExperimentalStdlibApi::class)
 object GGUtil {
+    fun getFuncName(
+        instanceClass: Class<*>?,
+        funcClass: Class<*>?,
+        funcName: String,
+        defaultName: String
+    ): String {
+        return if (instanceClass == funcClass) funcName else defaultName
+    }
+
     fun isValidItems(items: String): Boolean {
         return items.length in 1..102400
     }
 
     fun isValidParams(text: String): Boolean {
-        val isValidLength = text.length in 1..100
+        val isValidLength = text.length in 1..512
         if (!isValidLength) return false
-        val isSearchNumber = text.matches(Regex("^\\s*[0-9\\s]+\\s*$"))
+        val isSearchNumber = text.matches(Regex("^\\s*[0-9;:]+\\s*$"))
         val isSearchTextUtf = setOf(":", ";").any { prefix -> text.startsWith(prefix) }
         val isSearchHex = setOf("h").any { prefix -> text.startsWith(prefix) }
         val isSearchEndian = setOf("h", "r").any { prefix -> text.endsWith(prefix) }
