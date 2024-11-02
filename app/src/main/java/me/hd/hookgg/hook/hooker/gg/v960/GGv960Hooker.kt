@@ -1,8 +1,6 @@
 package me.hd.hookgg.hook.hooker.gg.v960
 
 import com.highcapable.yukihookapi.hook.factory.method
-import kotlinx.coroutines.async
-import kotlinx.coroutines.runBlocking
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.data.func.GGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
@@ -22,7 +20,6 @@ import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optstring
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.opttable
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.tojstring
 import me.hd.hookgg.hook.utils.GGUtil
-
 
 object GGv960Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
@@ -104,12 +101,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
-                            val deferred = scope.async {
-                                val func = "gg.addListItems($items)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$items")) {
+                            sendLog("gg.addListItems(过滤参数)")
+                        } else {
+                            val func = "gg.addListItems($items)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -133,11 +129,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val negativeTmp = GGUtil.getStringValue(negative)
                         val neutral = varArgs.optjstring(4, "nil")
                         val neutralTmp = GGUtil.getStringValue(neutral)
-                        val deferred = scope.async {
-                            val func = "gg.alert($textTmp, $positiveTmp, $negativeTmp, $neutralTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.alert($textTmp, $positiveTmp, $negativeTmp, $neutralTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -156,11 +149,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val modeTmp = GGUtil.getConstValue(GGLib.CONST.PROT, mode as Int)
                         val address = varArgs.optlong(2, 0L)
                         val addressTmp = GGUtil.getHexValue(address as Long)
-                        val deferred = scope.async {
-                            val func = "gg.allocatePage($modeTmp, $addressTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.allocatePage($modeTmp, $addressTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -179,11 +169,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val textTmp = GGUtil.getStringValue(text)
                         val encoding = varArgs.optjstring(2, "UTF-8")
                         val encodingTmp = GGUtil.getStringValue(encoding)
-                        val deferred = scope.async {
-                            val func = "gg.bytes($textTmp, $encodingTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.bytes($textTmp, $encodingTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -202,11 +189,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val selected = varArgs.arg(2)
                         val message = varArgs.optjstring(3, "nil")
                         val messageTmp = GGUtil.getStringValue(message)
-                        val deferred = scope.async {
-                            val func = "gg.choice($items, $selected, $messageTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.choice($items, $selected, $messageTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -220,11 +204,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.clearList()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.clearList()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -238,11 +219,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.clearResults()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.clearResults()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -262,11 +240,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val to = varArgs.checklong(2)
                         val toTmp = GGUtil.getHexValue(to as Long)
                         val bytes = varArgs.checkint(3)
-                        val deferred = scope.async {
-                            val func = "gg.copyMemory($fromTmp, $toTmp, $bytes)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.copyMemory($fromTmp, $toTmp, $bytes)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -284,11 +259,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
                         val fixLocale = varArgs.optboolean(2, true)
-                        val deferred = scope.async {
-                            val func = "gg.copyText($textTmp, $fixLocale)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.copyText($textTmp, $fixLocale)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -308,11 +280,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val address = varArgs.checklong(2)
                         val addressTmp = GGUtil.getHexValue(address as Long)
                         val opcode = varArgs.checkint(3)
-                        val deferred = scope.async {
-                            val func = "gg.disasm($typeTmp, $addressTmp, $opcode)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.disasm($typeTmp, $addressTmp, $opcode)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -335,11 +304,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val dirTmp = GGUtil.getStringValue(dir)
                         val flags = varArgs.optint(4, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.DUMP, flags as Int)
-                        val deferred = scope.async {
-                            val func = "gg.dumpMemory($fromTmp, $toTmp, $dirTmp, $flagsTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.dumpMemory($fromTmp, $toTmp, $dirTmp, $flagsTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -359,12 +325,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidParams("$value"))) {
-                            val deferred = scope.async {
-                                val func = "gg.editAll($valueTmp, $typeTmp)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidParams("$value")) {
+                            sendLog("gg.editAll(过滤参数)")
+                        } else {
+                            val func = "gg.editAll($valueTmp, $typeTmp)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -379,11 +344,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getActiveTab()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getActiveTab()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -397,11 +359,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getFile()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getFile()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -415,11 +374,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getLine()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getLine()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -433,11 +389,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getListItems()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getListItems()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -451,11 +404,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getLocale()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getLocale()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -469,11 +419,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getRanges()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getRanges()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -490,11 +437,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val filter = varArgs.optjstring(1, "")
                         val filterTmp = GGUtil.getStringValue(filter)
-                        val deferred = scope.async {
-                            val func = "gg.getRangesList($filterTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getRangesList($filterTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -525,12 +469,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val fractionalTmp = GGUtil.getStringValue(fractional)
                         val pointer = varArgs.optint(9, 0)
                         val pointerTmp = GGUtil.getConstValue(GGLib.CONST.POINTER, pointer as Int)
-                        val deferred = scope.async {
-                            val func =
-                                "gg.getResults($maxCount, $skip, $addressMinTmp, $addressMaxTmp, $valueMinTmp, $valueMaxTmp, $typeTmp, $fractionalTmp, $pointerTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func =
+                            "gg.getResults($maxCount, $skip, $addressMinTmp, $addressMaxTmp, $valueMinTmp, $valueMaxTmp, $typeTmp, $fractionalTmp, $pointerTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -544,11 +485,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getResultsCount()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getResultsCount()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -562,11 +500,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getSelectedElements()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getSelectedElements()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -580,11 +515,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getSelectedListItems()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getSelectedListItems()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -598,11 +530,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getSelectedResults()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getSelectedResults()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -616,11 +545,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getSpeed()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getSpeed()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -634,11 +560,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getTargetInfo()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getTargetInfo()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -652,11 +575,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.getTargetPackage()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getTargetPackage()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -673,12 +593,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
-                            val deferred = scope.async {
-                                val func = "gg.getValues($values)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$values")) {
+                            sendLog("gg.getValues(过滤参数)")
+                        } else {
+                            val func = "gg.getValues($values)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -695,11 +614,8 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
-                        val deferred = scope.async {
-                            val func = "gg.getValuesRange($values)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.getValuesRange($values)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -716,11 +632,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val address = varArgs.checklong(1)
                         val addressTmp = GGUtil.getHexValue(address as Long)
-                        val deferred = scope.async {
-                            val func = "gg.gotoAddress($addressTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.gotoAddress($addressTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -734,11 +647,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.hideUiButton()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.hideUiButton()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -752,11 +662,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.isClickedUiButton()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.isClickedUiButton()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -773,11 +680,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val pkg = varArgs.checkjstring(1)
                         val pkgTmp = GGUtil.getStringValue(pkg)
-                        val deferred = scope.async {
-                            val func = "gg.isPackageInstalled($pkgTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.isPackageInstalled($pkgTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -791,11 +695,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.isProcessPaused()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.isProcessPaused()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -809,11 +710,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.isVisible()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.isVisible()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -832,11 +730,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val fileTmp = GGUtil.getStringValue(file)
                         val flags = varArgs.optint(2, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.LOAD, flags as Int)
-                        val deferred = scope.async {
-                            val func = "gg.loadList($fileTmp, $flagsTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.loadList($fileTmp, $flagsTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -853,12 +748,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
-                            val deferred = scope.async {
-                                val func = "gg.loadResults($results)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$results")) {
+                            sendLog("gg.loadResults(过滤参数)")
+                        } else {
+                            val func = "gg.loadResults($results)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -879,11 +773,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val headers = varArgs.opttable(2, null)
                         val data = varArgs.optstring(3, null)
                         val dataTmp = GGUtil.getStringValue(data)
-                        val deferred = scope.async {
-                            val func = "gg.makeRequest($urlTmp, $headers, $dataTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.makeRequest($urlTmp, $headers, $dataTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -902,11 +793,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val selection = varArgs.opttable(2, null)
                         val message = varArgs.optjstring(3, "nil")
                         val messageTmp = GGUtil.getStringValue(message)
-                        val deferred = scope.async {
-                            val func = "gg.multiChoice($items, $selection, $messageTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.multiChoice($items, $selection, $messageTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -923,11 +811,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
                         val numTmp = GGUtil.getStringValue(num)
-                        val deferred = scope.async {
-                            val func = "gg.numberFromLocale($numTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.numberFromLocale($numTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -944,11 +829,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
                         val numTmp = GGUtil.getStringValue(num)
-                        val deferred = scope.async {
-                            val func = "gg.numberToLocale($numTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.numberToLocale($numTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -962,11 +844,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.processKill()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.processKill()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -980,11 +859,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.processPause()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.processPause()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -998,11 +874,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.processResume()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.processResume()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1016,11 +889,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.processToggle()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.processToggle()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1038,11 +908,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val items = varArgs.checktable(1)
                         val defaults = varArgs.opttable(2, null)
                         val types = varArgs.opttable(3, null)
-                        val deferred = scope.async {
-                            val func = "gg.prompt($items, $defaults, $types)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.prompt($items, $defaults, $types)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1059,12 +926,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$items"))) {
-                            val deferred = scope.async {
-                                val func = "gg.removeListItems($items)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$items")) {
+                            sendLog("gg.removeListItems(过滤参数)")
+                        } else {
+                            val func = "gg.removeListItems($items)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -1082,12 +948,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$results"))) {
-                            val deferred = scope.async {
-                                val func = "gg.removeResults($results)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$results")) {
+                            sendLog("gg.removeResults(过滤参数)")
+                        } else {
+                            val func = "gg.removeResults($results)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -1106,11 +971,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val version = varArgs.optjstring(1, "0")
                         val versionTmp = GGUtil.getStringValue(version)
                         val build = varArgs.optint(2, 0)
-                        val deferred = scope.async {
-                            val func = "gg.require($versionTmp, $build)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.require($versionTmp, $build)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1129,11 +991,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val fileTmp = GGUtil.getStringValue(file)
                         val flags = varArgs.optint(2, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.SAVE, flags as Int)
-                        val deferred = scope.async {
-                            val func = "gg.saveList($fileTmp, $flagsTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.saveList($fileTmp, $flagsTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1151,11 +1010,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val variable = varArgs.arg(1)
                         val filename = varArgs.checkjstring(2)
                         val filenameTmp = GGUtil.getStringValue(filename)
-                        val deferred = scope.async {
-                            val func = "gg.saveVariable($variable, $filenameTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.saveVariable($variable, $filenameTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1169,6 +1025,12 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
+                        val funcName = GGUtil.getFuncName(
+                            instanceClass,
+                            "android.ext.Script\$refineAddress".toClassOrNull(),
+                            "gg.refineAddress",
+                            "gg.searchAddress"
+                        )
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
@@ -1182,12 +1044,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(6, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
-                        val deferred = scope.async {
-                            val func =
-                                "gg.searchAddress($textTmp, $maskTmp, $typeTmp, $signTmp, $memoryFromTmp, $memoryToTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func =
+                            "$funcName($textTmp, $maskTmp, $typeTmp, $signTmp, $memoryFromTmp, $memoryToTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1212,12 +1071,9 @@ object GGv960Hooker : BaseGGHooker() {
                         val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(5, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
-                        val deferred = scope.async {
-                            val func =
-                                "gg.searchFuzzy($differenceTmp, $signTmp, $typeTmp, $memoryFromTmp, $memoryToTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func =
+                            "gg.searchFuzzy($differenceTmp, $signTmp, $typeTmp, $memoryFromTmp, $memoryToTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1231,6 +1087,12 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
+                        val funcName = GGUtil.getFuncName(
+                            instanceClass,
+                            "android.ext.Script\$refineNumber".toClassOrNull(),
+                            "gg.refineNumber",
+                            "gg.searchNumber"
+                        )
                         val varArgs = args(0).any()
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
@@ -1244,13 +1106,12 @@ object GGv960Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(6, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidParams("$text"))) {
-                            val deferred = scope.async {
-                                val func =
-                                    "gg.searchNumber($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidParams("$text")) {
+                            sendLog("$funcName(过滤参数)")
+                        } else {
+                            val func =
+                                "$funcName($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -1268,11 +1129,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val ranges = varArgs.checkint(1)
                         val rangesTmp = GGUtil.getConstValue(GGLib.CONST.REGION, ranges as Int)
-                        val deferred = scope.async {
-                            val func = "gg.setRanges($rangesTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.setRanges($rangesTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1288,11 +1146,8 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val speed = varArgs.checkdouble(1)
-                        val deferred = scope.async {
-                            val func = "gg.setSpeed($speed)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.setSpeed($speed)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1309,12 +1164,11 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (!(filterParams && !GGUtil.isValidItems("$values"))) {
-                            val deferred = scope.async {
-                                val func = "gg.setValues($values)"
-                                sendLog(func, result)
-                            }
-                            runBlocking { deferred.await() }
+                        if (filterParams && !GGUtil.isValidItems("$values")) {
+                            sendLog("gg.setValues(过滤参数)")
+                        } else {
+                            val func = "gg.setValues($values)"
+                            sendLog(func, result)
                         }
                     }
                 }.ignoredAllFailure()
@@ -1331,11 +1185,8 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val visible = varArgs.checkboolean(1)
-                        val deferred = scope.async {
-                            val func = "gg.setVisible($visible)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.setVisible($visible)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1349,11 +1200,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.showUiButton()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.showUiButton()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1367,11 +1215,8 @@ object GGv960Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val deferred = scope.async {
-                            val func = "gg.skipRestoreState()"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.skipRestoreState()"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1387,11 +1232,8 @@ object GGv960Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val milliseconds = varArgs.checkint(1)
-                        val deferred = scope.async {
-                            val func = "gg.sleep($milliseconds)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.sleep($milliseconds)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1412,11 +1254,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(3, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
-                        val deferred = scope.async {
-                            val func = "gg.startFuzzy($typeTmp, $memoryFromTmp, $memoryToTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.startFuzzy($typeTmp, $memoryFromTmp, $memoryToTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1433,11 +1272,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val time = varArgs.checkjstring(1)
                         val timeTmp = GGUtil.getStringValue(time)
-                        val deferred = scope.async {
-                            val func = "gg.timeJump($timeTmp)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.timeJump($timeTmp)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1455,11 +1291,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
                         val fast = varArgs.optboolean(2, false)
-                        val deferred = scope.async {
-                            val func = "gg.toast($textTmp, $fast)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.toast($textTmp, $fast)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
@@ -1478,11 +1311,8 @@ object GGv960Hooker : BaseGGHooker() {
                         val qincr = varArgs.optlong(2, 0L)
                         val double_ = varArgs.optdouble(3, 0.0)
                         val dincr = varArgs.optdouble(4, 0.0)
-                        val deferred = scope.async {
-                            val func = "gg.unrandomizer($qword, $qincr, $double_, $dincr)"
-                            sendLog(func, result)
-                        }
-                        runBlocking { deferred.await() }
+                        val func = "gg.unrandomizer($qword, $qincr, $double_, $dincr)"
+                        sendLog(func, result)
                     }
                 }.ignoredAllFailure()
             }
