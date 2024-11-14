@@ -12,8 +12,8 @@ android {
         applicationId "me.hd.hookgg"
         minSdk 27
         targetSdk 34
-        versionCode 20241029
-        versionName "2.0.3"
+        versionCode 20241102
+        versionName "2.0.4"
         buildConfigField 'String', 'TAG', '"HookGG"'
     }
 
@@ -25,7 +25,6 @@ android {
         release {
             minifyEnabled true
             shrinkResources true
-            versionNameSuffix '-release'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             packagingOptions {
                 resources {
@@ -62,8 +61,8 @@ android {
 dependencies {
     //implementation project(':libs:unluac')
     implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.3'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.8.3'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.8.4'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.8.4'
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
     compileOnly 'de.robv.android.xposed:api:82'
     implementation 'com.highcapable.yukihookapi:api:1.2.1'
