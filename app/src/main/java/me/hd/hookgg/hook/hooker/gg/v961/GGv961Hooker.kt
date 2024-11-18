@@ -56,6 +56,8 @@ object GGv961Hooker : BaseGGHooker() {
         GGLib.gotoAddress to { this.gotoAddress() },
         GGLib.hideUiButton to { this.hideUiButton() },
         GGLib.internal1 to { this.internal1() },
+        GGLib.internal2 to { this.internal2() },
+        GGLib.internal3 to { this.internal3() },
         GGLib.isClickedUiButton to { this.isClickedUiButton() },
         GGLib.isPackageInstalled to { this.isPackageInstalled() },
         GGLib.isProcessPaused to { this.isProcessPaused() },
@@ -673,6 +675,44 @@ object GGv961Hooker : BaseGGHooker() {
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val flags = if (varArgs.optlong(4, 1L) == 2L) 2 else 1
                         val func = "gg.internal1($textTmp, $memoryFromTmp, $memoryToTmp, $flags)"
+                        sendLog(func, result)
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun internal2() {
+        "android.ext.Script\$internal2"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "d"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val filename = varArgs.checkjstring(2)
+                        val func = "gg.internal2(#func, $filename)"
+                        sendLog(func, result)
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun internal3() {
+        "android.ext.Script\$internal3"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "d"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val maxOffset = varArgs.checkint(1)
+                        val memoryFrom = varArgs.optlong(2, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
+                        val memoryTo = varArgs.optlong(3, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
+                        val func = "gg.internal3($maxOffset, $memoryFromTmp, $memoryToTmp)"
                         sendLog(func, result)
                     }
                 }.ignoredAllFailure()
