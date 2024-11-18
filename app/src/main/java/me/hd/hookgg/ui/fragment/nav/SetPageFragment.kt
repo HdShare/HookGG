@@ -24,6 +24,7 @@ import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
 import me.hd.hookgg.ui.fragment.base.FragmentBase
+import me.hd.hookgg.ui.utils.AppDataUtil
 import java.util.Locale
 
 class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
@@ -60,6 +61,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
+        binding.setSwitchTestFunc.isEnabled = BuildConfig.DEBUG
     }
 
     private fun initPrefsOnClick() {
@@ -142,7 +144,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             dialog.show()
         }
         binding.setLLVersionName.setOnClickListener {
-            val versionList = AppData.getVersionList()
+            val versionList = AppDataUtil.getVersionList()
             val oldVersionName = prefs.get(SetPrefsData.VERSION_NAME)
             val oldVersionIndex = versionList.indexOf(oldVersionName)
             var newVersionIndex = oldVersionIndex

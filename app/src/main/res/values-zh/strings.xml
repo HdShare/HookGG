@@ -11,7 +11,14 @@
     <string name="tab_wrap">换行</string>
     <string name="dialog_accept">接受</string>
     <string name="dialog_decline">拒绝</string>
-    <string name="dialog_select_all">全选</string>
+    <string name="dialog_warning">警告</string>
+    <string name="dialog_warning_message">此函数可能存在风险，是否继续开启?</string>
+    <string name="dialog_continue">继续</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="func_menu">悬浮菜单</string>
+    <string name="func_gg">GG</string>
+    <string name="func_string">String</string>
+    <string name="func_math">Math</string>
     <string name="prefs_about">关于</string>
     <string name="prefs_key_app_version">应用版本</string>
     <string name="prefs_desc_app_version">1.0.000(20240101)</string>

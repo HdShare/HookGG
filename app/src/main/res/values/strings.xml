@@ -11,7 +11,14 @@
     <string name="tab_wrap">Wrap</string>
     <string name="dialog_accept">Accept</string>
     <string name="dialog_decline">Decline</string>
-    <string name="dialog_select_all">Select All</string>
+    <string name="dialog_warning">Warning</string>
+    <string name="dialog_warning_message">This function may be risky, should it continue to be enabled?</string>
+    <string name="dialog_continue">Continue</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="func_menu">FabMenu</string>
+    <string name="func_gg">GG</string>
+    <string name="func_string">String</string>
+    <string name="func_math">Math</string>
     <string name="prefs_about">About</string>
     <string name="prefs_key_app_version">AppVersion</string>
     <string name="prefs_desc_app_version">1.0.000(20240101)</string>

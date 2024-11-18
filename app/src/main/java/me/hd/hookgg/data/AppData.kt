@@ -1,6 +1,5 @@
 package me.hd.hookgg.data
 
-import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
 import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker
 import me.hd.hookgg.hook.hooker.elgg.v117.ELGGv117Hooker
@@ -23,7 +22,7 @@ object AppData {
         "RLGG" to "com.eec6e1e69aeee6f6",
     )
 
-    private val mapHooker = mapOf(
+    val mapHooker = mapOf(
         "GG [96.0]" to GGv960Hooker,
         "GG [96.1~97.0]" to GGv961Hooker,
         "GG [98.0]" to GGv980Hooker,
@@ -38,18 +37,4 @@ object AppData {
         "ELGG [1.2.4]" to ELGGv124Hooker,
         "RLGG [2.0.9.2]" to RLGGv2092Hooker,
     )
-
-    fun getMapHooker(version: String): BaseGGHooker? {
-        return mapHooker[version]
-    }
-
-    fun getVersionList(): Array<String> {
-        return mapHooker.keys.toTypedArray()
-    }
-
-    fun getFunctionList(version: String): Array<String> {
-        return mapHooker[version]?.run {
-            functionMap.keys.toTypedArray()
-        } ?: arrayOf()
-    }
 }

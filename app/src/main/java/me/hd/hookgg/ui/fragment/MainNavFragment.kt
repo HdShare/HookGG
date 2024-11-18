@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.navigation.NavigationBarView
 import me.hd.hookgg.R
 import me.hd.hookgg.databinding.FragmentMainNavBinding
-import me.hd.hookgg.ui.adapter.MainViewPager2Adapter
+import me.hd.hookgg.ui.adapter.MVP2Adapter
 import me.hd.hookgg.ui.fragment.base.FragmentBase
 import me.hd.hookgg.ui.fragment.nav.FuncPageFragment
 import me.hd.hookgg.ui.fragment.nav.LogPageFragment
@@ -19,7 +19,7 @@ class MainNavFragment : FragmentBase<FragmentMainNavBinding, ViewModel>(
         super.onViewCreated(view, savedInstanceState)
         binding.mainNavViewPager2.apply {
             isUserInputEnabled = false
-            adapter = MainViewPager2Adapter(
+            adapter = MVP2Adapter(
                 requireActivity(),
                 arrayOf(
                     LogPageFragment(),

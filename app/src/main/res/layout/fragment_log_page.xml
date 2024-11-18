@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.nav.LogPageFragment">
 
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
+        android:layout_height="wrap_content"
+        android:background="@null">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/logPageToolbar"
@@ -23,18 +22,27 @@
             app:title="@string/nav_log_page"
             app:titleTextColor="?attr/colorPrimary" />
 
-        <HorizontalScrollView
+        <View
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            android:scrollbars="none">
+            android:layout_height="1px"
+            android:background="?attr/colorSurfaceVariant" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/logPageRvLog"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                tools:itemCount="1"
-                tools:listitem="@layout/item_rv_log" />
-        </HorizontalScrollView>
-    </LinearLayout>
-</FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/logPageRvLog"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_rv_log" />
+
+    </HorizontalScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

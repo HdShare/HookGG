@@ -8,9 +8,10 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.bean.FuncDetail
 
 abstract class BaseGGHooker : YukiBaseHooker() {
-    protected val scope = CoroutineScope(Dispatchers.Default)
+    private val scope = CoroutineScope(Dispatchers.Default)
 
     protected fun sendLog(func: String, result: Any? = null) {
         runBlocking {
@@ -22,12 +23,12 @@ abstract class BaseGGHooker : YukiBaseHooker() {
         }
     }
 
-    abstract val functionMap: Map<String, () -> Unit>
+    abstract val functionMap: Map<String, FuncDetail>
 
     override fun onHook() {
         val setFuncList = prefs.get(SetPrefsData.FUNC_LIST)
         setFuncList.forEach { function ->
-            functionMap[function]?.invoke()
+            functionMap[function]?.funcListener?.invoke()
         }
     }
 }

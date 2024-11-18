@@ -5,23 +5,30 @@ import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
-import com.google.android.flexbox.FlexboxLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
+import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.AppData
 import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.bean.FuncObj
 import me.hd.hookgg.databinding.FragmentFuncPageBinding
 import me.hd.hookgg.ui.adapter.FuncAdapter
 import me.hd.hookgg.ui.fragment.base.FragmentBase
+import me.hd.hookgg.ui.utils.AppDataUtil.getFuncNameSet
+import me.hd.hookgg.ui.utils.AppDataUtil.getFuncObjList
 
+@SuppressLint("NotifyDataSetChanged")
 class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
     FragmentFuncPageBinding::inflate
 ) {
     private lateinit var funcAdapter: FuncAdapter
-    private var funcList = mutableListOf<String>()
+    private var funcObjList = mutableListOf<FuncObj>()
+    private val prefs = MyApp.context.prefs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,27 +39,81 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
         if (YukiHookAPI.Status.isModuleActive) {
             binding.funcPageToolbar.subtitle = getString(R.string.module_active)
         }
+        initMenu()
         initAdapter()
+        initFabMenu()
     }
 
+    //TODO
+    private fun initMenu() {
+
+    }
+
+    //TODO
     private fun initAdapter() {
-        funcAdapter = FuncAdapter(funcList)
+        binding.funcPageTabLayout.addOnTabSelectedListener(
+            object : TabLayout.OnTabSelectedListener {
+                override fun onTabSelected(tab: TabLayout.Tab) {
+                    YLog.error("onTabSelected: ${tab.text}")
+                    when (tab.text) {
+                        getString(R.string.func_gg) -> {
+
+                        }
+
+                        getString(R.string.func_string) -> {
+                            Snackbar.make(
+                                binding.root,
+                                "No Developing",
+                                Snackbar.LENGTH_SHORT
+                            ).setAnchorView(binding.funcPageTabLayout).show()
+                        }
+
+                        getString(R.string.func_math) -> {
+                            Snackbar.make(
+                                binding.root,
+                                "No Developing",
+                                Snackbar.LENGTH_SHORT
+                            ).setAnchorView(binding.funcPageTabLayout).show()
+                        }
+                    }
+                }
+
+                override fun onTabUnselected(tab: TabLayout.Tab) {
+                }
+
+                override fun onTabReselected(tab: TabLayout.Tab) {
+                }
+            }
+        )
+        funcAdapter = FuncAdapter(funcObjList)
         binding.funcPageRvFunc.apply {
-            layoutManager = FlexboxLayoutManager(context)
+            layoutManager = LinearLayoutManager(context)
             adapter = funcAdapter
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
+    private fun initFabMenu() {
+        binding.funcPageFabSelectAll.setOnClickListener {
+            prefs.edit {
+                put(SetPrefsData.FUNC_LIST, getFuncNameSet(prefs.get(SetPrefsData.VERSION_NAME)))
+            }
+            funcAdapter.notifyDataSetChanged()
+        }
+        binding.funcPageFabClearAll.setOnClickListener {
+            prefs.edit {
+                put(SetPrefsData.FUNC_LIST, setOf())
+            }
+            funcAdapter.notifyDataSetChanged()
+        }
+    }
+
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            val funcNewList = AppData.getFunctionList(
-                MyApp.context.prefs().get(SetPrefsData.VERSION_NAME)
-            ).toMutableList()
-            funcList.apply {
+            val funcObjNewList = getFuncObjList(prefs.get(SetPrefsData.VERSION_NAME))
+            funcObjList.apply {
                 clear()
-                addAll(funcNewList)
+                addAll(funcObjNewList)
             }
             funcAdapter.notifyDataSetChanged()
         }
