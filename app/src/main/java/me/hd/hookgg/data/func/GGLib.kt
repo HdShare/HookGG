@@ -32,6 +32,7 @@ object GGLib {
     const val getValuesRange = "gg.getValuesRange"
     const val gotoAddress = "gg.gotoAddress"
     const val hideUiButton = "gg.hideUiButton"
+    const val internal1 = "gg.internal1"
     const val isClickedUiButton = "gg.isClickedUiButton"
     const val isPackageInstalled = "gg.isPackageInstalled"
     const val isProcessPaused = "gg.isProcessPaused"
