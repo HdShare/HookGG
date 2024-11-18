@@ -10,6 +10,7 @@ import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checkdouble
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checkint
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checkjstring
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checklong
+import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checkstring
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.checktable
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optboolean
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960VarArgs.optdouble
@@ -54,6 +55,7 @@ object GGv960Hooker : BaseGGHooker() {
         GGLib.getValuesRange to { this.getValuesRange() },
         GGLib.gotoAddress to { this.gotoAddress() },
         GGLib.hideUiButton to { this.hideUiButton() },
+        GGLib.internal1 to { this.internal1() },
         GGLib.isClickedUiButton to { this.isClickedUiButton() },
         GGLib.isPackageInstalled to { this.isPackageInstalled() },
         GGLib.isProcessPaused to { this.isProcessPaused() },
@@ -648,6 +650,29 @@ object GGv960Hooker : BaseGGHooker() {
                 }.ignored().hook {
                     after {
                         val func = "gg.hideUiButton()"
+                        sendLog(func, result)
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun internal1() {
+        "android.ext.Script\$internal1"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "invokeUi"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val text = varArgs.checkstring(1)
+                        val textTmp = GGUtil.getStringValue(text)
+                        val memoryFrom = varArgs.optlong(2, 0L)
+                        val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
+                        val memoryTo = varArgs.optlong(3, -1L)
+                        val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
+                        val flags = if (varArgs.optlong(4, 1L) == 2L) 2 else 1
+                        val func = "gg.internal1($textTmp, $memoryFromTmp, $memoryToTmp, $flags)"
                         sendLog(func, result)
                     }
                 }.ignoredAllFailure()
