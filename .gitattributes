@@ -1,2 +1,1 @@
-*.java linguist-language=kotlin
-*.lua linguist-language=kotlin
+libs/** linguist-vendored
