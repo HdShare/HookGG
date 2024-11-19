@@ -10,7 +10,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
-import com.highcapable.yukihookapi.hook.log.YLog
 import kotlinx.coroutines.launch
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
@@ -54,10 +53,8 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
         binding.funcPageTabLayout.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab) {
-                    YLog.error("onTabSelected: ${tab.text}")
                     when (tab.text) {
                         getString(R.string.func_gg) -> {
-
                         }
 
                         getString(R.string.func_string) -> {

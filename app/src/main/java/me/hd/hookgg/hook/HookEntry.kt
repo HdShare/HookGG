@@ -32,6 +32,9 @@ object HookEntry : IYukiHookXposedInit {
                             AppDataUtil.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let {
                                 loadHooker(it)
                             }
+                            //TODO Plugin
+                            //PluginManager.loadPlugin()
+                            //PluginManager.onPlugin("测试")
                         }
                     }
                 }

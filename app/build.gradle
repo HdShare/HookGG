@@ -54,7 +54,7 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '17'
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 }
 
@@ -67,6 +67,7 @@ dependencies {
     implementation 'com.highcapable.yukihookapi:api:1.2.1'
     ksp 'com.highcapable.yukihookapi:ksp-xposed:1.2.1'
     implementation 'org.luckypray:dexkit:2.0.2'
+    implementation 'org.apache-extras.beanshell:bsh:2.0b6'
     //implementation 'net.bytebuddy:byte-buddy-android:1.14.18'
     testImplementation "junit:junit:4.13.2"
     testImplementation project(':libs:luaj')
