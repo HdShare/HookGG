@@ -1,6 +1,7 @@
 package me.hd.hookgg.hook.hooker.elgg.v119
 
 import com.highcapable.yukihookapi.hook.factory.method
+import me.hd.hookgg.R
 import me.hd.hookgg.data.SetPrefsData
 import me.hd.hookgg.data.bean.FuncDetail
 import me.hd.hookgg.data.lib.GGLib
@@ -21,6 +22,7 @@ import me.hd.hookgg.hook.hooker.elgg.v119.ELGGv119VarArgs.optstring
 import me.hd.hookgg.hook.hooker.elgg.v119.ELGGv119VarArgs.opttable
 import me.hd.hookgg.hook.hooker.elgg.v119.ELGGv119VarArgs.tojstring
 import me.hd.hookgg.hook.utils.GGUtil
+import me.hd.hookgg.hook.utils.getString
 
 object ELGGv119Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
@@ -103,8 +105,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$items")) {
-                            sendLog("gg.addListItems(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$items")) {
+                            sendLog("gg.addListItems(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.addListItems($items)"
                             sendLog(func, result)
@@ -329,8 +331,12 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidParams("$value")) {
-                            sendLog("gg.editAll(过滤参数)")
+                        if (filterParams) {
+                            if (!GGUtil.isValidParamsLength("$value")) {
+                                sendLog("gg.editAll(${getString(R.string.filter_invalid_length)})")
+                            } else if (!GGUtil.isValidParams("$value")) {
+                                sendLog("gg.editAll(${getString(R.string.filter_invalid_params)})")
+                            }
                         } else {
                             val func = "gg.editAll($valueTmp, $typeTmp)"
                             sendLog(func, result)
@@ -597,8 +603,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$values")) {
-                            sendLog("gg.getValues(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$values")) {
+                            sendLog("gg.getValues(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.getValues($values)"
                             sendLog(func, result)
@@ -752,8 +758,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$results")) {
-                            sendLog("gg.loadResults(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$results")) {
+                            sendLog("gg.loadResults(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.loadResults($results)"
                             sendLog(func, result)
@@ -931,8 +937,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$items")) {
-                            sendLog("gg.removeListItems(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$items")) {
+                            sendLog("gg.removeListItems(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.removeListItems($items)"
                             sendLog(func, result)
@@ -953,8 +959,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$results")) {
-                            sendLog("gg.removeResults(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$results")) {
+                            sendLog("gg.removeResults(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.removeResults($results)"
                             sendLog(func, result)
@@ -1117,8 +1123,12 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val limit = varArgs.optlong(7, 0L)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidParams("$text")) {
-                            sendLog("$funcName(过滤参数)")
+                        if (filterParams) {
+                            if (!GGUtil.isValidParamsLength("$text")) {
+                                sendLog("$funcName(${getString(R.string.filter_invalid_length)})")
+                            } else if (!GGUtil.isValidParams("$text")) {
+                                sendLog("$funcName(${getString(R.string.filter_invalid_params)})")
+                            }
                         } else {
                             val func =
                                 "$funcName($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp, $limit)"
@@ -1198,8 +1208,8 @@ object ELGGv119Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
                         val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItems("$values")) {
-                            sendLog("gg.setValues(过滤参数)")
+                        if (filterParams && !GGUtil.isValidItemsLength("$values")) {
+                            sendLog("gg.setValues(${getString(R.string.filter_invalid_length)})")
                         } else {
                             val func = "gg.setValues($values)"
                             sendLog(func, result)

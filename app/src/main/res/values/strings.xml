@@ -39,4 +39,6 @@
     <string name="prefs_key_filter_param">Filter Exception Param</string>
     <string name="prefs_test">Test</string>
     <string name="prefs_key_test_func">TestFunc</string>
+    <string name="filter_invalid_length">Filter InValid Length</string>
+    <string name="filter_invalid_params">Filter InValid Params</string>
 </resources>

@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
-import com.highcapable.yukihookapi.hook.log.YLog
 import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
@@ -76,7 +75,6 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         }
         binding.setLLAppLanguage.setOnClickListener { view ->
             fun changeLanguage(locale: Locale) {
-                YLog.error("Change language to ${locale.language}")
                 prefs.edit {
                     put(SetPrefsData.APP_LANGUAGE, locale.language)
                 }

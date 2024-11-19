@@ -39,4 +39,6 @@
     <string name="prefs_key_filter_param">过滤异常参数</string>
     <string name="prefs_test">测试</string>
     <string name="prefs_key_test_func">测试功能</string>
+    <string name="filter_invalid_length">过滤无效长度</string>
+    <string name="filter_invalid_params">过滤无效参数</string>
 </resources>
