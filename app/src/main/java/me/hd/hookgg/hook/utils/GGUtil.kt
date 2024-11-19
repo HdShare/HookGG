@@ -18,7 +18,7 @@ object GGUtil {
     fun isValidParams(text: String): Boolean {
         val isValidLength = text.length in 1..512
         if (!isValidLength) return false
-        val isSearchNumber = text.matches(Regex("^\\s*[0-9,;:]+\\s*$"))
+        val isSearchNumber = text.matches(Regex("^\\s*(\\d+(\\.\\d+)?|[0-9,;:])+\\s*$"))
         val isSearchTextUtf = setOf(":", ";").any { prefix -> text.startsWith(prefix) }
         val isSearchHex = setOf("h").any { prefix -> text.startsWith(prefix) }
         val isSearchEndian = setOf("h", "r").any { prefix -> text.endsWith(prefix) }
