@@ -82,7 +82,23 @@
         <td align="center">❓</td>
     </tr>
     <tr>
-        <td align="center">otherFunction</td>
+        <td align="center">String</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">Math</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❌</td>
+        <td align="center">❓</td>
+    </tr>
+    <tr>
+        <td align="center">Other</td>
         <td align="center">🚫</td>
         <td align="center">🚫</td>
         <td align="center">🚫</td>
