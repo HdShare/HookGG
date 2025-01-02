@@ -69,7 +69,7 @@
     <tr>
         <td align="center"><b>96.0~101.1</b></td>
         <td align="center"><b>3.3.3~3.3.91</b></td>
-        <td align="center"><b>1.1.0~1.2.5</b></td>
+        <td align="center"><b>1.1.9~1.2.5</b></td>
         <td align="center"><b>2.0.9.2</b></td>
         <td align="center"><b>Unknown</b></td>
     </tr>
