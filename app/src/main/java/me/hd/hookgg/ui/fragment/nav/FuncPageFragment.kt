@@ -13,9 +13,9 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import kotlinx.coroutines.launch
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
+import me.hd.hookgg.config.bean.FuncObj
 import me.hd.hookgg.config.data.HookerData
 import me.hd.hookgg.config.data.SetPrefsData
-import me.hd.hookgg.config.bean.FuncObj
 import me.hd.hookgg.databinding.FragmentFuncPageBinding
 import me.hd.hookgg.ui.adapter.FuncAdapter
 import me.hd.hookgg.ui.fragment.base.FragmentBase
@@ -106,12 +106,20 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            val funcObjNewList = HookerData.getFuncObjList(prefs.get(SetPrefsData.VERSION_NAME))
-            funcObjList.apply {
-                clear()
-                addAll(funcObjNewList)
+            val versionName = prefs.get(SetPrefsData.VERSION_NAME)
+            if (versionName.isNotEmpty()) {
+                binding.funcPageRvFunc.visibility = View.VISIBLE
+                binding.funcPageTvHelp.visibility = View.GONE
+                val funcObjNewList = HookerData.getFuncObjList(versionName)
+                funcObjList.apply {
+                    clear()
+                    addAll(funcObjNewList)
+                }
+                funcAdapter.notifyDataSetChanged()
+            } else {
+                binding.funcPageRvFunc.visibility = View.GONE
+                binding.funcPageTvHelp.visibility = View.VISIBLE
             }
-            funcAdapter.notifyDataSetChanged()
         }
     }
 }
