@@ -1,11 +1,11 @@
 package me.hd.hookgg.hook.hooker.elgg.v120
 
 import com.highcapable.yukihookapi.hook.factory.method
-import me.hd.hookgg.data.app.ResStrData.FILTER_INVALID_LENGTH
-import me.hd.hookgg.data.app.ResStrData.FILTER_INVALID_PARAMS
-import me.hd.hookgg.data.app.ResStrData.getResStr
-import me.hd.hookgg.data.bean.FuncDetail
-import me.hd.hookgg.data.lib.GGLib
+import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_LENGTH
+import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_PARAMS
+import me.hd.hookgg.config.data.ResStrData.getResStr
+import me.hd.hookgg.config.bean.FuncDetail
+import me.hd.hookgg.config.lib.GGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.arg
 import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120VarArgs.checkboolean

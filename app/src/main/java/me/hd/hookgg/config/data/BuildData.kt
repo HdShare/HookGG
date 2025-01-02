@@ -1,4 +1,4 @@
-package me.hd.hookgg.data.app
+package me.hd.hookgg.config.data
 
 import me.hd.hookgg.BuildConfig
 

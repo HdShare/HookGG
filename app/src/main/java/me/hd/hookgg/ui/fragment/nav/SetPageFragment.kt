@@ -17,9 +17,9 @@ import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.app.BuildData
-import me.hd.hookgg.data.app.HookerData
-import me.hd.hookgg.data.app.SetPrefsData
+import me.hd.hookgg.config.data.BuildData
+import me.hd.hookgg.config.data.HookerData
+import me.hd.hookgg.config.data.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
 import me.hd.hookgg.ui.fragment.base.FragmentBase

@@ -1,4 +1,4 @@
-package me.hd.hookgg.data.lib
+package me.hd.hookgg.config.lib
 
 object GGLib {
     const val addListItems = "gg.addListItems"

@@ -6,9 +6,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
-import me.hd.hookgg.data.app.BuildData
-import me.hd.hookgg.data.app.SetPrefsData
-import me.hd.hookgg.data.bean.FuncDetail
+import me.hd.hookgg.config.data.BuildData
+import me.hd.hookgg.config.data.SetPrefsData
+import me.hd.hookgg.config.bean.FuncDetail
 
 abstract class BaseGGHooker : YukiBaseHooker() {
     protected var filterParams = false

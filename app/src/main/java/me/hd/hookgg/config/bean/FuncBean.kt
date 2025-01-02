@@ -1,4 +1,4 @@
-package me.hd.hookgg.data.bean
+package me.hd.hookgg.config.bean
 
 data class FuncObj(
     val funcName: String,

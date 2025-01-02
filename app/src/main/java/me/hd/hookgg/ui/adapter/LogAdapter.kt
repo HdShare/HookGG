@@ -6,7 +6,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import me.hd.hookgg.data.app.BuildData
+import me.hd.hookgg.config.data.BuildData
 import me.hd.hookgg.databinding.ItemRvLogBinding
 import java.io.FileOutputStream
 

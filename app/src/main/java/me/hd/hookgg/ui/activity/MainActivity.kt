@@ -9,7 +9,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
-import me.hd.hookgg.data.app.SetPrefsData
+import me.hd.hookgg.config.data.SetPrefsData
 import me.hd.hookgg.databinding.ActivityMainBinding
 import java.util.Locale
 

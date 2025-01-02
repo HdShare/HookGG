@@ -5,9 +5,9 @@ import com.highcapable.yukihookapi.annotation.xposed.InjectYukiHookWithXposed
 import com.highcapable.yukihookapi.hook.factory.configs
 import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
-import me.hd.hookgg.data.app.BuildData
-import me.hd.hookgg.data.app.HookerData
-import me.hd.hookgg.data.app.SetPrefsData
+import me.hd.hookgg.config.data.BuildData
+import me.hd.hookgg.config.data.HookerData
+import me.hd.hookgg.config.data.SetPrefsData
 import me.hd.hookgg.hook.test.TestEntry
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")

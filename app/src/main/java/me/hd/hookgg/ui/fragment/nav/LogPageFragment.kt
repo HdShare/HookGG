@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.highcapable.yukihookapi.YukiHookAPI
 import me.hd.hookgg.R
-import me.hd.hookgg.data.app.BuildData
+import me.hd.hookgg.config.data.BuildData
 import me.hd.hookgg.databinding.FragmentLogPageBinding
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.ui.adapter.LogAdapter

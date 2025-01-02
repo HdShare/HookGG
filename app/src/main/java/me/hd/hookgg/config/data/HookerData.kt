@@ -1,6 +1,6 @@
-package me.hd.hookgg.data.app
+package me.hd.hookgg.config.data
 
-import me.hd.hookgg.data.bean.FuncObj
+import me.hd.hookgg.config.bean.FuncObj
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
 import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker

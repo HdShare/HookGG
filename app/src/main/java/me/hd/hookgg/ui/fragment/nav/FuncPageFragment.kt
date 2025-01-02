@@ -13,9 +13,9 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import kotlinx.coroutines.launch
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.app.HookerData
-import me.hd.hookgg.data.app.SetPrefsData
-import me.hd.hookgg.data.bean.FuncObj
+import me.hd.hookgg.config.data.HookerData
+import me.hd.hookgg.config.data.SetPrefsData
+import me.hd.hookgg.config.bean.FuncObj
 import me.hd.hookgg.databinding.FragmentFuncPageBinding
 import me.hd.hookgg.ui.adapter.FuncAdapter
 import me.hd.hookgg.ui.fragment.base.FragmentBase
