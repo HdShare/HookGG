@@ -47,7 +47,7 @@
 
 ## 说明:
 
-拦截 GameGuardian 函数调用输出
+调试输出 GameGuardian 脚本执行函数
 
 ---
 
@@ -69,7 +69,7 @@
     <tr>
         <td align="center"><b>96.0~101.1</b></td>
         <td align="center"><b>3.3.3~3.3.91</b></td>
-        <td align="center"><b>1.1.0~1.2.4</b></td>
+        <td align="center"><b>1.1.0~1.2.5</b></td>
         <td align="center"><b>2.0.9.2</b></td>
         <td align="center"><b>Unknown</b></td>
     </tr>
@@ -109,9 +109,20 @@
 
 ---
 
-## 贡献:
+## 计划:
 
-无
+<table>
+    <tr>
+        <td align="center"><b>Name</b></td>
+        <td align="center"><b>Desc</b></td>
+        <td align="center"><b>Status</b></td>
+    </tr>
+    <tr>
+        <td align="center">Plugin</td>
+        <td align="center">use lua script hook</td>
+        <td align="center">0%</td>
+    </tr>
+</table>
 
 ---
 
@@ -121,4 +132,5 @@
 |-------------|-----------------------------------------------------------|
 | YukiHookAPI | [YukiHookAPI](https://github.com/HighCapable/YukiHookAPI) |
 | DexKit      | [DexKit](https://github.com/LuckyPray/DexKit)             |
+| IconFont    | [IconFont](https://www.iconfont.cn/)                      |
 
