@@ -10,6 +10,7 @@ import me.hd.hookgg.hook.hooker.elgg.v120.ELGGv120Hooker
 import me.hd.hookgg.hook.hooker.elgg.v121.ELGGv121Hooker
 import me.hd.hookgg.hook.hooker.elgg.v122.ELGGv122Hooker
 import me.hd.hookgg.hook.hooker.elgg.v124.ELGGv124Hooker
+import me.hd.hookgg.hook.hooker.elgg.v125.ELGGv125Hooker
 import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011Hooker
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
@@ -37,6 +38,7 @@ object HookerData {
         "ELGG [1.2.1]" to ELGGv121Hooker,
         "ELGG [1.2.2~1.2.3]" to ELGGv122Hooker,
         "ELGG [1.2.4]" to ELGGv124Hooker,
+        "ELGG [1.2.5]" to ELGGv125Hooker,
         "RLGG [2.0.9.2]" to RLGGv2092Hooker,
     )
 
