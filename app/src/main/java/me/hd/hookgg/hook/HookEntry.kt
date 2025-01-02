@@ -5,23 +5,22 @@ import com.highcapable.yukihookapi.annotation.xposed.InjectYukiHookWithXposed
 import com.highcapable.yukihookapi.hook.factory.configs
 import com.highcapable.yukihookapi.hook.factory.encase
 import com.highcapable.yukihookapi.hook.xposed.proxy.IYukiHookXposedInit
-import me.hd.hookgg.BuildConfig
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.BuildData
+import me.hd.hookgg.data.app.HookerData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.hook.test.TestEntry
-import me.hd.hookgg.ui.utils.AppDataUtil
 
 @InjectYukiHookWithXposed(entryClassName = "Entry")
 object HookEntry : IYukiHookXposedInit {
     override fun onInit() = configs {
         debugLog {
-            tag = BuildConfig.TAG
+            tag = BuildData.TAG
         }
-        //isDebug = BuildConfig.DEBUG
-        isDebug = false
+        isDebug = BuildData.DEBUG
     }
 
     override fun onHook() = encase {
-        if (YukiHookAPI.Status.isModuleActive && packageName != BuildConfig.APPLICATION_ID) {
+        if (YukiHookAPI.Status.isModuleActive && packageName != BuildData.APPLICATION_ID) {
             if (prefs.get(SetPrefsData.PACKAGE_NAME, "") == packageName) {
                 loadApp(packageName) {
                     onAppLifecycle(false) {
@@ -29,12 +28,12 @@ object HookEntry : IYukiHookXposedInit {
                             if (prefs.get(SetPrefsData.TEST_FUNC)) {
                                 loadHooker(TestEntry)
                             }
-                            AppDataUtil.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let {
+                            HookerData.getMapHooker(prefs.get(SetPrefsData.VERSION_NAME))?.let {
                                 loadHooker(it)
                             }
-                            //TODO Plugin
-                            //PluginManager.loadPlugin()
-                            //PluginManager.onPlugin("测试")
+                            // TODO Plugin
+                            // PluginManager.loadPlugin()
+                            // PluginManager.onPlugin("测试")
                         }
                     }
                 }

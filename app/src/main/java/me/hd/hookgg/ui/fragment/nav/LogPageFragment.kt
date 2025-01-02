@@ -7,8 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.highcapable.yukihookapi.YukiHookAPI
-import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.R
+import me.hd.hookgg.data.app.BuildData
 import me.hd.hookgg.databinding.FragmentLogPageBinding
 import me.hd.hookgg.hook.hooker.gg.v960.GGv960Hooker
 import me.hd.hookgg.ui.adapter.LogAdapter
@@ -55,7 +55,7 @@ class LogPageFragment : FragmentBase<FragmentLogPageBinding, ViewModel>(
                 }
 
                 R.id.tab_save -> {
-                    saveLogsLauncher.launch("${BuildConfig.TAG}_${System.currentTimeMillis()}.lua")
+                    saveLogsLauncher.launch("${BuildData.TAG}_${System.currentTimeMillis()}.lua")
                     true
                 }
 

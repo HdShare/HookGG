@@ -9,13 +9,21 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.highcapable.yukihookapi.hook.factory.prefs
 import me.hd.hookgg.MyApp
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.databinding.ActivityMainBinding
-import me.hd.hookgg.ui.utils.setLanguage
 import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+
+    private fun Context.setLanguage(locale: Locale): Context {
+        return createConfigurationContext(
+            resources.configuration.apply {
+                Locale.setDefault(locale)
+                setLocale(locale)
+            }
+        )
+    }
 
     override fun attachBaseContext(newBase: Context) {
         val prefs = MyApp.context.prefs()

@@ -6,7 +6,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import me.hd.hookgg.BuildConfig
+import me.hd.hookgg.data.app.BuildData
 import me.hd.hookgg.databinding.ItemRvLogBinding
 import java.io.FileOutputStream
 
@@ -16,7 +16,7 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     fun copyLog(context: Context) {
         val logStr = logList.joinToString("\n")
         val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-        val clip = ClipData.newPlainText(BuildConfig.TAG, logStr)
+        val clip = ClipData.newPlainText(BuildData.TAG, logStr)
         clipboard.setPrimaryClip(clip)
     }
 

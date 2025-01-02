@@ -15,15 +15,14 @@ import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.highcapable.yukihookapi.YukiHookAPI
 import com.highcapable.yukihookapi.hook.factory.prefs
-import me.hd.hookgg.BuildConfig
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.AppData
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.BuildData
+import me.hd.hookgg.data.app.HookerData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.databinding.DialogEditPackageNameBinding
 import me.hd.hookgg.databinding.FragmentSetPageBinding
 import me.hd.hookgg.ui.fragment.base.FragmentBase
-import me.hd.hookgg.ui.utils.AppDataUtil
 import java.util.Locale
 
 class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
@@ -46,8 +45,8 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         val prefs = MyApp.context.prefs()
         binding.setTvDescAppVersion.text = getString(
             R.string.prefs_desc_app_version_fmt,
-            BuildConfig.VERSION_NAME,
-            BuildConfig.VERSION_CODE,
+            BuildData.VERSION_NAME,
+            BuildData.VERSION_CODE,
         )
         binding.setTvDescAppLanguage.text = when (prefs.get(SetPrefsData.APP_LANGUAGE)) {
             Locale.ENGLISH.language -> getString(R.string.language_en)
@@ -60,7 +59,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
-        binding.setSwitchTestFunc.isEnabled = BuildConfig.DEBUG
+        binding.setSwitchTestFunc.isEnabled = BuildData.DEBUG
     }
 
     private fun initPrefsOnClick() {
@@ -73,7 +72,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 )
             )
         }
-        binding.setLLAppLanguage.setOnClickListener { view ->
+        binding.setLLAppLanguage.setOnClickListener {
             fun changeLanguage(locale: Locale) {
                 prefs.edit {
                     put(SetPrefsData.APP_LANGUAGE, locale.language)
@@ -113,7 +112,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .create()
             dialogBinding.linearlayoutDefaultPackageName.apply {
-                AppData.defaultPackageNameMap.forEach { entry ->
+                HookerData.defaultPackageNameMap.forEach { entry ->
                     addView(TextView(context).apply {
                         setPadding(20, 5, 0, 5)
                         movementMethod = LinkMovementMethod.getInstance()
@@ -142,7 +141,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             dialog.show()
         }
         binding.setLLVersionName.setOnClickListener {
-            val versionList = AppDataUtil.getVersionList()
+            val versionList = HookerData.getVersionList()
             val oldVersionName = prefs.get(SetPrefsData.VERSION_NAME)
             val oldVersionIndex = versionList.indexOf(oldVersionName)
             var newVersionIndex = oldVersionIndex

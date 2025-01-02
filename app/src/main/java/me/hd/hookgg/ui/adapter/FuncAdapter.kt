@@ -8,7 +8,7 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import com.highcapable.yukihookapi.hook.xposed.prefs.YukiHookPrefsBridge
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.data.bean.FuncObj
 import me.hd.hookgg.databinding.ItemRvFuncBinding
 

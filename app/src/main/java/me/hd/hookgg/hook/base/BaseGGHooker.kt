@@ -6,19 +6,21 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
-import me.hd.hookgg.BuildConfig
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.BuildData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.data.bean.FuncDetail
 
 abstract class BaseGGHooker : YukiBaseHooker() {
-    private val scope = CoroutineScope(Dispatchers.Default)
+    protected var filterParams = false
+    protected var printReturn = false
 
-    protected fun sendLog(func: String, result: Any? = null) {
+    protected fun sendLog(func: String, result: String) {
         runBlocking {
-            scope.async {
-                val printReturn = prefs.get(SetPrefsData.PRINT_RETURN)
-                val log = "$func\n${if (result != null && printReturn) "--[[$result]]\n" else ""}"
-                appContext?.dataChannel(BuildConfig.APPLICATION_ID)?.put("log", log)
+            CoroutineScope(Dispatchers.Default).async {
+                appContext?.dataChannel(BuildData.APPLICATION_ID)?.apply {
+                    put("log", func)
+                    put("log", "$result\n")
+                }
             }.await()
         }
     }
@@ -26,8 +28,9 @@ abstract class BaseGGHooker : YukiBaseHooker() {
     abstract val functionMap: Map<String, FuncDetail>
 
     override fun onHook() {
-        val setFuncList = prefs.get(SetPrefsData.FUNC_LIST)
-        setFuncList.forEach { function ->
+        filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
+        printReturn = prefs.get(SetPrefsData.PRINT_RETURN)
+        prefs.get(SetPrefsData.FUNC_LIST).forEach { function ->
             functionMap[function]?.funcListener?.invoke()
         }
     }

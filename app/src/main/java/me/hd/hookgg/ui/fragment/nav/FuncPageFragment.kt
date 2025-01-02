@@ -13,13 +13,12 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import kotlinx.coroutines.launch
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.HookerData
+import me.hd.hookgg.data.app.SetPrefsData
 import me.hd.hookgg.data.bean.FuncObj
 import me.hd.hookgg.databinding.FragmentFuncPageBinding
 import me.hd.hookgg.ui.adapter.FuncAdapter
 import me.hd.hookgg.ui.fragment.base.FragmentBase
-import me.hd.hookgg.ui.utils.AppDataUtil.getFuncNameSet
-import me.hd.hookgg.ui.utils.AppDataUtil.getFuncObjList
 
 @SuppressLint("NotifyDataSetChanged")
 class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
@@ -43,12 +42,12 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
         initFabMenu()
     }
 
-    //TODO
+    // TODO Menu
     private fun initMenu() {
 
     }
 
-    //TODO
+    // TODO String and Math
     private fun initAdapter() {
         binding.funcPageTabLayout.addOnTabSelectedListener(
             object : TabLayout.OnTabSelectedListener {
@@ -92,7 +91,7 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
     private fun initFabMenu() {
         binding.funcPageFabSelectAll.setOnClickListener {
             prefs.edit {
-                put(SetPrefsData.FUNC_LIST, getFuncNameSet(prefs.get(SetPrefsData.VERSION_NAME)))
+                put(SetPrefsData.FUNC_LIST, HookerData.getFuncNameSet(prefs.get(SetPrefsData.VERSION_NAME)))
             }
             funcAdapter.notifyDataSetChanged()
         }
@@ -107,7 +106,7 @@ class FuncPageFragment : FragmentBase<FragmentFuncPageBinding, ViewModel>(
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            val funcObjNewList = getFuncObjList(prefs.get(SetPrefsData.VERSION_NAME))
+            val funcObjNewList = HookerData.getFuncObjList(prefs.get(SetPrefsData.VERSION_NAME))
             funcObjList.apply {
                 clear()
                 addAll(funcObjNewList)

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".MyApp"
+        android:name="me.hd.hookgg.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -22,7 +22,7 @@
             android:value="@string/app_name" />
         <meta-data
             android:name="xposedminversion"
-            android:value="54" />
+            android:value="89" />
         <meta-data
             android:name="xposedsharedprefs"
             android:value="true" />
@@ -31,7 +31,7 @@
             android:resource="@array/xposed_scope" />
 
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name="me.hd.hookgg.ui.activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

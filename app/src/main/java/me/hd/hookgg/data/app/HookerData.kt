@@ -1,5 +1,7 @@
-package me.hd.hookgg.data
+package me.hd.hookgg.data.app
 
+import me.hd.hookgg.data.bean.FuncObj
+import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333Hooker
 import me.hd.hookgg.hook.hooker.elgg.v114.ELGGv114Hooker
 import me.hd.hookgg.hook.hooker.elgg.v117.ELGGv117Hooker
@@ -14,7 +16,7 @@ import me.hd.hookgg.hook.hooker.gg.v961.GGv961Hooker
 import me.hd.hookgg.hook.hooker.gg.v980.GGv980Hooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092Hooker
 
-object AppData {
+object HookerData {
     val defaultPackageNameMap = mapOf(
         "GG" to "catch_.me_.if_.you_.can_",
         "AGG" to "com.apocalua.run",
@@ -22,7 +24,7 @@ object AppData {
         "RLGG" to "com.eec6e1e69aeee6f6",
     )
 
-    val mapHooker = mapOf(
+    private val mapHooker = mapOf(
         "GG [96.0]" to GGv960Hooker,
         "GG [96.1~97.0]" to GGv961Hooker,
         "GG [98.0]" to GGv980Hooker,
@@ -37,4 +39,26 @@ object AppData {
         "ELGG [1.2.4]" to ELGGv124Hooker,
         "RLGG [2.0.9.2]" to RLGGv2092Hooker,
     )
+
+    fun getMapHooker(version: String): BaseGGHooker? {
+        return mapHooker[version]
+    }
+
+    fun getVersionList(): Array<String> {
+        return mapHooker.keys.toTypedArray()
+    }
+
+    fun getFuncNameSet(version: String): Set<String> {
+        return mapHooker[version]?.run {
+            functionMap.keys.toSet()
+        } ?: setOf()
+    }
+
+    fun getFuncObjList(version: String): List<FuncObj> {
+        return mapHooker[version]?.run {
+            functionMap.map { (funcName, funcDetail) ->
+                FuncObj(funcName, funcDetail)
+            }.toMutableList()
+        } ?: mutableListOf()
+    }
 }

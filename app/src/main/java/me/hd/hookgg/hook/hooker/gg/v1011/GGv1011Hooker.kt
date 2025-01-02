@@ -1,8 +1,9 @@
 package me.hd.hookgg.hook.hooker.gg.v1011
 
 import com.highcapable.yukihookapi.hook.factory.method
-import me.hd.hookgg.R
-import me.hd.hookgg.data.SetPrefsData
+import me.hd.hookgg.data.app.ResStrData.FILTER_INVALID_LENGTH
+import me.hd.hookgg.data.app.ResStrData.FILTER_INVALID_PARAMS
+import me.hd.hookgg.data.app.ResStrData.getResStr
 import me.hd.hookgg.data.bean.FuncDetail
 import me.hd.hookgg.data.lib.GGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
@@ -23,7 +24,6 @@ import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.optstring
 import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.opttable
 import me.hd.hookgg.hook.hooker.gg.v1011.GGv1011VarArgs.tojstring
 import me.hd.hookgg.hook.utils.GGUtil
-import me.hd.hookgg.hook.utils.getString
 
 object GGv1011Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
@@ -107,13 +107,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$items")) {
-                            sendLog("gg.addListItems(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.addListItems($items)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$items")) {
+                                    "gg.addListItems(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.addListItems($items)"
+                                }
+                            } else {
+                                "gg.addListItems($items)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -136,8 +141,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val negativeTmp = GGUtil.getStringValue(negative)
                         val neutral = varArgs.optjstring(4, "nil")
                         val neutralTmp = GGUtil.getStringValue(neutral)
-                        val func = "gg.alert($textTmp, $positiveTmp, $negativeTmp, $neutralTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.alert($textTmp, $positiveTmp, $negativeTmp, $neutralTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -156,8 +163,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val modeTmp = GGUtil.getConstValue(GGLib.CONST.PROT, mode as Int)
                         val address = varArgs.optlong(2, 0L)
                         val addressTmp = GGUtil.getHexValue(address as Long)
-                        val func = "gg.allocatePage($modeTmp, $addressTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.allocatePage($modeTmp, $addressTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -176,8 +185,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val textTmp = GGUtil.getStringValue(text)
                         val encoding = varArgs.optjstring(2, "UTF-8")
                         val encodingTmp = GGUtil.getStringValue(encoding)
-                        val func = "gg.bytes($textTmp, $encodingTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.bytes($textTmp, $encodingTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -196,8 +207,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val selected = varArgs.arg(2)
                         val message = varArgs.optjstring(3, "nil")
                         val messageTmp = GGUtil.getStringValue(message)
-                        val func = "gg.choice($items, $selected, $messageTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.choice($items, $selected, $messageTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -211,8 +224,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.clearList()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.clearList()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -226,8 +241,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.clearResults()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.clearResults()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -247,8 +264,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val to = varArgs.checklong(2)
                         val toTmp = GGUtil.getHexValue(to as Long)
                         val bytes = varArgs.checkint(3)
-                        val func = "gg.copyMemory($fromTmp, $toTmp, $bytes)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.copyMemory($fromTmp, $toTmp, $bytes)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -266,8 +285,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
                         val fixLocale = varArgs.optboolean(2, true)
-                        val func = "gg.copyText($textTmp, $fixLocale)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.copyText($textTmp, $fixLocale)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -287,8 +308,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val address = varArgs.checklong(2)
                         val addressTmp = GGUtil.getHexValue(address as Long)
                         val opcode = varArgs.checkint(3)
-                        val func = "gg.disasm($typeTmp, $addressTmp, $opcode)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.disasm($typeTmp, $addressTmp, $opcode)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -311,8 +334,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val dirTmp = GGUtil.getStringValue(dir)
                         val flags = varArgs.optint(4, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.DUMP, flags as Int)
-                        val func = "gg.dumpMemory($fromTmp, $toTmp, $dirTmp, $flagsTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.dumpMemory($fromTmp, $toTmp, $dirTmp, $flagsTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -331,17 +356,20 @@ object GGv1011Hooker : BaseGGHooker() {
                         val valueTmp = GGUtil.getStringValue(value)
                         val type = varArgs.checkint(2)
                         val typeTmp = GGUtil.getConstValue(GGLib.CONST.TYPE, type as Int)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams) {
-                            if (!GGUtil.isValidParamsLength("$value")) {
-                                sendLog("gg.editAll(${getString(R.string.filter_invalid_length)})")
-                            } else if (!GGUtil.isValidParams("$value")) {
-                                sendLog("gg.editAll(${getString(R.string.filter_invalid_params)})")
-                            }
-                        } else {
-                            val func = "gg.editAll($valueTmp, $typeTmp)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidParamsLength("$value")) {
+                                    "gg.editAll(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else if (!GGUtil.isValidParams("$value")) {
+                                    "gg.editAll(${getResStr(FILTER_INVALID_PARAMS)})"
+                                } else {
+                                    "gg.editAll($valueTmp, $typeTmp)"
+                                }
+                            } else {
+                                "gg.editAll($valueTmp, $typeTmp)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -355,8 +383,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getActiveTab()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getActiveTab()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -370,8 +400,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getFile()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getFile()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -385,8 +417,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getLine()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getLine()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -400,8 +434,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getListItems()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getListItems()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -415,8 +451,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getLocale()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getLocale()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -430,8 +468,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getRanges()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getRanges()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -448,8 +488,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val filter = varArgs.optjstring(1, "")
                         val filterTmp = GGUtil.getStringValue(filter)
-                        val func = "gg.getRangesList($filterTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getRangesList($filterTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -480,9 +522,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val fractionalTmp = GGUtil.getStringValue(fractional)
                         val pointer = varArgs.optint(9, 0)
                         val pointerTmp = GGUtil.getConstValue(GGLib.CONST.POINTER, pointer as Int)
-                        val func =
-                            "gg.getResults($maxCount, $skip, $addressMinTmp, $addressMaxTmp, $valueMinTmp, $valueMaxTmp, $typeTmp, $fractionalTmp, $pointerTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getResults($maxCount, $skip, $addressMinTmp, $addressMaxTmp, $valueMinTmp, $valueMaxTmp, $typeTmp, $fractionalTmp, $pointerTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -496,8 +539,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getResultsCount()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getResultsCount()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -511,8 +556,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getSelectedElements()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getSelectedElements()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -526,8 +573,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getSelectedListItems()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getSelectedListItems()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -541,8 +590,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getSelectedResults()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getSelectedResults()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -556,8 +607,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getSpeed()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getSpeed()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -571,8 +624,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getTargetInfo()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getTargetInfo()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -586,8 +641,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.getTargetPackage()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getTargetPackage()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -603,13 +660,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$values")) {
-                            sendLog("gg.getValues(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.getValues($values)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$values")) {
+                                    "gg.getValues(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.getValues($values)"
+                                }
+                            } else {
+                                "gg.getValues($values)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -625,8 +687,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
-                        val func = "gg.getValuesRange($values)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.getValuesRange($values)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -643,8 +707,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val address = varArgs.checklong(1)
                         val addressTmp = GGUtil.getHexValue(address as Long)
-                        val func = "gg.gotoAddress($addressTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.gotoAddress($addressTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -658,8 +724,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.hideUiButton()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.hideUiButton()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -681,8 +749,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(3, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val flags = if (varArgs.optlong(4, 1L) == 2L) 2 else 1
-                        val func = "gg.internal1($textTmp, $memoryFromTmp, $memoryToTmp, $flags)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.internal1($textTmp, $memoryFromTmp, $memoryToTmp, $flags)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -698,8 +768,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val filename = varArgs.checkjstring(2)
-                        val func = "gg.internal2(#func, $filename)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.internal2(#func, $filename)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -713,8 +785,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.isClickedUiButton()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.isClickedUiButton()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -731,8 +805,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val pkg = varArgs.checkjstring(1)
                         val pkgTmp = GGUtil.getStringValue(pkg)
-                        val func = "gg.isPackageInstalled($pkgTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.isPackageInstalled($pkgTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -746,8 +822,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.isProcessPaused()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.isProcessPaused()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -761,8 +839,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.isVisible()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.isVisible()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -781,8 +861,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val fileTmp = GGUtil.getStringValue(file)
                         val flags = varArgs.optint(2, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.LOAD, flags as Int)
-                        val func = "gg.loadList($fileTmp, $flagsTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.loadList($fileTmp, $flagsTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -798,13 +880,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$results")) {
-                            sendLog("gg.loadResults(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.loadResults($results)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$results")) {
+                                    "gg.loadResults(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.loadResults($results)"
+                                }
+                            } else {
+                                "gg.loadResults($results)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -824,8 +911,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val headers = varArgs.opttable(2, null)
                         val data = varArgs.optstring(3, null)
                         val dataTmp = GGUtil.getStringValue(data)
-                        val func = "gg.makeRequest($urlTmp, $headers, $dataTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.makeRequest($urlTmp, $headers, $dataTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -844,8 +933,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val selection = varArgs.opttable(2, null)
                         val message = varArgs.optjstring(3, "nil")
                         val messageTmp = GGUtil.getStringValue(message)
-                        val func = "gg.multiChoice($items, $selection, $messageTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.multiChoice($items, $selection, $messageTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -862,8 +953,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
                         val numTmp = GGUtil.getStringValue(num)
-                        val func = "gg.numberFromLocale($numTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.numberFromLocale($numTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -880,8 +973,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val num = varArgs.tojstring(1)
                         val numTmp = GGUtil.getStringValue(num)
-                        val func = "gg.numberToLocale($numTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.numberToLocale($numTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -895,8 +990,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.processKill()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.processKill()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -910,8 +1007,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.processPause()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.processPause()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -925,8 +1024,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.processResume()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.processResume()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -940,8 +1041,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.processToggle()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.processToggle()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -959,8 +1062,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val items = varArgs.checktable(1)
                         val defaults = varArgs.opttable(2, null)
                         val types = varArgs.opttable(3, null)
-                        val func = "gg.prompt($items, $defaults, $types)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.prompt($items, $defaults, $types)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -976,13 +1081,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val items = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$items")) {
-                            sendLog("gg.removeListItems(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.removeListItems($items)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$items")) {
+                                    "gg.removeListItems(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.removeListItems($items)"
+                                }
+                            } else {
+                                "gg.removeListItems($items)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -998,13 +1108,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val results = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$results")) {
-                            sendLog("gg.removeResults(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.removeResults($results)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$results")) {
+                                    "gg.removeResults(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.removeResults($results)"
+                                }
+                            } else {
+                                "gg.removeResults($results)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1022,8 +1137,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val version = varArgs.optjstring(1, "0")
                         val versionTmp = GGUtil.getStringValue(version)
                         val build = varArgs.optint(2, 0)
-                        val func = "gg.require($versionTmp, $build)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.require($versionTmp, $build)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1042,8 +1159,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val fileTmp = GGUtil.getStringValue(file)
                         val flags = varArgs.optint(2, 0)
                         val flagsTmp = GGUtil.getConstValue(GGLib.CONST.SAVE, flags as Int)
-                        val func = "gg.saveList($fileTmp, $flagsTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.saveList($fileTmp, $flagsTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1061,8 +1180,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val variable = varArgs.arg(1)
                         val filename = varArgs.checkjstring(2)
                         val filenameTmp = GGUtil.getStringValue(filename)
-                        val func = "gg.saveVariable($variable, $filenameTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.saveVariable($variable, $filenameTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1096,9 +1217,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(6, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val limit = varArgs.optlong(7, 0L)
-                        val func =
-                            "$funcName($textTmp, $maskTmp, $typeTmp, $signTmp, $memoryFromTmp, $memoryToTmp, $limit)"
-                        sendLog(func, result)
+                        sendLog(
+                            "$funcName($textTmp, $maskTmp, $typeTmp, $signTmp, $memoryFromTmp, $memoryToTmp, $limit)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1124,9 +1246,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(5, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val limit = varArgs.optlong(6, 0L)
-                        val func =
-                            "gg.searchFuzzy($differenceTmp, $signTmp, $typeTmp, $memoryFromTmp, $memoryToTmp, $limit)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.searchFuzzy($differenceTmp, $signTmp, $typeTmp, $memoryFromTmp, $memoryToTmp, $limit)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1159,18 +1282,20 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(6, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val limit = varArgs.optlong(7, 0L)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams) {
-                            if (!GGUtil.isValidParamsLength("$text")) {
-                                sendLog("$funcName(${getString(R.string.filter_invalid_length)})")
-                            } else if (!GGUtil.isValidParams("$text")) {
-                                sendLog("$funcName(${getString(R.string.filter_invalid_params)})")
-                            }
-                        } else {
-                            val func =
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidParamsLength("$text")) {
+                                    "$funcName(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else if (!GGUtil.isValidParams("$text")) {
+                                    "$funcName(${getResStr(FILTER_INVALID_PARAMS)})"
+                                } else {
+                                    "$funcName($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp, $limit)"
+                                }
+                            } else {
                                 "$funcName($textTmp, $typeTmp, $encrypted, $signTmp, $memoryFromTmp, $memoryToTmp, $limit)"
-                            sendLog(func, result)
-                        }
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1191,9 +1316,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryTo = varArgs.optlong(3, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
                         val limit = varArgs.optlong(4, 0L)
-                        val func =
-                            "gg.searchPointer($maxOffset, $memoryFromTmp, $memoryToTmp, $limit)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.searchPointer($maxOffset, $memoryFromTmp, $memoryToTmp, $limit)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1210,8 +1336,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val ranges = varArgs.checkint(1)
                         val rangesTmp = GGUtil.getConstValue(GGLib.CONST.REGION, ranges as Int)
-                        val func = "gg.setRanges($rangesTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.setRanges($rangesTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1227,8 +1355,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val speed = varArgs.checkdouble(1)
-                        val func = "gg.setSpeed($speed)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.setSpeed($speed)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1244,13 +1374,18 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val values = varArgs.checktable(1)
-                        val filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
-                        if (filterParams && !GGUtil.isValidItemsLength("$values")) {
-                            sendLog("gg.setValues(${getString(R.string.filter_invalid_length)})")
-                        } else {
-                            val func = "gg.setValues($values)"
-                            sendLog(func, result)
-                        }
+                        sendLog(
+                            if (filterParams) {
+                                if (!GGUtil.isValidItemsLength("$values")) {
+                                    "gg.setValues(${getResStr(FILTER_INVALID_LENGTH)})"
+                                } else {
+                                    "gg.setValues($values)"
+                                }
+                            } else {
+                                "gg.setValues($values)"
+                            },
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1266,8 +1401,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val visible = varArgs.checkboolean(1)
-                        val func = "gg.setVisible($visible)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.setVisible($visible)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1281,8 +1418,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.showUiButton()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.showUiButton()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1296,8 +1435,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     paramCount = 1
                 }.ignored().hook {
                     after {
-                        val func = "gg.skipRestoreState()"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.skipRestoreState()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1313,8 +1454,10 @@ object GGv1011Hooker : BaseGGHooker() {
                     after {
                         val varArgs = args(0).any()
                         val milliseconds = varArgs.checkint(1)
-                        val func = "gg.sleep($milliseconds)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.sleep($milliseconds)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1335,8 +1478,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val memoryFromTmp = GGUtil.getHexValue(memoryFrom as Long)
                         val memoryTo = varArgs.optlong(3, -1L)
                         val memoryToTmp = GGUtil.getHexValue(memoryTo as Long)
-                        val func = "gg.startFuzzy($typeTmp, $memoryFromTmp, $memoryToTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.startFuzzy($typeTmp, $memoryFromTmp, $memoryToTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1353,8 +1498,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val time = varArgs.checkjstring(1)
                         val timeTmp = GGUtil.getStringValue(time)
-                        val func = "gg.timeJump($timeTmp)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.timeJump($timeTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1372,8 +1519,10 @@ object GGv1011Hooker : BaseGGHooker() {
                         val text = varArgs.checkjstring(1)
                         val textTmp = GGUtil.getStringValue(text)
                         val fast = varArgs.optboolean(2, false)
-                        val func = "gg.toast($textTmp, $fast)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.toast($textTmp, $fast)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }
@@ -1390,10 +1539,12 @@ object GGv1011Hooker : BaseGGHooker() {
                         val varArgs = args(0).any()
                         val qword = varArgs.optlong(1, 0L)
                         val qincr = varArgs.optlong(2, 0L)
-                        val double_ = varArgs.optdouble(3, 0.0)
+                        val double = varArgs.optdouble(3, 0.0)
                         val dincr = varArgs.optdouble(4, 0.0)
-                        val func = "gg.unrandomizer($qword, $qincr, $double_, $dincr)"
-                        sendLog(func, result)
+                        sendLog(
+                            "gg.unrandomizer($qword, $qincr, $double, $dincr)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
                     }
                 }.ignoredAllFailure()
             }

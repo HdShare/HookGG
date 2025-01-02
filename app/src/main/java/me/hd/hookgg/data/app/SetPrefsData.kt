@@ -1,4 +1,4 @@
-package me.hd.hookgg.data
+package me.hd.hookgg.data.app
 
 import com.highcapable.yukihookapi.hook.xposed.prefs.data.PrefsData
 
