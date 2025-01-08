@@ -1,5 +1,6 @@
 package me.hd.hookgg.ui.adapter
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -10,6 +11,7 @@ import me.hd.hookgg.config.data.BuildData
 import me.hd.hookgg.databinding.ItemRvLogBinding
 import java.io.FileOutputStream
 
+@SuppressLint("NotifyDataSetChanged")
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     private var logList = mutableListOf<String>()
 
@@ -26,23 +28,17 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
     }
 
     fun clearLog() {
-        val count = logList.size
         logList.clear()
-        notifyItemRangeRemoved(0, count)
+        notifyDataSetChanged()
     }
 
     fun addLog(log: String) {
-        val pos = logList.size
         logList.add(log)
-        notifyItemInserted(pos)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogViewHolder {
-        val binding = ItemRvLogBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
-        )
+        val binding = ItemRvLogBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LogViewHolder(binding)
     }
 
