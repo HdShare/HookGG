@@ -28,47 +28,77 @@ object RLGGv2092Hooker : BaseGGHooker() {
     override val functionMap = mapOf(
         GGLib.addListItems to FuncDetail(true) { this.addListItems() },
         GGLib.alert to FuncDetail { this.alert() },
+        // TODO: alert2
+        // TODO: alertX
         GGLib.allocatePage to FuncDetail { this.allocatePage() },
+        // TODO: appPath
+        // TODO: arsc
         GGLib.bytes to FuncDetail { this.bytes() },
+        // TODO: checkVpn
         GGLib.choice to FuncDetail { this.choice() },
         GGLib.clearList to FuncDetail { this.clearList() },
         GGLib.clearResults to FuncDetail { this.clearResults() },
-        // TODO: command
+        // TODO: colorAlert
+        // TODO: colorToast
+        "gg.command" to FuncDetail { this.command() },
         GGLib.copyMemory to FuncDetail { this.copyMemory() },
         GGLib.copyText to FuncDetail { this.copyText() },
         GGLib.disasm to FuncDetail { this.disasm() },
+        // TODO: diyToast
+        // TODO: downloadFile
         GGLib.dumpMemory to FuncDetail { this.dumpMemory() },
         GGLib.editAll to FuncDetail { this.editAll() },
+        // TODO: exit
         GGLib.getActiveTab to FuncDetail { this.getActiveTab() },
+        // TODO: getClipboard
+        // TODO: getConfig
         GGLib.getFile to FuncDetail { this.getFile() },
         GGLib.getLine to FuncDetail { this.getLine() },
         GGLib.getListItems to FuncDetail { this.getListItems() },
         GGLib.getLocale to FuncDetail { this.getLocale() },
+        // TODO: getProcess
         GGLib.getRanges to FuncDetail { this.getRanges() },
+        // TODO: getRangesInfo
         GGLib.getRangesList to FuncDetail { this.getRangesList() },
+        // TODO: getRangesListX
         GGLib.getResults to FuncDetail { this.getResults() },
         GGLib.getResultsCount to FuncDetail { this.getResultsCount() },
+        // TODO: getScriptDir
         GGLib.getSelectedElements to FuncDetail { this.getSelectedElements() },
         GGLib.getSelectedListItems to FuncDetail { this.getSelectedListItems() },
         GGLib.getSelectedResults to FuncDetail { this.getSelectedResults() },
+        // TODO: getSignatures
         GGLib.getSpeed to FuncDetail { this.getSpeed() },
         GGLib.getTargetInfo to FuncDetail { this.getTargetInfo() },
         GGLib.getTargetPackage to FuncDetail { this.getTargetPackage() },
         GGLib.getValues to FuncDetail(true) { this.getValues() },
         GGLib.getValuesRange to FuncDetail { this.getValuesRange() },
+        // TODO: getWindowOrientation
         GGLib.gotoAddress to FuncDetail { this.gotoAddress() },
+        // TODO: goURL
         GGLib.hideUiButton to FuncDetail { this.hideUiButton() },
+        // TODO: htmlAlert
+        // TODO: image
+        // TODO: intent
         GGLib.isClickedUiButton to FuncDetail { this.isClickedUiButton() },
+        // TODO: isHTTPdump
         GGLib.isPackageInstalled to FuncDetail { this.isPackageInstalled() },
         GGLib.isProcessPaused to FuncDetail { this.isProcessPaused() },
-        // TODO: isVPN
+        "gg.isVPN" to FuncDetail { this.isVPN() },
         GGLib.isVisible to FuncDetail { this.isVisible() },
+        // TODO: jumpAPP
+        // TODO: killGG
         GGLib.loadList to FuncDetail { this.loadList() },
         GGLib.loadResults to FuncDetail { this.loadResults() },
+        // TODO: loopCheckVpn
+        // TODO: loopKillGG
         GGLib.makeRequest to FuncDetail { this.makeRequest() },
         GGLib.multiChoice to FuncDetail { this.multiChoice() },
+        // TODO: newAlert
         GGLib.numberFromLocale to FuncDetail { this.numberFromLocale() },
         GGLib.numberToLocale to FuncDetail { this.numberToLocale() },
+        // TODO: playMusic
+        "gg.playVideo" to FuncDetail { this.playVideo() },
         GGLib.processKill to FuncDetail { this.processKill() },
         GGLib.processPause to FuncDetail { this.processPause() },
         GGLib.processResume to FuncDetail { this.processResume() },
@@ -80,13 +110,19 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.saveList to FuncDetail { this.saveList() },
         GGLib.saveVariable to FuncDetail { this.saveVariable() },
         GGLib.searchAddress to FuncDetail { this.searchAddress() },
+        // TODO: searchChoice
         GGLib.searchFuzzy to FuncDetail { this.searchFuzzy() },
         GGLib.searchNumber to FuncDetail { this.searchNumber() },
         GGLib.searchPointer to FuncDetail { this.searchPointer() },
+        // TODO: setConfig
+        // TODO: setIcon
+        // TODO: setProcess
+        // TODO: setProcessX
         GGLib.setRanges to FuncDetail { this.setRanges() },
         GGLib.setSpeed to FuncDetail { this.setSpeed() },
         GGLib.setValues to FuncDetail(true) { this.setValues() },
         GGLib.setVisible to FuncDetail { this.setVisible() },
+        // TODO: showAlert
         GGLib.showUiButton to FuncDetail { this.showUiButton() },
         GGLib.skipRestoreState to FuncDetail { this.skipRestoreState() },
         GGLib.sleep to FuncDetail { this.sleep() },
@@ -242,6 +278,26 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     after {
                         sendLog(
                             "gg.clearResults()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun command() {
+        "android.ext.̽"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "̢"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val cmd = varArgs.checkjstring(1)
+                        val cmdTmp = GGUtil.getStringValue(cmd)
+                        sendLog(
+                            "gg.command($cmdTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
@@ -786,6 +842,23 @@ object RLGGv2092Hooker : BaseGGHooker() {
             }
     }
 
+    private fun isVPN() {
+        "android.ext.ͫ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "̢"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        sendLog(
+                            "gg.isVPN()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
     private fun isVisible() {
         "android.ext.ͬ"
             .toClassOrNull()?.apply {
@@ -930,6 +1003,26 @@ object RLGGv2092Hooker : BaseGGHooker() {
                         val numTmp = GGUtil.getStringValue(num)
                         sendLog(
                             "gg.numberToLocale($numTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun playVideo() {
+        "android.ext.\u0383"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "̢"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val url = varArgs.checkjstring(1)
+                        val urlTmp = GGUtil.getStringValue(url)
+                        sendLog(
+                            "gg.playVideo($urlTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
