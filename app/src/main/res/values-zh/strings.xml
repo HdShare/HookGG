@@ -35,6 +35,8 @@
     <string name="prefs_desc_package_name_click">快捷选项(点击设置)</string>
     <string name="prefs_key_version_name">拦截版本</string>
     <string name="prefs_desc_version_name">96.0</string>
+    <string name="prefs_key_output_mode">拦截模式</string>
+    <string name="prefs_desc_output_mode">日志(开发中)</string>
     <string name="prefs_more">更多</string>
     <string name="prefs_key_print_return">打印函数返回</string>
     <string name="prefs_key_filter_param">过滤异常参数</string>

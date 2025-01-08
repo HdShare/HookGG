@@ -10,6 +10,7 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -161,6 +162,10 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
+        }
+        // TODO
+        binding.setLLOutputMode.setOnClickListener {
+            Toast.makeText(requireContext(), R.string.prefs_desc_output_mode, Toast.LENGTH_SHORT).show()
         }
         binding.setLLPrintReturn.setOnClickListener {
             binding.setSwitchPrintReturn.performClick()

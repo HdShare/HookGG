@@ -143,7 +143,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
                     android:padding="16dp">
 
@@ -227,6 +227,44 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/prefs_desc_version_name"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/setLLOutputMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackground"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:src="@drawable/ic_set_mode_24dp"
+                        tools:ignore="ContentDescription" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="16dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prefs_key_output_mode"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/setTvDefOutputMode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/prefs_desc_output_mode"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
