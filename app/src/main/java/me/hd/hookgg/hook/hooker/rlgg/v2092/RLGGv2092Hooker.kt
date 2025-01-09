@@ -72,7 +72,6 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.multiChoice to FuncDetail { this.multiChoice() },
         GGLib.numberFromLocale to FuncDetail { this.numberFromLocale() },
         GGLib.numberToLocale to FuncDetail { this.numberToLocale() },
-        // TODO: playMusic"android.ext.΂"//gg.playMusic(string url or filename)
         RLGGLIB.playVideo to FuncDetail { this.playVideo() },
         GGLib.processKill to FuncDetail { this.processKill() },
         GGLib.processPause to FuncDetail { this.processPause() },
@@ -934,7 +933,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun makeRequest() {
-        "android.ext.\u0378"
+        "android.ext.͸"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -979,7 +978,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun numberFromLocale() {
-        "android.ext.\u0380"
+        "android.ext.΀"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -999,7 +998,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun numberToLocale() {
-        "android.ext.\u0381"
+        "android.ext.΁"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1019,7 +1018,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun playVideo() {
-        "android.ext.\u0383"
+        "android.ext.΃"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1027,10 +1026,10 @@ object RLGGv2092Hooker : BaseGGHooker() {
                 }.ignored().hook {
                     after {
                         val varArgs = args(0).any()
-                        val url = varArgs.checkjstring(1)
-                        val urlTmp = GGUtil.getStringValue(url)
+                        val urlOrFilePath = varArgs.checkjstring(1)
+                        val urlOrFilePathTmp = GGUtil.getStringValue(urlOrFilePath)
                         sendLog(
-                            "gg.playVideo($urlTmp)",
+                            "gg.playVideo($urlOrFilePathTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
@@ -1128,7 +1127,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun removeListItems() {
-        "android.ext.\u0558"
+        "android.ext.՘"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1182,7 +1181,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun require() {
-        "android.ext.\u058B"
+        "android.ext.֋"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1203,7 +1202,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun saveList() {
-        "android.ext.\u058C"
+        "android.ext.֌"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1321,7 +1320,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
                     after {
                         val funcName = GGUtil.getFuncName(
                             instanceClass,
-                            "android.ext.\u0530".toClassOrNull(),
+                            "android.ext.԰".toClassOrNull(),
                             "gg.refineNumber",
                             "gg.searchNumber"
                         )
@@ -1410,10 +1409,10 @@ object RLGGv2092Hooker : BaseGGHooker() {
                 }.ignored().hook {
                     after {
                         val varArgs = args(0).any()
-                        val indexOrPackage = varArgs.arg(1)
-                        val indexOrPackageTmp = GGUtil.getStringValue(indexOrPackage)
+                        val indexOrPackageName = varArgs.arg(1)
+                        val indexOrPackageNameTmp = GGUtil.getStringValue(indexOrPackageName)
                         sendLog(
-                            "gg.setProcess($indexOrPackageTmp)",
+                            "gg.setProcess($indexOrPackageNameTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
@@ -1439,7 +1438,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun setRanges() {
-        "android.ext.\u05CA"
+        "android.ext.׊"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1459,7 +1458,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun setSpeed() {
-        "android.ext.\u05CB"
+        "android.ext.׋"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1478,7 +1477,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun setValues() {
-        "android.ext.\u05CD"
+        "android.ext.׍"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1505,7 +1504,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun setVisible() {
-        "android.ext.\u05CE"
+        "android.ext.׎"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1524,7 +1523,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun showUiButton() {
-        "android.ext.\u05CF"
+        "android.ext.׏"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1541,7 +1540,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun skipRestoreState() {
-        "android.ext.\u05EB"
+        "android.ext.׫"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1558,7 +1557,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun sleep() {
-        "android.ext.\u05EC"
+        "android.ext.׬"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1577,7 +1576,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun startFuzzy() {
-        "android.ext.\u05ED"
+        "android.ext.׭"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1601,7 +1600,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun timeJump() {
-        "android.ext.\u05EE"
+        "android.ext.׮"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
@@ -1621,7 +1620,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun toast() {
-        "android.ext.\u05F5"
+        "android.ext.׵"
             .toClassOrNull()?.apply {
                 method {
                     name = "̢"
@@ -1642,7 +1641,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
     }
 
     private fun unrandomizer() {
-        "android.ext.\u05F6"
+        "android.ext.׶"
             .toClassOrNull()?.apply {
                 method {
                     name = "d"
