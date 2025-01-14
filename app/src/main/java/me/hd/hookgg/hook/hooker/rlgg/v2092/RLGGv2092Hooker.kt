@@ -6,7 +6,7 @@ import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_LENGTH
 import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_PARAMS
 import me.hd.hookgg.config.data.ResStrData.getResStr
 import me.hd.hookgg.config.lib.GGLib
-import me.hd.hookgg.config.lib.RLGGLIB
+import me.hd.hookgg.config.lib.RLGGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.arg
 import me.hd.hookgg.hook.hooker.rlgg.v2092.RLGGv2092VarArgs.checkboolean
@@ -34,19 +34,19 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.choice to FuncDetail { this.choice() },
         GGLib.clearList to FuncDetail { this.clearList() },
         GGLib.clearResults to FuncDetail { this.clearResults() },
-        RLGGLIB.command to FuncDetail { this.command() },
+        RLGGLib.command to FuncDetail { this.command() },
         GGLib.copyMemory to FuncDetail { this.copyMemory() },
         GGLib.copyText to FuncDetail { this.copyText() },
         GGLib.disasm to FuncDetail { this.disasm() },
         GGLib.dumpMemory to FuncDetail { this.dumpMemory() },
         GGLib.editAll to FuncDetail { this.editAll() },
         GGLib.getActiveTab to FuncDetail { this.getActiveTab() },
-        RLGGLIB.getConfig to FuncDetail { this.getConfig() },
+        RLGGLib.getConfig to FuncDetail { this.getConfig() },
         GGLib.getFile to FuncDetail { this.getFile() },
         GGLib.getLine to FuncDetail { this.getLine() },
         GGLib.getListItems to FuncDetail { this.getListItems() },
         GGLib.getLocale to FuncDetail { this.getLocale() },
-        RLGGLIB.getProcess to FuncDetail { this.getProcess() },
+        RLGGLib.getProcess to FuncDetail { this.getProcess() },
         GGLib.getRanges to FuncDetail { this.getRanges() },
         GGLib.getRangesList to FuncDetail { this.getRangesList() },
         GGLib.getResults to FuncDetail { this.getResults() },
@@ -64,7 +64,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.isClickedUiButton to FuncDetail { this.isClickedUiButton() },
         GGLib.isPackageInstalled to FuncDetail { this.isPackageInstalled() },
         GGLib.isProcessPaused to FuncDetail { this.isProcessPaused() },
-        RLGGLIB.isVPN to FuncDetail { this.isVPN() },
+        RLGGLib.isVPN to FuncDetail { this.isVPN() },
         GGLib.isVisible to FuncDetail { this.isVisible() },
         GGLib.loadList to FuncDetail { this.loadList() },
         GGLib.loadResults to FuncDetail { this.loadResults() },
@@ -72,7 +72,7 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.multiChoice to FuncDetail { this.multiChoice() },
         GGLib.numberFromLocale to FuncDetail { this.numberFromLocale() },
         GGLib.numberToLocale to FuncDetail { this.numberToLocale() },
-        RLGGLIB.playVideo to FuncDetail { this.playVideo() },
+        RLGGLib.playVideo to FuncDetail { this.playVideo() },
         GGLib.processKill to FuncDetail { this.processKill() },
         GGLib.processPause to FuncDetail { this.processPause() },
         GGLib.processResume to FuncDetail { this.processResume() },
@@ -87,9 +87,9 @@ object RLGGv2092Hooker : BaseGGHooker() {
         GGLib.searchFuzzy to FuncDetail { this.searchFuzzy() },
         GGLib.searchNumber to FuncDetail { this.searchNumber() },
         GGLib.searchPointer to FuncDetail { this.searchPointer() },
-        RLGGLIB.setConfig to FuncDetail { this.setConfig() },
-        RLGGLIB.setProcess to FuncDetail { this.setProcess() },
-        RLGGLIB.setProcessX to FuncDetail { this.setProcessX() },
+        RLGGLib.setConfig to FuncDetail { this.setConfig() },
+        RLGGLib.setProcess to FuncDetail { this.setProcess() },
+        RLGGLib.setProcessX to FuncDetail { this.setProcessX() },
         GGLib.setRanges to FuncDetail { this.setRanges() },
         GGLib.setSpeed to FuncDetail { this.setSpeed() },
         GGLib.setValues to FuncDetail(true) { this.setValues() },

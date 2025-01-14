@@ -1,6 +1,6 @@
 package me.hd.hookgg.config.lib
 
-object RLGGLIB {
+object RLGGLib {
     const val command = "gg.command"
     const val getConfig = "gg.getConfig"
     const val getProcess = "gg.getProcess"
