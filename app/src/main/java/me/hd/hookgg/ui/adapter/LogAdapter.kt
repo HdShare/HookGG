@@ -13,6 +13,9 @@ import java.io.FileOutputStream
 
 @SuppressLint("NotifyDataSetChanged")
 class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
+
+    class LogViewHolder(val binding: ItemRvLogBinding) : RecyclerView.ViewHolder(binding.root)
+
     private var logList = mutableListOf<String>()
 
     fun copyLog(context: Context) {
@@ -37,6 +40,8 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
         notifyDataSetChanged()
     }
 
+    override fun getItemCount(): Int = logList.size
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogViewHolder {
         val binding = ItemRvLogBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return LogViewHolder(binding)
@@ -44,12 +49,6 @@ class LogAdapter : RecyclerView.Adapter<LogAdapter.LogViewHolder>() {
 
     override fun onBindViewHolder(holder: LogViewHolder, position: Int) {
         val logText = logList[position].replace("\u0000", "")
-        holder.tvLog.text = logText
-    }
-
-    override fun getItemCount(): Int = logList.size
-
-    class LogViewHolder(binding: ItemRvLogBinding) : RecyclerView.ViewHolder(binding.root) {
-        val tvLog = binding.itemRvTvLog
+        holder.binding.itemRvTvLog.text = logText
     }
 }

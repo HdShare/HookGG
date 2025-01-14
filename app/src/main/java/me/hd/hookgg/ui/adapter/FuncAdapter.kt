@@ -8,8 +8,8 @@ import com.highcapable.yukihookapi.hook.factory.prefs
 import com.highcapable.yukihookapi.hook.xposed.prefs.YukiHookPrefsBridge
 import me.hd.hookgg.MyApp
 import me.hd.hookgg.R
-import me.hd.hookgg.config.data.SetPrefsData
 import me.hd.hookgg.config.bean.FuncObj
+import me.hd.hookgg.config.data.SetPrefsData
 import me.hd.hookgg.databinding.ItemRvFuncBinding
 
 class FuncAdapter(
