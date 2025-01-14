@@ -45,13 +45,14 @@
 
 ---
 
-## 说明:
+## 说明 / Desc:
 
 调试输出 GameGuardian 脚本执行函数
+Debug output for GameGuardian script execution functions
 
 ---
 
-## 功能:
+## 功能 / Func:
 
 <table>
     <tr>
@@ -109,7 +110,7 @@
 
 ---
 
-## 计划:
+## 计划 / Plans:
 
 <table>
     <tr>
@@ -126,7 +127,7 @@
 
 ---
 
-## 致谢:
+## 致谢 / Thanks:
 
 | Name        | Source                                                    |
 |-------------|-----------------------------------------------------------|
