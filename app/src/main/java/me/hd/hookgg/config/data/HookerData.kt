@@ -56,7 +56,7 @@ object HookerData {
         return mapHooker[version]?.run {
             functionMap.map { (funcName, funcDetail) ->
                 FuncObj(funcName, funcDetail)
-            }.toMutableList()
+            }.sortedBy { it.funcName }.toMutableList()
         } ?: mutableListOf()
     }
 }
