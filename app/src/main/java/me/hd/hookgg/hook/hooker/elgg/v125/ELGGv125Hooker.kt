@@ -41,10 +41,12 @@ object ELGGv125Hooker : BaseGGHooker() {
         GGLib.dumpMemory to FuncDetail { this.dumpMemory() },
         GGLib.editAll to FuncDetail { this.editAll() },
         GGLib.getActiveTab to FuncDetail { this.getActiveTab() },
+        ELGGLib.getConfig to FuncDetail { this.getConfig() },
         GGLib.getFile to FuncDetail { this.getFile() },
         GGLib.getLine to FuncDetail { this.getLine() },
         GGLib.getListItems to FuncDetail { this.getListItems() },
         GGLib.getLocale to FuncDetail { this.getLocale() },
+        ELGGLib.getProcess to FuncDetail { this.getProcess() },
         GGLib.getRanges to FuncDetail { this.getRanges() },
         GGLib.getRangesList to FuncDetail { this.getRangesList() },
         GGLib.getResults to FuncDetail { this.getResults() },
@@ -62,6 +64,7 @@ object ELGGv125Hooker : BaseGGHooker() {
         GGLib.isClickedUiButton to FuncDetail { this.isClickedUiButton() },
         GGLib.isPackageInstalled to FuncDetail { this.isPackageInstalled() },
         GGLib.isProcessPaused to FuncDetail { this.isProcessPaused() },
+        ELGGLib.isVPN to FuncDetail { this.isVPN() },
         GGLib.isVisible to FuncDetail { this.isVisible() },
         GGLib.loadList to FuncDetail { this.loadList() },
         GGLib.loadResults to FuncDetail { this.loadResults() },
@@ -69,6 +72,7 @@ object ELGGv125Hooker : BaseGGHooker() {
         GGLib.multiChoice to FuncDetail { this.multiChoice() },
         GGLib.numberFromLocale to FuncDetail { this.numberFromLocale() },
         GGLib.numberToLocale to FuncDetail { this.numberToLocale() },
+        ELGGLib.playVideo to FuncDetail { this.playVideo() },
         GGLib.processKill to FuncDetail { this.processKill() },
         GGLib.processPause to FuncDetail { this.processPause() },
         GGLib.processResume to FuncDetail { this.processResume() },
@@ -83,6 +87,9 @@ object ELGGv125Hooker : BaseGGHooker() {
         GGLib.searchFuzzy to FuncDetail { this.searchFuzzy() },
         GGLib.searchNumber to FuncDetail { this.searchNumber() },
         GGLib.searchPointer to FuncDetail { this.searchPointer() },
+        ELGGLib.setConfig to FuncDetail { this.setConfig() },
+        ELGGLib.setProcess to FuncDetail { this.setProcess() },
+        ELGGLib.setProcessX to FuncDetail { this.setProcessX() },
         GGLib.setRanges to FuncDetail { this.setRanges() },
         GGLib.setSpeed to FuncDetail { this.setSpeed() },
         GGLib.setValues to FuncDetail { this.setValues() },
@@ -413,6 +420,25 @@ object ELGGv125Hooker : BaseGGHooker() {
             }
     }
 
+    private fun getConfig() {
+        "android.ext.ۣۧۧۡ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "a_"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val id = varArgs.optint(1, 0)
+                        sendLog(
+                            "gg.getConfig($id)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
     private fun getFile() {
         "android.ext.ۧۧۡۤ"
             .toClassOrNull()?.apply {
@@ -474,6 +500,23 @@ object ELGGv125Hooker : BaseGGHooker() {
                     after {
                         sendLog(
                             "gg.getLocale()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun getProcess() {
+        "android.ext.ۦۤۢۡ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        sendLog(
+                            "gg.getProcess()",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
@@ -808,6 +851,23 @@ object ELGGv125Hooker : BaseGGHooker() {
             }
     }
 
+    private fun isVPN() {
+        "android.ext.۟ۧ۠ۤ۟"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        sendLog(
+                            "gg.isVPN()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
     private fun isVisible() {
         "android.ext.ۧۧۤۡ"
             .toClassOrNull()?.apply {
@@ -953,6 +1013,26 @@ object ELGGv125Hooker : BaseGGHooker() {
                         val numTmp = GGUtil.getStringValue(numStr)
                         sendLog(
                             "gg.numberToLocale($numTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun playVideo() {
+        "android.ext.ۦۤ۠ۧ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val urlOrFilePath = varArgs.checkjstring(1)
+                        val urlOrFilePathTmp = GGUtil.getStringValue(urlOrFilePath)
+                        sendLog(
+                            "gg.playVideo($urlOrFilePathTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
@@ -1299,6 +1379,63 @@ object ELGGv125Hooker : BaseGGHooker() {
                         val limit = varArgs.optlong(4, 0L)
                         sendLog(
                             "gg.searchPointer($maxOffset, $memoryFromTmp, $memoryToTmp, $limit)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun setConfig() {
+        "android.ext.ۥۡ۠ۥ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "a_"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val id = varArgs.checkint(1)
+                        val value = varArgs.checkint(2)
+                        sendLog(
+                            "gg.setConfig($id, $value)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun setProcess() {
+        "android.ext.ۧۧۦۨ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val indexOrPackageName = varArgs.arg(1)
+                        val indexOrPackageNameTmp = GGUtil.getStringValue(indexOrPackageName)
+                        sendLog(
+                            "gg.setProcess($indexOrPackageNameTmp)",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun setProcessX() {
+        "android.ext.ۦۣۤۦ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        sendLog(
+                            "gg.setProcessX()",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
