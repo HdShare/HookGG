@@ -5,6 +5,7 @@ import me.hd.hookgg.config.bean.FuncDetail
 import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_LENGTH
 import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_PARAMS
 import me.hd.hookgg.config.data.ResStrData.getResStr
+import me.hd.hookgg.config.lib.ELGGLib
 import me.hd.hookgg.config.lib.GGLib
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.elgg.v125.ELGGv125VarArgs.arg
@@ -33,6 +34,7 @@ object ELGGv125Hooker : BaseGGHooker() {
         GGLib.choice to FuncDetail { this.choice() },
         GGLib.clearList to FuncDetail { this.clearList() },
         GGLib.clearResults to FuncDetail { this.clearResults() },
+        ELGGLib.command to FuncDetail { this.command() },
         GGLib.copyMemory to FuncDetail { this.copyMemory() },
         GGLib.copyText to FuncDetail { this.copyText() },
         GGLib.disasm to FuncDetail { this.disasm() },
@@ -240,6 +242,26 @@ object ELGGv125Hooker : BaseGGHooker() {
                     after {
                         sendLog(
                             "gg.clearResults()",
+                            if (printReturn) "--[[$result]]" else ""
+                        )
+                    }
+                }.ignoredAllFailure()
+            }
+    }
+
+    private fun command() {
+        "android.ext.ۣۧۧۢ"
+            .toClassOrNull()?.apply {
+                method {
+                    name = "b"
+                    paramCount = 1
+                }.ignored().hook {
+                    after {
+                        val varArgs = args(0).any()
+                        val cmd = varArgs.checkjstring(1)
+                        val cmdTmp = GGUtil.getStringValue(cmd)
+                        sendLog(
+                            "gg.command($cmdTmp)",
                             if (printReturn) "--[[$result]]" else ""
                         )
                     }
