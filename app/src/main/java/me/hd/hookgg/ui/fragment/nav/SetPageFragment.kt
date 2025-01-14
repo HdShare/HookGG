@@ -10,7 +10,6 @@ import android.text.style.ClickableSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -52,11 +51,10 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         binding.setTvDescAppLanguage.text = when (prefs.get(SetPrefsData.APP_LANGUAGE)) {
             Locale.ENGLISH.language -> getString(R.string.language_en)
             Locale.CHINESE.language -> getString(R.string.language_zh)
-            else -> getString(R.string.language_default)
+            else -> getString(R.string.language_system)
         }
         binding.setTvDefPackageName.text = prefs.get(SetPrefsData.PACKAGE_NAME)
-        val versionName = prefs.get(SetPrefsData.VERSION_NAME)
-        binding.setTvDefVersionName.text = versionName
+        binding.setTvDefVersionName.text = prefs.get(SetPrefsData.VERSION_NAME)
         binding.setSwitchPrintReturn.isChecked = prefs.get(SetPrefsData.PRINT_RETURN)
         binding.setSwitchFilterParams.isChecked = prefs.get(SetPrefsData.FILTER_PARAMS)
         binding.setSwitchTestFunc.isChecked = prefs.get(SetPrefsData.TEST_FUNC)
@@ -74,9 +72,9 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             )
         }
         binding.setLLAppLanguage.setOnClickListener {
-            fun changeLanguage(locale: Locale) {
+            fun changeLanguage(language: String) {
                 prefs.edit {
-                    put(SetPrefsData.APP_LANGUAGE, locale.language)
+                    put(SetPrefsData.APP_LANGUAGE, language)
                 }
                 requireActivity().recreate()
             }
@@ -85,9 +83,9 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
             popupMenu.menuInflater.inflate(R.menu.language_popup_menu, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
-                    R.id.language_default -> changeLanguage(Locale.getDefault())
-                    R.id.language_en -> changeLanguage(Locale.ENGLISH)
-                    R.id.language_zh -> changeLanguage(Locale.CHINESE)
+                    R.id.language_system -> changeLanguage(Locale.ROOT.language)
+                    R.id.language_en -> changeLanguage(Locale.ENGLISH.language)
+                    R.id.language_zh -> changeLanguage(Locale.CHINESE.language)
                 }
                 true
             }
@@ -162,10 +160,6 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
                 }
                 .setNegativeButton(R.string.dialog_decline) { _, _ -> }
                 .show()
-        }
-        // TODO
-        binding.setLLOutputMode.setOnClickListener {
-            Toast.makeText(requireContext(), R.string.prefs_desc_output_mode, Toast.LENGTH_SHORT).show()
         }
         binding.setLLPrintReturn.setOnClickListener {
             binding.setSwitchPrintReturn.performClick()

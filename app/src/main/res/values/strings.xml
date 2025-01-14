@@ -24,8 +24,8 @@
     <string name="prefs_key_app_version">AppVersion</string>
     <string name="prefs_desc_app_version">1.0.000(20240101)</string>
     <string name="prefs_key_app_language">AppLanguage</string>
-    <string name="prefs_desc_app_language">Default</string>
-    <string name="language_default">Default</string>
+    <string name="prefs_desc_app_language">System</string>
+    <string name="language_system">System</string>
     <string name="language_en">English</string>
     <string name="language_zh">中文</string>
     <string name="prefs_desc_app_version_fmt">%1$s(%2$d)</string>
@@ -35,8 +35,6 @@
     <string name="prefs_desc_package_name_click">Quick Options(Click Settings)</string>
     <string name="prefs_key_version_name">Intercept Version Name</string>
     <string name="prefs_desc_version_name">96.0</string>
-    <string name="prefs_key_output_mode">Intercept Output Mode</string>
-    <string name="prefs_desc_output_mode">Log(Developing)</string>
     <string name="prefs_more">More</string>
     <string name="prefs_key_print_return">Print Function Return</string>
     <string name="prefs_key_filter_param">Filter Exception Param</string>

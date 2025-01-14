@@ -27,7 +27,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun attachBaseContext(newBase: Context) {
         val prefs = MyApp.context.prefs()
-        val language = prefs.get(SetPrefsData.APP_LANGUAGE, Locale.getDefault().language)
+        val language = prefs.get(SetPrefsData.APP_LANGUAGE, Locale.getDefault().language).takeIf {
+            it.isNotEmpty()
+        } ?: Locale.getDefault().language
         super.attachBaseContext(newBase.setLanguage(Locale(language)))
     }
 
