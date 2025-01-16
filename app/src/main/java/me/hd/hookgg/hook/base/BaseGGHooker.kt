@@ -6,9 +6,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
+import me.hd.hookgg.config.bean.FuncObj
 import me.hd.hookgg.config.data.BuildData
 import me.hd.hookgg.config.data.SetPrefsData
-import me.hd.hookgg.config.bean.FuncDetail
 
 abstract class BaseGGHooker : YukiBaseHooker() {
     protected var filterParams = false
@@ -25,7 +25,7 @@ abstract class BaseGGHooker : YukiBaseHooker() {
         }
     }
 
-    abstract val functionMap: Map<String, FuncDetail>
+    abstract val functionMap: Map<String, FuncObj.FuncDetail>
 
     override fun onHook() {
         filterParams = prefs.get(SetPrefsData.FILTER_PARAMS)
