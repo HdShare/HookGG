@@ -12,8 +12,8 @@ android {
         applicationId "me.hd.hookgg"
         minSdk 27
         targetSdk 34
-        versionCode 20250102
-        versionName "2.0.6"
+        versionCode 20250116
+        versionName "2.0.7"
         buildConfigField 'String', 'TAG', '"HookGG"'
     }
 
@@ -59,7 +59,6 @@ android {
 }
 
 dependencies {
-    //implementation project(':libs:unluac')
     implementation 'com.google.android.material:material:1.12.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.8.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.8.5'
@@ -67,8 +66,8 @@ dependencies {
     implementation 'com.highcapable.yukihookapi:api:1.2.1'
     ksp 'com.highcapable.yukihookapi:ksp-xposed:1.2.1'
     implementation 'org.luckypray:dexkit:2.0.3'
+    implementation 'net.bytebuddy:byte-buddy-android:1.15.10'
     implementation 'org.apache-extras.beanshell:bsh:2.0b6'
-    //implementation 'net.bytebuddy:byte-buddy-android:1.14.18'
     testImplementation "junit:junit:4.13.2"
     testImplementation project(':libs:luaj')
 }
