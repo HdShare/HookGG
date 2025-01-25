@@ -93,8 +93,7 @@ class SetPageFragment : FragmentBase<FragmentSetPageBinding, ViewModel>(
         }
         binding.setLLPackageName.setOnClickListener {
             val oldPackageName = prefs.get(SetPrefsData.PACKAGE_NAME)
-            val dialogBinding =
-                DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
+            val dialogBinding = DialogEditPackageNameBinding.inflate(LayoutInflater.from(requireContext()))
             dialogBinding.textInputEditText.setText(oldPackageName)
             val dialog = MaterialAlertDialogBuilder(requireContext())
                 .setTitle(R.string.prefs_key_package_name)

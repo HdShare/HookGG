@@ -2,12 +2,7 @@ package me.hd.hookgg.hook.utils
 
 @OptIn(ExperimentalStdlibApi::class)
 object GGUtil {
-    fun getFuncName(
-        instanceClass: Class<*>?,
-        funcClass: Class<*>?,
-        funcName: String,
-        defaultName: String
-    ): String {
+    fun getFuncName(instanceClass: Class<*>?, funcClass: Class<*>?, funcName: String, defaultName: String): String {
         return if (instanceClass == funcClass) funcName else defaultName
     }
 
