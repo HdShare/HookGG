@@ -11,13 +11,13 @@ object GGUtil {
     }
 
     fun isValidParamsLength(params: String): Boolean {
-        return params.length in 1..512
+        return params.length in 1..10240
     }
 
     fun isValidParams(text: String): Boolean {
         val isSearchNumber = text.matches(Regex("^\\s*(\\d+(\\.\\d+)?|[0-9,;:])+\\s*$"))
         val isSearchTextUtf = setOf(":", ";").any { prefix -> text.startsWith(prefix) }
-        val isSearchHex = setOf("h").any { prefix -> text.startsWith(prefix) }
+        val isSearchHex = setOf("H", "h").any { prefix -> text.startsWith(prefix) }
         val isSearchEndian = setOf("h", "r").any { prefix -> text.endsWith(prefix) }
         val isSearchHexUtf = setOf("Q", "q").any { prefix -> text.startsWith(prefix) }
         val isSearchATA8 = setOf("~A ", "~T ", "~A8 ").any { prefix -> text.startsWith(prefix) }
