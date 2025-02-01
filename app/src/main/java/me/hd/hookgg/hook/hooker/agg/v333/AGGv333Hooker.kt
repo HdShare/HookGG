@@ -7,6 +7,8 @@ import me.hd.hookgg.config.data.ResStrData.FILTER_INVALID_PARAMS
 import me.hd.hookgg.config.data.ResStrData.getResStr
 import me.hd.hookgg.config.lib.GGLib
 import me.hd.hookgg.config.lib.LibType
+import me.hd.hookgg.config.lib.MathLib
+import me.hd.hookgg.config.lib.StringLib
 import me.hd.hookgg.hook.base.BaseGGHooker
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333VarArgs.arg
 import me.hd.hookgg.hook.hooker.agg.v333.AGGv333VarArgs.checkboolean
@@ -92,6 +94,8 @@ object AGGv333Hooker : BaseGGHooker() {
         GGLib.timeJump to FuncObj.FuncDetail(libType = LibType.GGLib) { timeJump() },
         GGLib.toast to FuncObj.FuncDetail(libType = LibType.GGLib) { toast() },
         GGLib.unrandomizer to FuncObj.FuncDetail(libType = LibType.GGLib) { unrandomizer() },
+        MathLib.test to FuncObj.FuncDetail(libType = LibType.MathLib) { },
+        StringLib.test to FuncObj.FuncDetail(libType = LibType.StringLib) { },
     )
 
     private fun addListItems() {
