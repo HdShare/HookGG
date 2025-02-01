@@ -17,8 +17,8 @@
     <string name="dialog_cancel">Cancel</string>
     <string name="func_menu">FabMenu</string>
     <string name="func_gg">GG</string>
-    <string name="func_string">String</string>
     <string name="func_math">Math</string>
+    <string name="func_string">String</string>
     <string name="func_help">Please go to the setPage to configure the intercept package name and version</string>
     <string name="prefs_about">About</string>
     <string name="prefs_key_app_version">AppVersion</string>
