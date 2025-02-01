@@ -120,9 +120,14 @@ Debug output for GameGuardian script execution functions
         <td align="center"><b>Status</b></td>
     </tr>
     <tr>
+        <td align="center">Hook</td>
+        <td align="center">daemon manager inout</td>
+        <td align="center">-1%</td>
+    </tr>
+    <tr>
         <td align="center">Plugin</td>
         <td align="center">use lua script hook</td>
-        <td align="center">0%</td>
+        <td align="center">-1%</td>
     </tr>
 </table>
 
