@@ -1,0 +1,13 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    sourceSets {
+        main {
+            java {
+                srcDirs = ['gg-stub/src/main/java']
+            }
+        }
+    }
+}

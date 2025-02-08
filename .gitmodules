@@ -4,3 +4,6 @@
 [submodule "libs/luak/luak"]
 	path = libs/luak/luak
 	url = https://github.com/korlibs/korge-luak
+[submodule "libs/stub/gg-stub"]
+	path = libs/stub/gg-stub
+	url = https://github.com/HdShare/gg-stub.git
